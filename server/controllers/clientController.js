@@ -2,6 +2,9 @@ const userController = {};
 const bcrypt = require('bcrypt');
 const db = require('../db');
 const salt = 10;
+//how to create an apikey using a method given by node
+const crypto = require('crypto');
+const jwt = require('jsonwebtoken');
 
 userController.signup = async (req, res, next) => {
   try {
@@ -20,9 +23,8 @@ userController.signup = async (req, res, next) => {
     if (emailResult.row) {
       res.locals.newClient = { message: 'Email already in use' };
     } else if (usernameResult.row) {
-      res.locals.newClient = { message: 'Client already exist' };
+      res.locals.newClient = { message: 'Username already exist' };
     } else {
-      console.log('before creating new client');
       const createQuery = `INSERT INTO clients ( username, password, email) VALUES ('${username}','${hashedPassword}','${email}');`
       const create = await db.query(createQuery);
       console.log('creating new client',create);
@@ -34,18 +36,44 @@ userController.signup = async (req, res, next) => {
   }
 };
 
+// login would expect input from body, and then we should check if input is right username or email
 userController.login = async (req, res, next) => {
   try {
     const { username, password } = req.body;
-    const passwordQuery = `SELECT password FROM clients WHERE username = '${username}';`;
+    const passwordQuery = `SELECT client_id, password FROM clients WHERE username = '${username}';`;
     const passwordResult = await db.query(passwordQuery);
+    const clientID = passwordResult.rows[0].client_id;
     console.log('passwordResult', passwordResult.rows[0].password);
-    res.locals.verified = await bcrypt.compare(password, passwordResult.rows[0].password);
-    console.log(res.locals.verified)
+
+    const verified = await bcrypt.compare(password, passwordResult.rows[0].password);
+
+    if (!verified) {
+      res.locals.result = {verified: verified, message: "You do not have access, please try again"}
+    } else {
+      const jwtToken = jwt.sign({client_id: clientID}, process.env.TOKEN_SECRET);
+      res.locals.result = {verified: verified, message: "login successfully"}
+    }
     return next();
   } catch (err) {
     return next(err);
   }
 };
+
+userController.verify = async (req, res, next) => {
+
+}
+
+
+// userController.createInstance = async (req, res, next) => {
+//   try {
+//     const {label}
+//     const token = crypto.randomUUID();
+//     const hashedToken = await bcrypt.hash(token, salt)
+//     const instanceQuery = 
+//   }
+//   catch {
+
+//   }
+// }
 
 module.exports = userController;
