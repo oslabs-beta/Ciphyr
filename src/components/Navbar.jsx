@@ -3,8 +3,8 @@ import React from 'react'
 export default function Navbar() {
 
   return (
-    <>
-    <h1>Navbar</h1>
-    </>
+    <nav className="border-b border-gray-300">
+      test
+    </nav>
   )
 }
