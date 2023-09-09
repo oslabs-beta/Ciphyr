@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
@@ -5,6 +6,8 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 
 
+=======
+>>>>>>> Dev
 export default function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
