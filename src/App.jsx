@@ -1,9 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import HomePage from "./components/HomePage.jsx/";
-import Dashboard from "./components/Dashboard.jsx";
-import Login from "./components/Login.jsx";
-import Signup from "./components/Signup.jsx";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import HomePage from './components/HomePage.jsx/';
+import Dashboard from './components/Dashboard.jsx';
+import Login from './components/Login.jsx';
+import Signup from './components/Signup.jsx'
+import Navbar from './components/Navbar'
 
 function App() {
   return (

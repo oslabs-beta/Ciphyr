@@ -1,11 +1,19 @@
-// eslint-disable-next-line no-unused-vars
-import React from 'react'
+import Navbar from './Navbar';
+import Sidenav from './Sidenav'
+
 
 export default function Dashboard() {
 
+
   return (
     <>
-     <h1>Dashboard</h1>
+      <Navbar />
+      <div className='flex'>
+      <Sidenav />
+      <div>
+      <h1>dashboard</h1>
+    </div>
+      </div>
     </>
   )
 }
