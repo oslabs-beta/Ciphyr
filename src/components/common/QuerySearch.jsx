@@ -13,7 +13,6 @@ export default function QuerySearchBar() {
           value={searchInput}
           onChange={e => setSearchInput(e.target.value)}
         />
-        <icon/>
       </div>
     </>
   );

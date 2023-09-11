@@ -10,19 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< HEAD
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",
     "@fortawesome/free-regular-svg-icons": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@tanstack/react-table": "^8.9.8",
     "autoprefixer": "^10.4.15",
     "babel-plugin-macros": "^3.1.0",
-=======
-    "bcrypt": "^5.1.1",
-    "body-parser": "^1.20.2",
-    "cors": "^2.8.5",
->>>>>>> 13bb606828e72be52c16fdc5a703e2a729151ddc
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.2",
@@ -31,7 +26,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0",
-    "tailwindcss": "^3.3.3"
+    "tailwindcss": "^3.3.3",
+    "to-regex-range": "^5.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
@@ -41,12 +37,7 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
-<<<<<<< HEAD
     "vite": "^4.4.5",
     "vite-plugin-babel-macros": "^1.0.6"
-=======
-    "nodemon": "^3.0.1",
-    "vite": "^4.4.5"
->>>>>>> 13bb606828e72be52c16fdc5a703e2a729151ddc
   }
 }

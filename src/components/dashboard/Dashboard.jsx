@@ -8,8 +8,10 @@ export default function Dashboard() {
       <Navbar />
       <div className="flex">
         <Sidenav />
+
         <div className="border-l border-slate-300 w-screen">
-          <div className="flex flex-col items-start h-screen mt-20 ml-10rem mr-5">
+          {/* <div>Your logs</div> */}
+          <div className="flex flex-col items-start h-screen mt-20 ml-5rem mr-8">
             <DashTable />
           </div>
         </div>

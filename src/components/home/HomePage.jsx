@@ -8,9 +8,8 @@ export default function Homepage() {
     <>
       <NavBar />
       <div className="flex">
-        <Sidenav />
         <span className ="border-l border-slate-300">
-          <main className="flex flex-col items-start h-screen mt-20 ml-10rem">
+          <main className="flex flex-col items-start h-screen mt-20 ml-20rem">
             <div className="shadow p-4 rounded-lg w-50rem ">
               <section>
                 <div className="text-3xl subpixel-antialiased font-semibold">
