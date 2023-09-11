@@ -1,4 +1,4 @@
-export default function Dashboard() {
+export default function InstaceTable() {
 
   const tableData = [
     { name: 'Secret key', apiKey: 'sk-...yZDhr', created: 'Aug 19, 2023' },
