@@ -4,17 +4,19 @@ const port = process.env.PORT || 3000;
 const app = express();
 const clientRouter = require('./routes/clientRouter');
 const logRouter = require('./routes/logRouter');
+const cookieParser = require('cookie-parser');
 // import clientRouter from './routes/clientRouter.js';
 
 app.use(express.json());
+app.use(cookieParser());
 
 // TASKS FOR BACKEND
 
 // 1. get request to get 10 latest queries from our SQL Db
 // 2. get request to get a specific query from our SQL DB
 
-app.use('/user', clientRouter);
-app.use('/log', logRouter);
+app.use('/api/user', clientRouter);
+app.use('/api/log', logRouter);
 
 app.use('*', (req, res) => res.status(404).send('Not Found'));
 
