@@ -5,10 +5,12 @@ const app = express();
 const clientRouter = require('./routes/clientRouter');
 const logRouter = require('./routes/logRouter');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 // import clientRouter from './routes/clientRouter.js';
 
 app.use(express.json());
 app.use(cookieParser());
+app.use(cors());
 
 // TASKS FOR BACKEND
 

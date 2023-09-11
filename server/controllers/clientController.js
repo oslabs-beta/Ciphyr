@@ -66,6 +66,8 @@ userController.login = async (req, res, next) => {
   }
 };
 
+// Entension: save JWT in cookie(http only) and access it from there
+
 userController.verifyToken = async (req, res, next) => {
   // const authHeader = req.headers['authorization']
   // const token = authHeader && authHeader.split(' ')[1]
@@ -114,6 +116,7 @@ userController.createInstance = async (req, res, next) => {
     const instanceQuery = `INSERT INTO instance (label, api_key, client_id) VALUES ( '${label}', '${apiKey}','${id}')`;
     const newInstance = await db.query(instanceQuery);
     res.locals.instance = { message: 'New instance created'};
+    // add: send back the api key when created
     return next();
   }
   
