@@ -21,7 +21,7 @@ export default function Login() {
   };
 
   const validate = async () => {
-    const response = await fetch("http://localhost:3000/api/user/login", {
+    const response = await fetch("/api/user/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -29,7 +29,7 @@ export default function Login() {
       body: JSON.stringify({ input: email, password: password }),
     });
 
-    console.log(response);https://github.com/Ciphyr-OSP4/ciphyr-visualizer/branches
+    console.log(response);
   };
 
   return (
