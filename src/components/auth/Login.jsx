@@ -27,7 +27,7 @@ export default function Login() {
       body: JSON.stringify({ input: email, password: password }),
     });
 
-    console.log(response);
+    console.log(response);https://github.com/Ciphyr-OSP4/ciphyr-visualizer/branches
   };
 
   return (
