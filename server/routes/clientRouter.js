@@ -17,4 +17,12 @@ router.post('/login', userController.login, async (req, res) => {
   }
 });
 
+router.post('/newInstance', userController.verifyToken, userController.createInstance, (req, res) => {
+  return res.status(200).json(res.locals.instance)
+});
+
+router.post('/test', userController.login, userController.verifyToken, userController.createInstance, (req, res) => {
+  return res.status(200).json(res.locals.instance)
+})
+
 module.exports = router;
