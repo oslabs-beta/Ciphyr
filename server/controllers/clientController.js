@@ -25,6 +25,8 @@ userController.signup = async (req, res, next) => {
     const emailResult = await db.query(emailQuery);
  
 
+
+    
     if (emailResult.row) {
       res.locals.newClient = { message: 'Email already in use' };
     } else if (usernameResult.row) {
