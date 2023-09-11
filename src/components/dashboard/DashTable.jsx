@@ -5,7 +5,7 @@ import {
   getCoreRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import mData from './MOCK_DATA.json';
+import mData from "./MOCK_DATA.json";
 
 export default function DashTable() {
   // const [tableRows, setTableRows] = useState([]);
