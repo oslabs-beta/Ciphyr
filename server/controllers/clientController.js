@@ -70,10 +70,9 @@ userController.verifyToken = async (req, res, next) => {
 
   // if (token == null) return res.sendStatus(401)
   
-  const token = req.cookies.token;
+  const jwtToken = req.cookies.token;
   // const token = res.locals.result.jwt;
-  jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
-    console.log(err)
+  jwt.verify(jwtToken, process.env.TOKEN_SECRET, (err, user) => {
 
     // how to use the status code properly?
     if (err) return res.sendStatus(403)
