@@ -23,7 +23,7 @@ export default function InstaceTable() {
         </thead>
         <tbody>
         {tableData.map((rowData, index) => (
-            <tr key={index} className="border-t border-gray-400 my-2"> 
+            <tr key={index} className="border-t border-gray-400 my-1"> 
               <td className="text-left">{rowData.name}</td>
               <td className="text-left">{rowData.apiKey}</td>
               <td className="text-left">{rowData.created}</td>
