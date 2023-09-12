@@ -40,12 +40,13 @@ export default function Navbar() {
             </li>
           </ul>
         </div>
-        <div className="flex">
+        <div className="flex items-center">
           <img
-            className="w-8"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQCX5_wYEa6hyWoqSBOaPbaHw5Ff8Ljp0WcA&usqp=CAU"
+            className="w-8 h-8 rounded-full"
+            src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80"
+            alt="Avatar"
           />
-          <button className="text-slate-800 hover:text-slate-500">
+          <button className="pl-3 text-slate-800 hover:text-slate-500">
             Profile
           </button>
         </div>
