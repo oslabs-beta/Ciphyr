@@ -3,13 +3,19 @@ import CreateInstance from "./CreateInstance.jsx";
 import NavBar from "../layout/Navbar.jsx";
 import Sidenav from "../layout/Sidenav";
 import InstanceModal from './InstanceModal'
+import ApiModal from './ApiModal'
 import { useState } from 'react'
 
 export default function Homepage() {
   const [modal, setModal] = useState(false);
+  const [API, setAPI] = useState(false);
 
   const toggleModal = () => {
-    setModal(!modal)
+    setModal(!modal);
+  }
+
+  const toggleAPI = () => {
+    setAPI(!API);
   }
 
 
@@ -17,7 +23,8 @@ export default function Homepage() {
     <>
       <NavBar />
       <div>
-        { modal ? <InstanceModal toggleModal={toggleModal}/> : '' }
+        { modal ? <InstanceModal toggleAPI={toggleAPI} toggleModal={toggleModal}/> : '' }
+        { API ? <ApiModal toggleAPI={toggleAPI} /> : '' }
       </div>
       <div className="flex">
         <span className ="border-l border-slate-300">

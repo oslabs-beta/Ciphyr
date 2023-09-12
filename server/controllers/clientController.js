@@ -23,10 +23,10 @@ userController.signup = async (req, res, next) => {
     const usernameResult = await db.query(usernameQuery);
 
     const emailResult = await db.query(emailQuery);
- 
 
 
-    
+
+
     if (emailResult.row) {
       res.locals.newClient = { message: 'Email already in use' };
     } else if (usernameResult.row) {
@@ -59,8 +59,8 @@ userController.login = async (req, res, next) => {
     } else {
       const jwtToken = jwt.sign({client_id: clientID}, process.env.TOKEN_SECRET);
       console.log('jwttoken', jwtToken);
-      // res.cookie('token', jwtToken, { httpOnly: true, secure: true });
-      res.locals.result = {verified: verified, message: "login successfully", jwt: jwtToken}
+      res.cookie('token', jwtToken, { httpOnly: true, secure: true });
+      res.locals.result = {verified: verified, message: "login successfully"}
     }
     return next();
   } catch (err) {
@@ -75,9 +75,9 @@ userController.verifyToken = async (req, res, next) => {
   // const token = authHeader && authHeader.split(' ')[1]
 
   // if (token == null) return res.sendStatus(401)
-  // const token = req.cookies.token;
-  
-  const token = res.locals.result.jwt;
+  const token = req.cookies.token;
+
+  //const token = res.locals.result.jwt;
   jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
     console.log(err)
 
@@ -108,7 +108,7 @@ userController.createInstance = async (req, res, next) => {
           return next();
         }
       }
-    } 
+    }
     console.log('after else statement');
     const id = res.locals.client.client_id;
     console.log('id', id);
@@ -121,7 +121,7 @@ userController.createInstance = async (req, res, next) => {
     // add: send back the api key when created
     return next();
   }
-  
+
   catch(err) {
     return next(err)
   }

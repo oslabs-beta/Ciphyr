@@ -4,12 +4,18 @@ export default function InstanceModal(props) {
   const [input, setInput] = useState('');
 
   const sendInput = async () => {
-     response = await fetch('/api/user/newInstance', {
+     const response = await fetch('/api/user/newInstance', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({label: input})
      });
 
+  }
+
+  const create = () => {
+    //sendInput();
+    props.toggleAPI();
+    props.toggleModal();
   }
 
 
@@ -21,7 +27,7 @@ export default function InstanceModal(props) {
         <label htmlFor='name'>Name</label>
         <input onChange={(e) => setInput(e.target.value)} className='border rounded-md w-96 mb-5 px-3' type='text' placeholder='My Test Key'/>
         <div>
-        <button onClick={sendInput} className='border border-white rounded-md bg-emerald-600 hover:bg-emerald-700 text-white py-1 px-2'>Create secret key</button>
+        <button onClick={() => create()} className='border border-white rounded-md bg-emerald-600 hover:bg-emerald-700 text-white py-1 px-2'>Create secret key</button>
         <button onClick={() => props.toggleModal()} className='border rounded-md bg-white text-emerald-600 border-emerald-600 hover:bg-emerald-600 hover:text-white py-1 px-2'>Cancel</button>
         </div>
       </div>
