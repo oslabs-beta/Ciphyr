@@ -3,14 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import DashboardImage from "../../assets/Dashboard.png";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
 
 export default function Signup() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const navigate = useNavigate('')
+  const navigate = useNavigate("");
 
   const getEmail = (e) => {
     const email = e.target.value;
@@ -90,25 +90,24 @@ export default function Signup() {
                 </div>
                 <div className="flex flex-col gap-5 mb-8" id="logIn">
                   <div>
-
                     <div className="flex flex-row space-x-2 justify-between">
                       <label
                         className="text-sm mb-1 text-slate-500"
                         htmlFor="email"
                       >
-                        Username
+                        Email
                       </label>
-                      <div id="user" className="mb-4">
+                    </div>
+                    <div id="email" className="mb-4">
                       <input
                         id="email"
-                        onChange={getUsername}
+                        onChange={getEmail}
                         className="border-2 rounded-md px-4 py-2 block w-full placeholder:text-xs"
                         type="text"
-                        placeholder="Username"
+                        placeholder="you@example.com"
                       />
-                      </div>
                     </div>
-                    
+
                     <div className="flex flex-row space-x-2 justify-between">
                       <label
                         className="text-sm mb-1 text-slate-500"
@@ -157,20 +156,19 @@ export default function Signup() {
                     <span className="text-scale-1000">Have an account?</span>
                     <a
                       className="ml-2 underline transition text-slate-400 hover:text-slate-300"
-                      onClick={() => navigate('/login')}
+                      onClick={() => navigate("/login")}
                     >
                       {"Sign In Now"}
                     </a>
                   </div>
                 </div>
-
-              </section>
-              <div className="mt-20rem flex flex-col bottom-0 text-center text-xs text-slate-500 italic">
+                <div className="mt-20rem flex flex-col bottom-0 text-center text-xs text-slate-500 italic">
                   <p>
                     By continuing, you agree to Ciphyer's Terms of Service and
                     Privacy Policy, and to receive periodic emails with updates.
                   </p>
                 </div>
+              </section>
             </main>
             <aside className="flex items-center justify-center w-3/4">
               <div className="w-2/3">
