@@ -84,6 +84,8 @@ export default function DashTable() {
     onColumnFiltersChange: setColumnFilters,
   });
 
+  
+
   return (
     <div className="w-full">
       <input
@@ -149,7 +151,6 @@ export default function DashTable() {
         </button>
         <button
           className="border border-slate-300 mr-2 px-2 py-1 rounded"
-          onClick={() => table.setPageIndex()}
         >
           {table.getState().pagination.pageIndex}
         </button>
