@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import DashboardImage from "../../assets/Dashboard.png";
 
-export default function SignupV2() {
+export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -45,12 +46,12 @@ export default function SignupV2() {
             <main className="flex flex-col flex-shrink-0 items-center border-r border-slate-200 w-2/5 h-screen px-5 pt-16 shadow-lg">
               <section className="flex-1 flex flex-col justify-center w-2/3">
                 <div>
-                  <h1 className="text-3xl text-slate-800 mb-2">Welcome back</h1>
+                  <h1 className="text-3xl text-slate-800 mb-2">Get Started</h1>
                   <h2 className="text-l text-slate-500">
-                    Sign in to your account
+                    Create a new account
                   </h2>
                 </div>
-                <div className="flex flex-col gap-5 mb-5">
+                <div className="flex flex-col gap-5">
                   <button className="flex items-center justify-center border border-slate-300 rounded-md my-5 py-2 px-4 hover:bg-slate-100">
                     <FontAwesomeIcon
                       className="mr-2"
@@ -99,7 +100,6 @@ export default function SignupV2() {
                       >
                         Password
                       </label>
-                      <span className="text-xs text-slate-500 italic">Forgot Password?</span>
                     </div>
                     <input
                       id="Password"
@@ -115,19 +115,19 @@ export default function SignupV2() {
                     onClick={validate}
                     className="text-white p-2 w-full rounded-md bg-sky-600 hover:bg-sky-700 mb-4"
                   >
-                    Log in
+                    Sign Up
                   </button>
                 </div>
                 <div className="self-center">
                   <div>
                     <span className="text-scale-1000">
-                      Don't have an account?
+                      Have an account?
                     </span>
                     <a
                       className="ml-2 underline transition text-slate-400 hover:text-slate-300"
-                      href="http://localhost:3000/signup"
+                      href="http://localhost:3000/login"
                     >
-                      {"Sign Up Now"}
+                      {"Sign In Now"}
                     </a>
                   </div>
                 </div>
@@ -140,7 +140,7 @@ export default function SignupV2() {
               </section>
             </main>
             <aside className="flex items-center justify-center w-3/4">
-              <div className="w-3/4 shadow-lg">
+              <div className="w-2/3">
                 <img src={DashboardImage} alt="Dashboard" />
               </div>
             </aside>
