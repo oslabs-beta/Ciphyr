@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate('')
 
   const getEmail = (e) => {
     const email = e.target.value;
@@ -19,7 +21,7 @@ export default function Login() {
   };
 
   const validate = async () => {
-    const response = await fetch("", {
+    const response = await fetch("/api/user/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -66,7 +68,7 @@ export default function Login() {
               >
                 Log in
               </button>
-              <button className="bg-white text-sky-800 p-2 w-1/4 border border-sky-800 rounded-md hover:bg-sky-800 hover:text-white">
+              <button onClick={() => navigate('/signup')} className="bg-white text-sky-800 p-2 w-1/4 border border-sky-800 rounded-md hover:bg-sky-800 hover:text-white">
                 Sign up
               </button>
             </div>

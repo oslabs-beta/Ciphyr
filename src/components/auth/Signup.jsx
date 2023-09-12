@@ -6,6 +6,7 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function Signup() {
+  const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -21,13 +22,19 @@ export default function Signup() {
     setPassword(password)
   }
 
+  const getUsername = (e) => {
+    const username = e.target.value;
+    console.log(username);
+    setUsername(username)
+  }
+
   const signup = async () => {
-    const response = await fetch('', {
+    const response = await fetch('/api/user/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({email: email, password: password})
+      body: JSON.stringify({email: email, username: username, password: password})
     });
 
     console.log(response);
@@ -45,6 +52,8 @@ export default function Signup() {
         <p className='text-slate-500 mb-5 mt-5'>Welcome, please create an account<FontAwesomeIcon icon={faUser} /></p>
         <label htmlFor='email'>Email</label>
         <input id='email' onChange={getEmail} className='m-2 border-2 rounded-md px-4 py-2 block w-3/4' type='text' placeholder='Email'/>
+        <label htmlFor='email'>Username</label>
+        <input id='email' onChange={getUsername} className='m-2 border-2 rounded-md px-4 py-2 block w-3/4' type='text' placeholder='Username'/>
         <label htmlFor='Password'>Password</label>
         <input id='Password' onChange={getPassword} className='m-2 border-2  rounded-md px-4 py-2 block w-3/4' type='password' placeholder='Password' />
         <div className='mt-10'>
