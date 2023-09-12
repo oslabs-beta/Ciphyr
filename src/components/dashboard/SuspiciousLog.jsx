@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAnglesRight } from '@fortawesome/free-solid-svg-icons';
 import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 
-export default function SuspiciousLog() {
+export default function SuspiciousLog(props) {
   return (
     <>
       <div>
@@ -12,9 +12,9 @@ export default function SuspiciousLog() {
           </button>
         </div>
         <div className='flex flex-col border rounded relative space-y-2 px-2 py-2'>
-          <div id='logID'>ID:</div>
-          <div id='depth'>Depth:</div>
-          <div id='latency'>Latency:</div>
+          <div id='logID'>ID: {props.id}</div>
+          <div id='depth'>Depth: {props.depth}</div>
+          <div id='latency'>Latency: {props.latency}</div>
           <div id='see-more' className='flex flex-row-reverse'>
             <button>
               <FontAwesomeIcon className='' icon={faAnglesRight} fade />
