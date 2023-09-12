@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import DashboardImage from "../../assets/Dashboard.png";
 
@@ -151,8 +150,4 @@ export default function LoginV2() {
     </>
   );
 
-
-
-
-  
 }
