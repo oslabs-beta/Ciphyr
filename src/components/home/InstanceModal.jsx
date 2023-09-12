@@ -20,7 +20,9 @@ export default function InstanceModal(props) {
 
 
   return (
-
+    <>
+   <div className='fixed w-screen h-screen bg-slate-500 opacity-50'>
+        </div>
       <div className="absolute inset-0 flex justify-center items-center z-10">
       <div className='border bg-white flex flex-col p-8 rounded-md shadow-lg'>
         <h1 className='font-semibold text-lg mb-5'>Create new secret key</h1>
@@ -32,6 +34,6 @@ export default function InstanceModal(props) {
         </div>
       </div>
     </div>
-
+    </>
   )
 }
