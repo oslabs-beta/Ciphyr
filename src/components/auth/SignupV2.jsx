@@ -20,13 +20,17 @@ export default function Signup() {
     setPassword(password);
   };
 
-  const validate = async () => {
-    const response = await fetch("", {
+  const signup = async () => {
+    const response = await fetch("/api/user/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ input: email, password: password }),
+      body: JSON.stringify({
+        email: email,
+        username: username,
+        password: password,
+      }),
     });
 
     console.log(response);
@@ -120,9 +124,7 @@ export default function Signup() {
                 </div>
                 <div className="self-center">
                   <div>
-                    <span className="text-scale-1000">
-                      Have an account?
-                    </span>
+                    <span className="text-scale-1000">Have an account?</span>
                     <a
                       className="ml-2 underline transition text-slate-400 hover:text-slate-300"
                       href="http://localhost:3000/login"

@@ -20,7 +20,7 @@ export default function SignupV2() {
   };
 
   const validate = async () => {
-    const response = await fetch("", {
+    const response = await fetch("/api/user/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
