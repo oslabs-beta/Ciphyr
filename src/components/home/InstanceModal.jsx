@@ -4,16 +4,27 @@ export default function InstanceModal(props) {
   const [input, setInput] = useState('');
 
   const sendInput = async () => {
-     const response = await fetch('/api/user/newInstance', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({label: input})
-     });
+
+    try {
+      const response = await fetch('/api/user/newInstance', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({label: input})
+       });
+       const parsed = await response.json();
+       console.log('parsed:',parsed.apiKey)
+       console.log(props);
+       props.setApiKey(parsed.apiKey);
+    } catch (err) {
+      console.log(err)
+    }
+
+
 
   }
 
   const create = () => {
-    //sendInput();
+    sendInput();
     props.toggleAPI();
     props.toggleModal();
   }

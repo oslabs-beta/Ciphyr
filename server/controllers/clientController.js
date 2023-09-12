@@ -117,7 +117,7 @@ userController.createInstance = async (req, res, next) => {
     //const hashedToken = await bcrypt.hash(token, salt)
     const instanceQuery = `INSERT INTO instance (label, api_key, client_id) VALUES ( '${label}', '${apiKey}','${id}')`;
     const newInstance = await db.query(instanceQuery);
-    res.locals.instance = { message: 'New instance created'};
+    res.locals.instance = { message: 'New instance created', apiKey: apiKey};
     // add: send back the api key when created
     return next();
   }

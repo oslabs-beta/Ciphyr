@@ -83,7 +83,7 @@ export default function SignupV2() {
                         className="text-sm mb-1 text-slate-500"
                         htmlFor="email"
                       >
-                        Email
+                        Username/Email
                       </label>
                     </div>
                     <div id="user" className="mb-4">
