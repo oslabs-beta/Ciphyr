@@ -8,8 +8,15 @@ export default function Sidenav() {
           <QuerySearchBar />
         </button>
       </div>
-      <div className="border-slate-400 mt-10 py-3">
+      <div className="border-slate-400 mt-10 py-3 flex flex-col items-start">
         <button>Test</button>
+        <button data-dropdown-toggle='dropdown' >Suspicious Queries</button>
+        <ul id='dropdown'>
+          <li>test</li>
+          <li>test</li>
+          <li>test</li>
+          <li>test</li>
+        </ul>
       </div>
     </nav>
   );

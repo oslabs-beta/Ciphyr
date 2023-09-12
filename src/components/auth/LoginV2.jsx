@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 export default function SignupV2() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  
 
   const navigate = useNavigate();
 
@@ -23,15 +24,23 @@ export default function SignupV2() {
   };
 
   const validate = async () => {
-    const response = await fetch("/api/user/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ input: email, password: password }),
-    });
 
-    console.log(response);
+    try {
+      const response = await fetch("/api/user/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ input: email, password: password }),
+      });
+      const parsed = await response.json();
+      if (parsed.verified === true) {
+        navigate('/dashboard')
+      }
+    } catch (err) {
+      console.log(err)
+    }
+
   };
 
   return (
