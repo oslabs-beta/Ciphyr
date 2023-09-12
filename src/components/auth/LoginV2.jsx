@@ -2,10 +2,13 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import DashboardImage from "../../assets/Dashboard.png";
+import { useNavigate } from 'react-router-dom';
 
 export default function SignupV2() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
 
   const getEmail = (e) => {
     const email = e.target.value;
@@ -125,7 +128,7 @@ export default function SignupV2() {
                     </span>
                     <a
                       className="ml-2 underline transition text-slate-400 hover:text-slate-300"
-                      href="http://localhost:3000/signup"
+                      onClick={() => navigate('/signup')}
                     >
                       {"Sign Up Now"}
                     </a>
