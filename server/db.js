@@ -13,4 +13,3 @@ module.exports = {
   },
 };
 
-// INSERT INTO log ( timestamp, size, type, depth, log, user )
