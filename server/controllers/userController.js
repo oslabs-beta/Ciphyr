@@ -8,7 +8,10 @@ const userController = {};
 userController.signup = async (req, res, next) => {
   try {
     const { username, password, email } = req.body;
-    if (!username || !password || !email) {
+    console.log('USERNAME', username)
+    console.log('password', password)
+    console.log('email', email)
+    if (username === undefined || password === undefined || email === undefined) {
       res.locals.newClient = { message: 'All input fields required'};
       return next();
     }

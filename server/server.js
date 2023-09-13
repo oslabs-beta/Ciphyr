@@ -1,7 +1,7 @@
 const express = require('express');
 const port = process.env.PORT || 3000;
 const app = express();
-const clientRouter = require('./routes/userRouter');
+const userRouter = require('./routes/userRouter');
 const instanceRouter = require('./routes/instanceRouter')
 const logRouter = require('./routes/logRouter');
 const cookieParser = require('cookie-parser');
@@ -14,7 +14,7 @@ app.use(cors());
 // 1. get request to get 10 latest queries from our SQL Db
 // 2. get request to get a specific query from our SQL DB
 
-app.use('/api/user', clientRouter);
+app.use('/api/user', userRouter);
 app.use('/api/instance', instanceRouter);
 app.use('/api/log', logRouter);
 

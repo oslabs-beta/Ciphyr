@@ -42,8 +42,9 @@ export default function Signup() {
         password: password,
       }),
     });
-
-    console.log(response);
+    const data = await response.json();
+    navigate('/login');
+    console.log('data in signup', data);
   };
 
   return (
@@ -113,16 +114,16 @@ export default function Signup() {
                         className="text-sm mb-1 text-slate-500"
                         htmlFor="email"
                       >
-                        Email
+                        Username
                       </label>
                     </div>
-                    <div id="email" className="mb-4">
+                    <div id="user" className="mb-4">
                       <input
-                        id="email"
-                        onChange={getEmail}
+                        id="user"
+                        onChange={getUsername}
                         className="border-2 rounded-md px-4 py-2 block w-full placeholder:text-xs"
                         type="text"
-                        placeholder="you@example.com"
+                        placeholder="username"
                       />
                     </div>
 
