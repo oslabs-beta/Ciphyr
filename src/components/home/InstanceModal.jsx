@@ -5,7 +5,7 @@ export default function InstanceModal(props) {
 
   const sendInput = async () => {
     try {
-      const response = await fetch('/api/user/newInstance', {
+      const response = await fetch('/api/instance/newInstance', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ label: input }),

@@ -2,6 +2,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy } from '@fortawesome/free-regular-svg-icons';
 
 export default function ApiModal(props) {
+
+  const done = () => {
+    props.toggleAPI();
+    window.location.reload(false);
+  }
+
   return (
     <>
       <div className='fixed w-screen h-screen bg-slate-500 opacity-50'></div>
@@ -31,7 +37,7 @@ export default function ApiModal(props) {
           </div>
           <div className="flex flex-row-reverse">
             <button
-              onClick={() => props.toggleAPI()}
+              onClick={done}
               className='border border-white rounded-md bg-emerald-600 hover:bg-emerald-700 text-white py-1 px-2'
             >
               Done
