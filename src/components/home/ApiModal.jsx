@@ -29,7 +29,7 @@ export default function ApiModal(props) {
               <FontAwesomeIcon icon={faCopy} />
             </button>
           </div>
-          <div>
+          <div className="flex flex-row-reverse">
             <button
               onClick={() => props.toggleAPI()}
               className='border border-white rounded-md bg-emerald-600 hover:bg-emerald-700 text-white py-1 px-2'

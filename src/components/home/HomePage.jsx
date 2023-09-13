@@ -27,15 +27,15 @@ export default function Homepage() {
         { modal ? <InstanceModal setApiKey={setApiKey} toggleAPI={toggleAPI} toggleModal={toggleModal}/> : '' }
         { API ? <ApiModal apiKey={apiKey} setApiKey={setApiKey} toggleAPI={toggleAPI} /> : '' }
       </div>
-      <div className="flex">
+      <div className="flex flex-auto">
         <span className ="border-l border-slate-300">
-          <main className="flex flex-col items-start h-screen mt-20 ml-20rem">
-            <div className="shadow p-4 rounded-lg w-50rem ">
+          <main className="flex flex-2 flex-col items-center my-12 h-full">
+            <div className="shadow p-4 rounded-lg w-2/3">
               <section>
                 <div className="text-3xl subpixel-antialiased font-semibold">
                   Connection Keys
                 </div>
-                <div className="mt-5 mb-5">
+                <div className="mt-5 mb-5 text-slate-600">
                   <p>
                     {" "}
                     Your secret connection keys are listed below. Please note that we

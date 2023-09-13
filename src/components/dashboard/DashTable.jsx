@@ -89,12 +89,13 @@ export default function DashTable() {
   return (
     <div className="w-full">
       <input
+        className='border rounded-md px-2 py-1'
         type="text"
         placeholder="Search by keywords"
         value={filtering}
         onChange={(e) => setFiltering(e.target.value)}
       />
-      <table className="w-full">
+      <table className="w-full my-5 bg-white shadow-md">
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
