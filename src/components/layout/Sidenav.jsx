@@ -28,6 +28,7 @@ const queries = data.map((query) => {
         </button>
       </div> */}
       <div className='border-slate-400 mt-10 py-3 flex flex-col items-start'>
+        <h1 className='font-lg'>Data</h1>
         {/* <button>Test</button> */}
         <details className='mb-32'>
           <summary className='m-1 btn list-none cursor-pointer'><FontAwesomeIcon className="mr-2 "icon={faEye} />Suspicious Queries</summary>

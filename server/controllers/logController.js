@@ -8,7 +8,7 @@ const db = require('../db');
 //     const apikeySearch = `SELECT * FROM instance WHERE api_key = '${input}'`;
 //     const apiKey = await db.query(apikeySearch);
 //     if (apiKey.rowCount > 0) {
-      
+
 //     }
 
 //     }
@@ -35,7 +35,7 @@ logController.getAllLog = async (req, res, next) => {
     console.log('after query');
     console.log('clientLog', clientLog);
     res.locals.allLog = clientLog.rows;
-    console.log(res.locals.allLog)
+    console.log('RES.LOGS:', res.locals.allLog)
     // console.log(await db.query(`SELECT * FROM clients`));
     return next();
   }

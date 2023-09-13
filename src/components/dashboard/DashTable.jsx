@@ -13,29 +13,49 @@ import FilterFunction from "./FilterFunction";
 export default function DashTable() {
   const [filtering, setFiltering] = useState("");
   const [columnFilters, setColumnFilters] = useState("");
-  // const [tableRows, setTableRows] = useState([]);
+  const [tableRows, setTableRows] = useState([]);
 
-  // //One time on load of page render the instances logs
-  // useEffect(() => {
-  //   fetchLogs();
-  // }, []);
+  //One time on load of page render the instances logs
+  useEffect(() => {
+    fetchLogs();
+  }, []);
 
-  // const fetchLogs = async () => {
-  //   try {
-  //     const response = await fetch("http://localhost:3000/log");
+  const fetchLogs = async () => {
+    console.log('in try block');
+    try {
+      const response = await fetch("/api/log", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({apiKey: '04ffad9d-73ed-4d44-9e6a-3cbf2db31d2b'})
+      });
+      if (!response.ok) {
+        throw new Error(`Server side error. Status: ${response.status}`);
+      }
+      const data = await response.json();
+      // console.log('data', data); // debugging
+      //setTableRows(data);
+    } catch (error) {
+      console.error("Fetch error:", error);
+    }
+  };
+/**
+ *
+ *     {
+        "id": 3,
+        "operation": "query",
+        "query_name": "ExampleQuery",
+        "log": "{reviews{id}games{id}authors{id}}",
+        "raw": "query ExampleQuery {\n  reviews {\n    id\n  }\n  games {\n    id\n  }\n  authors {\n    id\n  }\n}",
+        "depth": 1,
+        "latency": null,
+        "api_key": "04ffad9d-73ed-4d44-9e6a-3cbf2db31d2b",
+        "timestamp": "2023-09-13T00:47:26.756Z"
+    },
+ */
 
-  //     if (!response.ok) {
-  //       throw new Error(`Server side error. Status: ${response.status}`);
-  //     }
-  //     const data = await response.json();
-  //     console.log(data); // debugging
-  //     setTableRows(data);
-  //   } catch (error) {
-  //     console.error("Fetch error:", error);
-  //   }
-  // };
-
-  const data = useMemo(() => mData, []);
+  // const data = useMemo(() => mData, []);
   // desired tableData picture
   // const data = [
   //   {
@@ -47,46 +67,90 @@ export default function DashTable() {
   //   },
   // ];
 
-  const columns = [
+  // const columns = [
+  //   {
+  //     header: "Time",
+  //     accessorKey: "time",
+  //   },
+  //   {
+  //     header: "Name",
+  //     accessorKey: "name",
+  //   },
+  //   {
+  //     header: "Type",
+  //     accessorKey: "type",
+  //   },
+  //   {
+  //     header: "Depth",
+  //     accessorKey: "depth",
+  //   },
+  //   {
+  //     header: "Query Log",
+  //     accessorKey: "query",
+  //   },
+  // ];
+
+
+// {
+//   header: "Raw Log",
+//   accessorKey: "raw",
+// },
+
+const columns = [
     {
       header: "Time",
-      accessorKey: "time",
+      accessorKey: "timestamp",
     },
     {
       header: "Name",
-      accessorKey: "name",
+      accessorKey: "query_name",
     },
     {
       header: "Type",
-      accessorKey: "type",
+      accessorKey: "operation_name",
     },
-    {
+     {
       header: "Depth",
       accessorKey: "depth",
     },
     {
-      header: "Query Log",
-      accessorKey: "query",
+      header: "Latency",
+      accessorKey: "latency",
     },
-  ];
+    {
+      header: "Query Log",
+      accessorKey: "log",
+    },
+    {
+      header: "Depth",
+      accessorKey: "depth1",
+    },
+    {
+      header: "Latency",
+      accessorKey: "latency1",
+    },
+    {
+      header: "Query Log",
+      accessorKey: "log1",
+    },
+];
 
   const table = useReactTable({
-    data,
+    tableRows,
     columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     state: {
       globalFilter: filtering,
-      columnFilters: columnFilters,
     },
     onGlobalFilterChanged: setFiltering,
-    onColumnFiltersChange: setColumnFilters,
   });
 
-  
+
 
   return (
+
     <div className="w-full">
       <input
         className='border rounded-md px-2 py-1'
@@ -143,25 +207,25 @@ export default function DashTable() {
         >
           {"<"}
         </button>
-        <button
+        {/* <button
           className="border border-slate-300 mr-2 px-2 py-1 rounded"
           onClick={() => table.setPageIndex((oldPageIndex) => oldPageIndex - 1)}
           disabled={!table.getCanPreviousPage()}
         >
           {table.getState().pagination.pageIndex - 1}
-        </button>
+        </button> */}
         <button
           className="border border-slate-300 mr-2 px-2 py-1 rounded"
         >
           {table.getState().pagination.pageIndex}
         </button>
-        <button
+        {/* <button
           className="border border-slate-300 mr-2 px-2 py-1 rounded"
           onClick={() => table.setPageIndex((oldPageIndex) => oldPageIndex + 1)}
           disabled={!table.getCanNextPage()}
         >
           {table.getState().pagination.pageIndex + 1}
-        </button>
+        </button> */}
         <button
           className="border border-slate-300 mr-2 px-2 py-1 rounded"
           onClick={() => table.nextPage()}

@@ -6,9 +6,9 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="flex mx-16 py-6 border-b">
+      <nav className="flex py-6 border-b-2">
         <div>
-          <h1 className="font-bold cursor-pointer">Ciphyr</h1>
+          <h1 className="font-bold cursor-pointer ml-16">Ciphyr</h1>
         </div>
         <div className="ml-12 mr-auto">
           <ul className="flex gap-10">
@@ -47,7 +47,7 @@ export default function Navbar() {
             src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80"
             alt="Avatar"
           />
-          <button className="pl-3 text-slate-800 hover:text-slate-500">
+          <button className="pl-3 mr-16 text-slate-800 hover:text-slate-500">
             Profile
           </button>
         </div>
