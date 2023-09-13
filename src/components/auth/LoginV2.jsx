@@ -4,7 +4,7 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import DashboardImage from "../../assets/Dashboard.png";
 import { useNavigate } from 'react-router-dom';
 
-export default function SignupV2() {
+export default function LoginV2() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   
