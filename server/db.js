@@ -1,10 +1,15 @@
 const { Pool } = require('pg');
+require('dotenv').config();
 
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-})
-
-module.exports = pool; 
+  connectionString: process.env.DB_URI,
+});
 
 
-// INSERT INTO log ( timestamp, size, type, depth, log, user )
+//this is needed to use the query method for SQL DB
+module.exports = {
+  query: (text, params, callback) => {
+    return pool.query(text, params, callback);
+  },
+};
+
