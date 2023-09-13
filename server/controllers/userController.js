@@ -52,7 +52,6 @@ userController.login = async (req, res, next) => {
       const jwtToken = jwt.sign({client_id: clientID}, process.env.TOKEN_SECRET);
       
       res.cookie('token', jwtToken, { httpOnly: true, secure: true });
-      //res.locals.result = {verified: verified, message: "login successfully", jwt: jwtToken}
       res.locals.result = {verified: verified, message: "login successfully"}
     }
     return next();

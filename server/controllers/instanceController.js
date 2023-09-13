@@ -7,11 +7,9 @@ const instanceController = {};
 instanceController.verifyToken = async (req, res, next) => {
   // const authHeader = req.headers['authorization']
   // const token = authHeader && authHeader.split(' ')[1]
-
   // if (token == null) return res.sendStatus(401)
   
   const jwtToken = req.cookies.token;
-  // const token = res.locals.result.jwt;
   jwt.verify(jwtToken, process.env.TOKEN_SECRET, (err, user) => {
 
     // how to use the status code properly?
@@ -55,6 +53,21 @@ instanceController.createInstance = async (req, res, next) => {
   catch(err) {
     return next(err)
   }
+}
+
+instanceController.getInstances = async (req, res, next) => {
+  const jwtToken = req.cookies.token;
+  jwt.verify(jwtToken, process.env.TOKEN_SECRET, async (err, user) => {
+
+    // how to use the status code properly?
+    if (err) return res.sendStatus(403)
+
+    const instanceQuery = `SELECT * FROM instance WHERE client_id = '${user.client_id}';`
+    const instanceResult = await db.query(instanceQuery);
+    res.locals.showInstance = instanceResult;
+    
+    return next();
+  })
 }
 
 module.exports = instanceController;
