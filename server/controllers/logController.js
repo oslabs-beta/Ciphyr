@@ -1,21 +1,6 @@
-const logController = {};
 const db = require('../db');
 
-// not sure about if we need this
-// logController.verifyClient = async (req, res, next) => {
-//     try {
-//     const { input } = req.body;
-//     const apikeySearch = `SELECT * FROM instance WHERE api_key = '${input}'`;
-//     const apiKey = await db.query(apikeySearch);
-//     if (apiKey.rowCount > 0) {
-      
-//     }
-
-//     }
-//     catch(err) {
-//       return next(err);
-//     }
-// }
+const logController = {};
 
 logController.getAllLog = async (req, res, next) => {
   try {

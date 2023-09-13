@@ -16,7 +16,7 @@ CREATE TABLE clients (
   auth_token INT
 )
 
-CREATE TABLE Log (
+CREATE TABLE log (
   id SERIAL PRIMARY KEY,
   operation VARCHAR(255),
   query_name VARCHAR(255),

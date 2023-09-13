@@ -2,7 +2,8 @@ const express = require('express');
 // import express from 'express';
 const port = process.env.PORT || 3000;
 const app = express();
-const clientRouter = require('./routes/clientRouter');
+const clientRouter = require('./routes/userRouter');
+const instanceRouter = require('./routes/instanceRouter')
 const logRouter = require('./routes/logRouter');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
@@ -18,6 +19,7 @@ app.use(cors());
 // 2. get request to get a specific query from our SQL DB
 
 app.use('/api/user', clientRouter);
+app.use('/api/instance', instanceRouter);
 app.use('/api/log', logRouter);
 
 app.use('*', (req, res) => res.status(404).send('Not Found'));
