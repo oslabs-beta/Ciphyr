@@ -11,7 +11,7 @@ export default function SuspiciousLog(props) {
             <FontAwesomeIcon className="" icon={faCircleXmark} />
           </button>
         </div>
-        <div className='flex flex-col border shadow rounded relative space-y-1 px-2 py-2'>
+        <div className='flex text-sm flex-col border shadow rounded relative space-y-1 px-2 py-2'>
           <div id='logID'>ID: {props.id}</div>
           <div id='depth'>Depth: {props.depth}</div>
           <div id='latency'>Latency: {props.latency}</div>
