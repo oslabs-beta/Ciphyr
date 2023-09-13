@@ -92,7 +92,7 @@ export default function LoginV2() {
                         className="text-sm mb-1 text-slate-500"
                         htmlFor="email"
                       >
-                        Username/Email
+                        Username or Email
                       </label>
                     </div>
                     <div id="user" className="mb-4">

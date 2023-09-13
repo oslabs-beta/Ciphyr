@@ -29,13 +29,14 @@ logController.getAllLog = async (req, res, next) => {
     // else return an error message
     console.log('hi in getall logs');
     const { apiKey } = req.body
-    console.log('apiKey', apiKey);
+    // console.log('apiKey', apiKey);
     const logQuery = `SELECT * FROM Log WHERE api_key = '${apiKey}'`;
     const clientLog = await db.query(logQuery);
-    console.log('after query');
-    console.log('clientLog', clientLog);
+    // console.log('after query');
+    // console.log('clientLog', clientLog);
     res.locals.allLog = clientLog.rows;
-    console.log('RES.LOGS:', res.locals.allLog)
+    // console.log('RES.LOGS:', res.locals.allLog)
+    console.log('res.logs JSON format', JSON.stringify(res.locals.allLog))
     // console.log(await db.query(`SELECT * FROM clients`));
     return next();
   }

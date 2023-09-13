@@ -7,7 +7,7 @@ import {
   getPaginationRowModel,
   getFilteredRowModel,
 } from "@tanstack/react-table";
-import mData from "./MOCK_DATA.json";
+import mData from "./REAL_MOCK.json";
 import FilterFunction from "./FilterFunction";
 
 export default function DashTable() {
@@ -21,52 +21,64 @@ export default function DashTable() {
   }, []);
 
   const fetchLogs = async () => {
-    console.log('in try block');
+    console.log("in try block");
     try {
       const response = await fetch("/api/log", {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({apiKey: '04ffad9d-73ed-4d44-9e6a-3cbf2db31d2b'})
+        body: JSON.stringify({
+          apiKey: "04ffad9d-73ed-4d44-9e6a-3cbf2db31d2b",
+        }),
       });
       if (!response.ok) {
         throw new Error(`Server side error. Status: ${response.status}`);
       }
       const data = await response.json();
-      // console.log('data', data); // debugging
-      //setTableRows(data);
+      console.log("data", data); // debugging
+      console.log("TABLE ROWS B4 UPDATE:", tableRows);
+      setTableRows(data);
     } catch (error) {
       console.error("Fetch error:", error);
     }
   };
-/**
- *
- *     {
-        "id": 3,
-        "operation": "query",
-        "query_name": "ExampleQuery",
-        "log": "{reviews{id}games{id}authors{id}}",
-        "raw": "query ExampleQuery {\n  reviews {\n    id\n  }\n  games {\n    id\n  }\n  authors {\n    id\n  }\n}",
-        "depth": 1,
-        "latency": null,
-        "api_key": "04ffad9d-73ed-4d44-9e6a-3cbf2db31d2b",
-        "timestamp": "2023-09-13T00:47:26.756Z"
-    },
- */
+  useEffect(() => {
+    console.log("TABLE ROWS UPDATE:", tableRows);
+  }, [tableRows]);
 
   // const data = useMemo(() => mData, []);
-  // desired tableData picture
-  // const data = [
-  //   {
-  //     time: "16:50.28",
-  //     name: "getUsers",
-  //     type: "query",
-  //     depth: "4",
-  //     query: "{reviews{id}games{reviews{idauthor{id}}}authors{id}}",
-  //   },
-  // ];
 
+  // **************************** COLUMNS FROM SERVER  ****************************
+  const columns = [
+    {
+      header: "Time",
+      accessorKey: "timestamp",
+    },
+    {
+      header: "Name",
+      accessorKey: "query_name",
+    },
+    {
+      header: "Type",
+      accessorKey: "operation",
+    },
+    {
+      header: "Query Log",
+      accessorKey: "log",
+    },
+    {
+      header: "Depth",
+      accessorKey: "depth",
+    },
+    {
+      header: "Latency",
+      accessorKey: "latency",
+    },
+  ];
+  // *************************************************************************************
+
+  // **************************** COLUMNS FROM MOCK DATA  ****************************
   // const columns = [
   //   {
   //     header: "Time",
@@ -81,63 +93,27 @@ export default function DashTable() {
   //     accessorKey: "type",
   //   },
   //   {
+  //     header: "Query Log",
+  //     accessorKey: "query",
+  //   },
+  //   {
   //     header: "Depth",
   //     accessorKey: "depth",
   //   },
   //   {
-  //     header: "Query Log",
-  //     accessorKey: "query",
+  //     header: "Latency",
+  //     accessorKey: "latency"
   //   },
   // ];
+  // *************************************************************************************
 
+  // ...
 
-// {
-//   header: "Raw Log",
-//   accessorKey: "raw",
-// },
-
-const columns = [
-    {
-      header: "Time",
-      accessorKey: "timestamp",
-    },
-    {
-      header: "Name",
-      accessorKey: "query_name",
-    },
-    {
-      header: "Type",
-      accessorKey: "operation_name",
-    },
-     {
-      header: "Depth",
-      accessorKey: "depth",
-    },
-    {
-      header: "Latency",
-      accessorKey: "latency",
-    },
-    {
-      header: "Query Log",
-      accessorKey: "log",
-    },
-    {
-      header: "Depth",
-      accessorKey: "depth1",
-    },
-    {
-      header: "Latency",
-      accessorKey: "latency1",
-    },
-    {
-      header: "Query Log",
-      accessorKey: "log1",
-    },
-];
+  // ...
 
   const table = useReactTable({
-    tableRows,
-    columns,
+    data: tableRows,
+    columns: columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
@@ -147,13 +123,10 @@ const columns = [
     onGlobalFilterChanged: setFiltering,
   });
 
-
-
   return (
-
     <div className="w-full">
       <input
-        className='border rounded-md px-2 py-1'
+        className="border rounded-md px-2 py-1"
         type="text"
         placeholder="Search by keywords"
         value={filtering}
@@ -214,9 +187,7 @@ const columns = [
         >
           {table.getState().pagination.pageIndex - 1}
         </button> */}
-        <button
-          className="border border-slate-300 mr-2 px-2 py-1 rounded"
-        >
+        <button className="border border-slate-300 mr-2 px-2 py-1 rounded">
           {table.getState().pagination.pageIndex}
         </button>
         {/* <button
