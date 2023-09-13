@@ -9,6 +9,7 @@ import { useState } from 'react'
 export default function Homepage() {
   const [modal, setModal] = useState(false);
   const [API, setAPI] = useState(false);
+  const [apiKey, setApiKey] = useState('')
 
   const toggleModal = () => {
     setModal(!modal);
@@ -23,8 +24,8 @@ export default function Homepage() {
     <>
       <NavBar />
       <div>
-        { modal ? <InstanceModal toggleAPI={toggleAPI} toggleModal={toggleModal}/> : '' }
-        { API ? <ApiModal toggleAPI={toggleAPI} /> : '' }
+        { modal ? <InstanceModal setApiKey={setApiKey} toggleAPI={toggleAPI} toggleModal={toggleModal}/> : '' }
+        { API ? <ApiModal apiKey={apiKey} setApiKey={setApiKey} toggleAPI={toggleAPI} /> : '' }
       </div>
       <div className="flex">
         <span className ="border-l border-slate-300">
