@@ -35,7 +35,7 @@ export default function LoginV2() {
       });
       const parsed = await response.json();
       if (parsed.verified === true) {
-        navigate('/dashboard')
+        navigate('/home')
       }
     } catch (err) {
       console.log(err)

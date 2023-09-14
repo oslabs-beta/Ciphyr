@@ -43,7 +43,7 @@ export default function Signup() {
       }),
     });
     const data = await response.json();
-    navigate('/login');
+    navigate('/');
     console.log('data in signup', data);
   };
 

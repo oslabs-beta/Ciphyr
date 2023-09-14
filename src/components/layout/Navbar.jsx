@@ -24,7 +24,7 @@ export default function Navbar() {
             </li>
             <li>
               <a
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/home")}
                 className="text-slate-800 hover:text-slate-500 cursor-pointer"
               >
                 Instances

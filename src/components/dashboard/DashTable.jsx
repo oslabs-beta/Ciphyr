@@ -10,16 +10,19 @@ import {
 import mData from "./REAL_MOCK.json";
 import FilterFunction from "./FilterFunction";
 
-export default function DashTable() {
+export default function DashTable(props) {
   const [filtering, setFiltering] = useState("");
   const [columnFilters, setColumnFilters] = useState("");
   const [tableRows, setTableRows] = useState([]);
 
   //One time on load of page render the instances logs
+
   useEffect(() => {
     fetchLogs();
   }, []);
-
+  /**
+   * client -> "[ {instance1 : logsFor1 }, {instance2 : logsFor1 }, ... ] "
+   */
   const fetchLogs = async () => {
     console.log("in try block");
     try {
@@ -43,6 +46,7 @@ export default function DashTable() {
       console.error("Fetch error:", error);
     }
   };
+
   useEffect(() => {
     console.log("TABLE ROWS UPDATE:", tableRows);
   }, [tableRows]);
@@ -64,16 +68,16 @@ export default function DashTable() {
       accessorKey: "operation",
     },
     {
-      header: "Query Log",
-      accessorKey: "log",
-    },
-    {
       header: "Depth",
       accessorKey: "depth",
     },
     {
       header: "Latency",
       accessorKey: "latency",
+    },
+    {
+      header: "Query Log",
+      accessorKey: "log",
     },
   ];
   // *************************************************************************************
@@ -124,55 +128,64 @@ export default function DashTable() {
   });
 
   return (
-    <div className="w-full">
-      <input
-        className="border rounded-md px-2 py-1"
-        type="text"
-        placeholder="Search by keywords"
-        value={filtering}
-        onChange={(e) => setFiltering(e.target.value)}
-      />
-      <table className="w-full my-5 bg-white shadow-md">
-        <thead>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <th
-                  key={header.id}
-                  className="py-2 pr-12 text-left border-b border-gray-200 bg-gray-100"
-                >
-                  {header.isPlaceholder ? null : (
-                    <>
-                      {flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                      {/* <div>
+    <div className="">
+      <div className="">
+        <input
+          className="border rounded-md px-2 py-1"
+          type="text"
+          placeholder="Search by keywords"
+          value={filtering}
+          onChange={(e) => setFiltering(e.target.value)}
+        />
+      </div>
+      <div className=" h-[850px] !important">
+        <table className="w-[1600px] my-5 bg-white shadow-md table-fixed">
+          <thead>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <tr key={headerGroup.id}>
+                {headerGroup.headers.map((header) => (
+                  <th
+                    key={header.id}
+                    className={`py-2 pl-2 text-left border-b pr-12 border-gray-200 bg-gray-100 h-[50px] ${
+                      header.column.id === "log" ? "w-20" : "w-10"
+                    } `}
+                  >
+                    {header.isPlaceholder ? null : (
+                      <>
+                        {flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                        )}
+                        {/* <div>
                         <FilterFunction column={header.column} table={table} />
                       </div> */}
-                    </>
-                  )}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
-              {row.getVisibleCells().map((cell) => (
-                <td
-                  key={cell.id}
-                  className="text-left pr-4 py-4 border-r border-b border-gray-200"
-                >
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <div>
+                      </>
+                    )}
+                  </th>
+                ))}
+              </tr>
+            ))}
+          </thead>
+          <tbody>
+            {table.getRowModel().rows.map((row, rowIndex) => (
+              <tr
+                key={row.id}
+                className={rowIndex % 2 === 0 ? "bg-blue-100 text-slate" : ""}
+              >
+                {row.getVisibleCells().map((cell) => (
+                  <td
+                    key={cell.id}
+                    className="text-left px-4 py-4 border-r border-b border-gray-200 overflow-clip h-[20] hover:font-bold"
+                  >
+                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="flex justify-end mt-6">
         <button
           className="border border-slate-300 mr-2 px-2 py-1 rounded"
           onClick={() => table.previousPage()}
