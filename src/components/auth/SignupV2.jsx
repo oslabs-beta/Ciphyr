@@ -43,8 +43,8 @@ export default function Signup() {
       }),
     });
     const data = await response.json();
-    navigate('/');
-    console.log('data in signup', data);
+    navigate("/");
+    console.log("data in signup", data);
   };
 
   return (
@@ -54,7 +54,7 @@ export default function Signup() {
           <div className="absolute top-0 w-full px-8 pt-6 mx-auto">
             <nav className="relative flex justify-between">
               <div>Ciphyr</div>
-              <div>dark mode</div>
+              <div>light mode</div>
             </nav>
           </div>
           <div className="flex flex-1">
@@ -157,13 +157,13 @@ export default function Signup() {
                     <span className="text-scale-1000">Have an account?</span>
                     <a
                       className="ml-2 underline transition text-slate-400 hover:text-slate-300"
-                      onClick={() => navigate("/login")}
+                      onClick={() => navigate("/")}
                     >
                       {"Sign In Now"}
                     </a>
                   </div>
                 </div>
-                <div className="mt-20rem flex flex-col bottom-0 text-center text-xs text-slate-500 italic">
+                <div className="mt-10rem flex flex-col bottom-0 text-center text-xs text-slate-500 italic">
                   <p>
                     By continuing, you agree to Ciphyer's Terms of Service and
                     Privacy Policy, and to receive periodic emails with updates.
@@ -171,9 +171,21 @@ export default function Signup() {
                 </div>
               </section>
             </main>
-            <aside className="flex items-center justify-center w-3/4">
-              <div className="w-2/3">
-                <img src={DashboardImage} alt="Dashboard" />
+            <aside className="flex flex-col items-center justify-center w-3/4">
+              <div className="relative text-4xl text-slate-600 font-serif italic ml-20 mb-12 w-3/4">
+                <div className="-left-8 -top-10 z-[0] absolute text-8xl font-serif italic text-slate-500">
+                  "
+                </div>
+                {
+                  "our team's GraphQL security has massively improved thanks to Cypher"
+                }
+              </div>
+              <div className="flex justify-end items-center ml-5 mt-6 top text-2xl text-slate-500 font-serif italic w-3/4">
+                <img
+                  className="w-12 h-12 rounded-full mx-4"
+                  src="https://media.licdn.com/dms/image/C5603AQH89aF7fDuxYQ/profile-displayphoto-shrink_800_800/0/1661982849820?e=1700092800&v=beta&t=zBgzK7aY2HhFyurGgAcuq2WFzc0wbLocmPYkvCS-ejQ"
+                />
+                <div>@not_ryanmcdaniel</div>
               </div>
             </aside>
           </div>

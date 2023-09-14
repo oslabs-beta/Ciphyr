@@ -2,12 +2,11 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import DashboardImage from "../../assets/Dashboard.png";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 export default function LoginV2() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
 
   const navigate = useNavigate();
 
@@ -24,7 +23,6 @@ export default function LoginV2() {
   };
 
   const validate = async () => {
-
     try {
       const response = await fetch("/api/user/login", {
         method: "POST",
@@ -35,12 +33,11 @@ export default function LoginV2() {
       });
       const parsed = await response.json();
       if (parsed.verified === true) {
-        navigate('/home')
+        navigate("/home");
       }
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-
   };
 
   return (
@@ -50,7 +47,7 @@ export default function LoginV2() {
           <div className="absolute top-0 w-full px-8 pt-6 mx-auto">
             <nav className="relative flex justify-between">
               <div>Ciphyr</div>
-              <div>dark mode</div>
+              <div>light mode</div>
             </nav>
           </div>
           <div className="flex flex-1">
@@ -111,7 +108,9 @@ export default function LoginV2() {
                       >
                         Password
                       </label>
-                      <span className="text-xs text-slate-500 italic">Forgot Password?</span>
+                      <span className="text-xs text-slate-500 italic">
+                        Forgot Password?
+                      </span>
                     </div>
                     <input
                       id="Password"
@@ -127,7 +126,7 @@ export default function LoginV2() {
                     onClick={validate}
                     className="text-white p-2 w-full rounded-md bg-sky-600 hover:bg-sky-700 mb-4"
                   >
-                    Log in
+                    Sign in
                   </button>
                 </div>
                 <div className="self-center">
@@ -137,13 +136,13 @@ export default function LoginV2() {
                     </span>
                     <a
                       className="ml-2 underline transition text-slate-400 hover:text-slate-300"
-                      onClick={() => navigate('/signup')}
+                      onClick={() => navigate("/signup")}
                     >
                       {"Sign Up Now"}
                     </a>
                   </div>
                 </div>
-                <div className="mt-20rem flex flex-col bottom-0 text-center text-xs text-slate-500 italic">
+                <div className="mt-10rem flex flex-col bottom-0 text-center text-xs text-slate-500 italic">
                   <p>
                     By continuing, you agree to Ciphyer's Terms of Service and
                     Privacy Policy, and to receive periodic emails with updates.
@@ -151,9 +150,21 @@ export default function LoginV2() {
                 </div>
               </section>
             </main>
-            <aside className="flex items-center justify-center w-3/4">
-              <div className="w-3/4 shadow-lg">
-                <img src={DashboardImage} alt="Dashboard" />
+            <aside className="flex flex-col items-center justify-center w-3/4">
+              <div className="relative text-4xl text-slate-600 font-serif italic ml-20 mb-12 w-3/4">
+                <div className="-left-8 -top-10 z-[0] absolute text-8xl font-serif italic text-slate-500">
+                  "
+                </div>
+                {
+                  "cypher changed me..."
+                }
+              </div>
+              <div className="flex justify-end items-center ml-5 mt-6 top text-2xl text-slate-500 font-serif italic w-3/4">
+                <img
+                  className="w-12 h-12 rounded-full mx-4"
+                  src="https://media.licdn.com/dms/image/C4D03AQG2XwBr2rylkg/profile-displayphoto-shrink_800_800/0/1572454199260?e=1700092800&v=beta&t=I2J8vm4K3mzwIEDvxOtxNt2o1sG6FVbOh__2dcEhi9w"
+                />
+                <div>@not_philtroutman</div>
               </div>
             </aside>
           </div>
@@ -162,3 +173,8 @@ export default function LoginV2() {
     </>
   );
 }
+
+/**
+ *                   src="https://media.licdn.com/dms/image/C4D03AQG2XwBr2rylkg/profile-displayphoto-shrink_800_800/0/1572454199260?e=1700092800&v=beta&t=I2J8vm4K3mzwIEDvxOtxNt2o1sG6FVbOh__2dcEhi9w"
+ *
+ */
