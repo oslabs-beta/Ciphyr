@@ -8,4 +8,8 @@ router.post('/', logController.getAllLog, async (req, res) => {
   // .end(`window.__APP_VARIABLES__ = ${JSON.stringify(res.locals.allLog)}`);
 });
 
+// router.post('/sQuery', logController.getSuspiciousLog, async (req, res) => {
+//   return res.status(200).json(res.locals.suspiciousLog);
+// });
+
 module.exports = router;

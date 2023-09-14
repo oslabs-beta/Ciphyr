@@ -8,24 +8,24 @@ export default function Navbar() {
     <>
       <nav className="flex py-6 border-b-2">
         <div>
-          <h1 className="font-bold cursor-pointer ml-16">Ciphyr</h1>
+          <h1 className="font-bold cursor-pointer text-primary ml-16">Ciphyr</h1>
         </div>
         <div className="ml-12 mr-auto">
           <ul className="flex gap-10">
-            <li>
+            {/* <li>
               <a
-                className="text-slate-800 hover:text-slate-500 cursor-pointer"
+                className="text-slate-700 hover:text-secondary cursor-pointer"
                 target="_blank"
                 rel="noreferrer"
-                href="https://github.com/Ciphyr-OSP4/cipher-demo"
+                href="https://excalidraw.com/#room=dbe379f1b41fb715af36,kbu-9fyp1LDuPpKJNTyf4g"
               >
                 Documentation
               </a>
-            </li>
+            </li> */}
             <li>
               <a
                 onClick={() => navigate("/home")}
-                className="text-slate-800 hover:text-slate-500 cursor-pointer"
+                className="text-slate-700 hover:text-secondary cursor-pointer"
               >
                 Instances
               </a>
@@ -34,7 +34,7 @@ export default function Navbar() {
             <li>
               <a
                 onClick={() => navigate("/dashboard")}
-                className="text-slate-800 hover:text-slate-500 cursor-pointer"
+                className="text-slate-700 hover:text-secondary cursor-pointer"
               >
                 Dashboard
               </a>
@@ -47,7 +47,7 @@ export default function Navbar() {
             src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80"
             alt="Avatar"
           />
-          <button className="pl-3 mr-16 text-slate-800 hover:text-slate-500">
+          <button className="pl-3 mr-16 text-slate-700 hover:text-secondary">
             Profile
           </button>
         </div>

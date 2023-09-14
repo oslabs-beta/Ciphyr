@@ -1,11 +1,11 @@
-[{"id": 1, "depth": 3, "latency": "40mb" },
- {"id": 2, "depth": 9, "latency": "20mb" },
-  {"id": 3, "depth": 8, "latency": "60mb" },
-  {"id": 4, "depth": 1, "latency": "10mb" },
-  {"id": 5, "depth": 1, "latency": "30mb" },
-  {"id": 6, "depth": 2, "latency": "80mb" },
-  {"id": 7, "depth": 6, "latency": "50mb" },
-  {"id": 8, "depth": 4, "latency": "70mb" },
-  {"id": 9, "depth": 2, "latency": "40mb" }]
+[{"id": 1, "depth": 3, "latency": "24ms" },
+ {"id": 2, "depth": 9, "latency": "108ms" },
+  {"id": 3, "depth": 8, "latency": "92ms" },
+  {"id": 4, "depth": 1, "latency": "10ms" },
+  {"id": 5, "depth": 1, "latency": "9ms" },
+  {"id": 6, "depth": 2, "latency": "17ms" },
+  {"id": 7, "depth": 6, "latency": "51ms" },
+  {"id": 8, "depth": 4, "latency": "35ms" },
+  {"id": 9, "depth": 2, "latency": "18ms" }]
 
   

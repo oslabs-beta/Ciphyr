@@ -22,4 +22,18 @@ logController.getAllLog = async (req, res, next) => {
   }
 };
 
+/*
+logController.getSuspiciousLog = async (req, res, next) => {
+  try {
+    const { apiKey } = req.body;
+    const suspiciousQuery = `SELECT id, depth, latency FROM Log where api_key = '${apiKey}'`;
+    const suspiciousLog = await db.query(suspiciousQuery);
+    res.locals.suspiciousLog = clientLog.rows;
+    return next();
+  } catch(err) {
+    return next(err);
+  }
+}
+*/
+
 module.exports = logController;

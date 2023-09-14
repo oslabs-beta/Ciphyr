@@ -177,7 +177,7 @@ export default function Signup() {
                   "
                 </div>
                 {
-                  "our team's GraphQL security has massively improved thanks to Cypher"
+                  "our team's GraphQL security has massively improved thanks to Ciphyr"
                 }
               </div>
               <div className="flex justify-end items-center ml-5 mt-6 top text-2xl text-slate-500 font-serif italic w-3/4">

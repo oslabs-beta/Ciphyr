@@ -27,9 +27,9 @@ export default function Homepage() {
         { modal ? <InstanceModal setApiKey={setApiKey} toggleAPI={toggleAPI} toggleModal={toggleModal}/> : '' }
         { API ? <ApiModal apiKey={apiKey} setApiKey={setApiKey} toggleAPI={toggleAPI} /> : '' }
       </div>
-      <div className="bg-stone-50 h-screen flex flex-auto">
-        <span className ="border-l border-slate-300">
-          <main className="flex flex-2 flex-col items-center my-12 h-full">
+      <div className="bg-gradient-to-t from-custom-start to-custom-end  h-screen flex flex-auto">
+        <span className ="border-l border-slate-300 w-full">
+          <main className="flex flex-2 flex-col items-center my-12">
             <div className="shadow p-4 bg-white rounded-lg w-2/3">
               <section>
                 <div className="text-3xl subpixel-antialiased font-semibold">

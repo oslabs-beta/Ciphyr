@@ -9,30 +9,36 @@ import {
 } from "@tanstack/react-table";
 import mData from "./REAL_MOCK.json";
 import FilterFunction from "./FilterFunction";
+import EmptyMessage from "../common/EmptyMessage";
 
 export default function DashTable(props) {
   const [filtering, setFiltering] = useState("");
   const [columnFilters, setColumnFilters] = useState("");
   const [tableRows, setTableRows] = useState([]);
-
+  const [instance, setInstance] = useState("");
   //One time on load of page render the instances logs
 
   useEffect(() => {
     fetchLogs();
-  }, []);
+  }, [instance]);
   /**
    * client -> "[ {instance1 : logsFor1 }, {instance2 : logsFor1 }, ... ] "
    */
   const fetchLogs = async () => {
     console.log("in try block");
     try {
+      if (!instance) {
+        console.log("instance not defined");
+        apiKey = null;
+      }
+      console.log("INSTANCE", instance);
       const response = await fetch("/api/log", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          apiKey: "04ffad9d-73ed-4d44-9e6a-3cbf2db31d2b",
+          apiKey: instance,
         }),
       });
       if (!response.ok) {
@@ -128,97 +134,121 @@ export default function DashTable(props) {
   });
 
   return (
-    <div className="">
-      <div className="">
-        <input
-          className="border rounded-md px-2 py-1"
-          type="text"
-          placeholder="Search by keywords"
-          value={filtering}
-          onChange={(e) => setFiltering(e.target.value)}
-        />
-      </div>
-      <div className=" h-[850px] !important">
-        <table className="w-[1600px] my-5 bg-white shadow-md table-fixed">
-          <thead>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <tr key={headerGroup.id}>
-                {headerGroup.headers.map((header) => (
-                  <th
-                    key={header.id}
-                    className={`py-2 pl-2 text-left border-b pr-12 border-gray-200 bg-gray-100 h-[50px] ${
-                      header.column.id === "log" ? "w-20" : "w-10"
-                    } `}
-                  >
-                    {header.isPlaceholder ? null : (
-                      <>
-                        {flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
-                        {/* <div>
+    <>
+
+      <div className="relative flex flex-col items-start mt-5 ml-5rem mr-8 w-2/3">
+        <div className="">
+          <div className="flex justify-between">
+            <input
+              className="border bg-white rounded-md px-2 py-1"
+              type="text"
+              placeholder="Search by keywords"
+              value={filtering}
+              onChange={(e) => setFiltering(e.target.value)}
+            />
+            <select
+              className="border bg-white rounded-md px-4 py-1 mr-4"
+              placeholder="Search by keywords"
+              value={instance}
+              onChange={(e) => setInstance(e.target.value)}
+            >
+              <option value="null">Choose an Instance</option>
+              <option value="04ffad9d-73ed-4d44-9e6a-3cbf2db31d2b">
+                Option 1
+              </option>
+              <option value="45b8811c-a25b-4ba4-a42b-75abbde27e4c">
+                Option 2
+              </option>
+            </select>
+          </div>
+          <div className=" h-[800px] !important overflow-y-auto">
+            <table className="w-[1500px] mt-5 bg-white shadow-md table-fixed">
+              <thead>
+                {table.getHeaderGroups().map((headerGroup) => (
+                  <tr key={headerGroup.id}>
+                    {headerGroup.headers.map((header) => (
+                      <th
+                        key={header.id}
+                        className={`py-2 pl-2 text-left border-b pr-12 border-gray-200 bg-gray-100 h-[50px] ${
+                          header.column.id === "log" ? "w-20" : "w-10"
+                        } `}
+                      >
+                        {header.isPlaceholder ? null : (
+                          <>
+                            {flexRender(
+                              header.column.columnDef.header,
+                              header.getContext()
+                            )}
+                            {/* <div>
                         <FilterFunction column={header.column} table={table} />
                       </div> */}
-                      </>
-                    )}
-                  </th>
+                          </>
+                        )}
+                      </th>
+                    ))}
+                  </tr>
                 ))}
-              </tr>
-            ))}
-          </thead>
-          <tbody>
-            {table.getRowModel().rows.map((row, rowIndex) => (
-              <tr
-                key={row.id}
-                className={rowIndex % 2 === 0 ? "bg-blue-100 text-slate" : ""}
-              >
-                {row.getVisibleCells().map((cell) => (
-                  <td
-                    key={cell.id}
-                    className="text-left px-4 py-4 border-r border-b border-gray-200 overflow-clip h-[20] hover:font-bold"
+              </thead>
+              <tbody>
+                {table.getRowModel().rows.map((row, rowIndex) => (
+                  <tr
+                    key={row.id}
+                    className={
+                      rowIndex % 2 === 0 ? "bg-tertiary text-slate" : ""
+                    }
                   >
-                    {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                  </td>
+                    {row.getVisibleCells().map((cell) => (
+                      <td
+                        key={cell.id}
+                        className="text-left px-4 py-4 border-r border-b border-gray-200 overflow-clip h-[20] cursor-pointer"
+                      >
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </td>
+                    ))}
+                  </tr>
                 ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-      <div className="flex justify-end mt-6">
-        <button
-          className="border border-slate-300 mr-2 px-2 py-1 rounded"
-          onClick={() => table.previousPage()}
-          disabled={!table.getCanPreviousPage()}
-        >
-          {"<"}
-        </button>
-        {/* <button
+              </tbody>
+            </table>
+          </div>
+          <div className="flex justify-end mt-6">
+            <button
+              className="border border-slate-300 mr-2 px-2 py-1 rounded"
+              onClick={() => table.previousPage()}
+              disabled={!table.getCanPreviousPage()}
+            >
+              {"<"}
+            </button>
+            {/* <button
           className="border border-slate-300 mr-2 px-2 py-1 rounded"
           onClick={() => table.setPageIndex((oldPageIndex) => oldPageIndex - 1)}
           disabled={!table.getCanPreviousPage()}
         >
           {table.getState().pagination.pageIndex - 1}
         </button> */}
-        <button className="border border-slate-300 mr-2 px-2 py-1 rounded">
-          {table.getState().pagination.pageIndex}
-        </button>
-        {/* <button
+            <button className="border border-slate-300 mr-2 px-2 py-1 rounded">
+              {table.getState().pagination.pageIndex + 1}
+            </button>
+            {/* <button
           className="border border-slate-300 mr-2 px-2 py-1 rounded"
           onClick={() => table.setPageIndex((oldPageIndex) => oldPageIndex + 1)}
           disabled={!table.getCanNextPage()}
         >
           {table.getState().pagination.pageIndex + 1}
         </button> */}
-        <button
-          className="border border-slate-300 mr-2 px-2 py-1 rounded"
-          onClick={() => table.nextPage()}
-          disabled={!table.getCanNextPage()}
-        >
-          {">"}
-        </button>
+            <button
+              className="border border-slate-300 mr-2 px-2 py-1 rounded"
+              onClick={() => table.nextPage()}
+              disabled={!table.getCanNextPage()}
+            >
+              {">"}
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
