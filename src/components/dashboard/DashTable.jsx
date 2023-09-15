@@ -47,7 +47,7 @@ export default function DashTable(props) {
       const data = await response.json();
       console.log("data", data); // debugging
       console.log("TABLE ROWS B4 UPDATE:", tableRows);
-      setTableRows(data);
+      setTableRows(data.reverse());
     } catch (error) {
       console.error("Fetch error:", error);
     }
@@ -154,15 +154,15 @@ export default function DashTable(props) {
             >
               <option value="null">Choose an Instance</option>
               <option value="04ffad9d-73ed-4d44-9e6a-3cbf2db31d2b">
-                Option 1
+                cluster0
               </option>
               <option value="45b8811c-a25b-4ba4-a42b-75abbde27e4c">
-                Option 2
+                testInstance
               </option>
             </select>
           </div>
           <div className=" h-[800px] !important overflow-y-auto">
-            <table className="w-[1500px] mt-5 bg-white shadow-md table-fixed">
+            <table className="w-[1800px] mt-5 bg-white shadow-md table-fixed">
               <thead>
                 {table.getHeaderGroups().map((headerGroup) => (
                   <tr key={headerGroup.id}>

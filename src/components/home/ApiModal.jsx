@@ -24,13 +24,13 @@ export default function ApiModal(props) {
           <div>
             <input
               value={props.apiKey}
-              className='disabled italic no-underline text-slate-400 border rounded-md w-30rem mb-5 mt-3 px-3'
+              className='disabled italic no-underline text-slate-700 border rounded-md w-30rem mb-5 mt-3 px-3'
               type='text'
               placeholder='My Test Key'
             />
             <button
               onClick={() => navigator.clipboard.writeText(props.apiKey)}
-              className='border border-white rounded-md bg-emerald-600 hover:bg-emerald-700 text-white py-1 px-2'
+              className='border border-white rounded-md bg-sky-600 hover:bg-sky-700 text-white py-1 px-2'
             >
               <FontAwesomeIcon icon={faCopy} />
             </button>
@@ -38,7 +38,7 @@ export default function ApiModal(props) {
           <div className="flex flex-row-reverse">
             <button
               onClick={done}
-              className='border border-white rounded-md bg-emerald-600 hover:bg-emerald-700 text-white py-1 px-2'
+              className='border border-white rounded-md bg-sky-600 hover:bg-sky-700 text-white py-1 px-2'
             >
               Done
             </button>

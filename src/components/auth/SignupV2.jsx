@@ -4,6 +4,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import DashboardImage from "../../assets/Dashboard.png";
 import { useNavigate } from "react-router-dom";
+import ciphyrLogo from "../../assets/ciphyrLogo.png";
 
 export default function Signup() {
   const [username, setUsername] = useState("");
@@ -53,7 +54,7 @@ export default function Signup() {
         <div className="flex flex-col flex-1 bg-scale-100">
           <div className="absolute top-0 w-full px-8 pt-6 mx-auto">
             <nav className="relative flex justify-between">
-              <div>Ciphyr</div>
+              <img src={ciphyrLogo} className="w-[200px]" />
               <div>light mode</div>
             </nav>
           </div>

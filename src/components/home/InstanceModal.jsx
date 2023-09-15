@@ -43,13 +43,13 @@ export default function InstanceModal(props) {
           <div className='flex flex-row-reverse justify-items-end'>
             <button
               onClick={() => create()}
-              className='border border-white rounded bg-emerald-600 hover:bg-emerald-700 text-white py-1 px-2 ml-2 text-sm'
+              className='rounded-md border border-white rounded bg-sky-600 hover:bg-sky-700 text-white py-1 px-2 ml-2 text-sm'
             >
               Create secret key
             </button>
             <button
               onClick={() => props.toggleModal()}
-              className='border rounded bg-white text-emerald-600 border-emerald-600 py-1 px-2 text-sm
+              className='border rounded bg-white text-primary border-primary py-1 px-2 text-sm
               hover:bg-slate-500
               hover:text-white
               hover:border-none
