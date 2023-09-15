@@ -2,20 +2,40 @@ import InstanceTable from "./InstanceTable.jsx";
 import CreateInstance from "./CreateInstance.jsx";
 import NavBar from "../layout/Navbar.jsx";
 import Sidenav from "../layout/Sidenav";
+import InstanceModal from './InstanceModal'
+import ApiModal from './ApiModal'
+import { useState } from 'react'
 
 export default function Homepage() {
+  const [modal, setModal] = useState(false);
+  const [API, setAPI] = useState(false);
+  const [apiKey, setApiKey] = useState('')
+
+  const toggleModal = () => {
+    setModal(!modal);
+  }
+
+  const toggleAPI = () => {
+    setAPI(!API);
+  }
+
+
   return (
     <>
       <NavBar />
-      <div className="flex">
-        <span className ="border-l border-slate-300">
-          <main className="flex flex-col items-start h-screen mt-20 ml-20rem">
-            <div className="shadow p-4 rounded-lg w-50rem ">
+      <div>
+        { modal ? <InstanceModal setApiKey={setApiKey} toggleAPI={toggleAPI} toggleModal={toggleModal}/> : '' }
+        { API ? <ApiModal apiKey={apiKey} setApiKey={setApiKey} toggleAPI={toggleAPI} /> : '' }
+      </div>
+      <div className="bg-gradient-to-t from-custom-start to-custom-end  h-screen flex flex-auto">
+        <span className ="border-l border-slate-300 w-full">
+          <main className="flex flex-2 flex-col items-center my-12">
+            <div className="shadow p-4 bg-white rounded-lg w-2/3">
               <section>
                 <div className="text-3xl subpixel-antialiased font-semibold">
                   Connection Keys
                 </div>
-                <div className="mt-5 mb-5">
+                <div className="mt-5 mb-5 text-slate-600">
                   <p>
                     {" "}
                     Your secret connection keys are listed below. Please note that we
@@ -35,7 +55,7 @@ export default function Homepage() {
                 <InstanceTable />
               </div>
               <div>
-                <CreateInstance />
+                <CreateInstance toggleModal={toggleModal}/>
               </div>
             </div>
           </main>
