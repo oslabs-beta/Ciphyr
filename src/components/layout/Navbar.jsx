@@ -4,6 +4,16 @@ import ciphyrIcon from "../../assets/ciphyrIcon.png";
 export default function Navbar() {
   const navigate = useNavigate();
 
+  const logout = async () => {
+    try {
+      const response = await fetch('/api/user/logout');
+
+    } catch (err) {
+      console.log(err)
+    }
+    navigate('/')
+  }
+
   return (
     <>
       <nav className="flex justify-center items-center py-6 border-b-2">
@@ -49,6 +59,9 @@ export default function Navbar() {
           />
           <button className="pl-3 mr-16 text-slate-00 hover:text-secondary">
             Profile
+          </button>
+          <button className="pl-3 mr-16 text-slate-00 hover:text-secondary" onClick={logout}>
+            Logout
           </button>
         </div>
       </nav>
