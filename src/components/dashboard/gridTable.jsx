@@ -73,7 +73,7 @@ export default function GridTable () {
     <>
     { modal && <QueryModal modal={modal} toggleModal={toggleModal} raw={raw} />}
     <h1 className='font-semibold text-xl m-8' >Dashboard</h1>
-    <div className='ag-theme-alpine' style={{height: 500}}>
+    <div className='ag-theme-alpine ml-8' style={{height: 500}}>
       <AgGridReact
         rowData={rows}
         columnDefs={columnDefs}
