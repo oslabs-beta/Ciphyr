@@ -5,6 +5,7 @@ import { useState, useEffect, useMemo } from "react";
 import InputInstance from "react";
 import EmptyMessage from "../common/EmptyMessage";
 import ChartContainer from './charts/ChartContainer.jsx';
+import GridTable from './gridTable.jsx'
 
 
 export default function Dashboard() {
@@ -61,7 +62,7 @@ export default function Dashboard() {
           {/* <div>Your logs</div> */}
           <h1 className="ml-20 mt-10 font-semibold text-2xl">Recent activity</h1>
           {insight ?
-          <ChartContainer /> : <DashTable />
+          <ChartContainer /> : <GridTable />
           }
           {/* <InputInstance setTableRows={setTableRows}/> */}
         </div>
