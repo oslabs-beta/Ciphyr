@@ -4,6 +4,8 @@ import DashTable from "./DashTable";
 import { useState, useEffect, useMemo } from "react";
 import InputInstance from "react";
 import EmptyMessage from "../common/EmptyMessage";
+import ChartContainer from './charts/ChartContainer.jsx';
+
 
 export default function Dashboard() {
   //const [tableRows, setTableRows] = useState('')
@@ -11,6 +13,12 @@ export default function Dashboard() {
   // change variable name
   const [apiKey, setApiKey] = useState("");
   const [tableRows, setTableRows] = useState([]);
+  const [insight, setInsight] = useState(false);
+
+  const toggleInsight = () => {
+    console.log('clicked')
+    setInsight(!insight);
+  }
 
   useEffect(() => {
     fetchLogs();
@@ -25,7 +33,7 @@ export default function Dashboard() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          apiKey: "04ffad9d-73ed-4d44-9e6a-3cbf2db31d2",
+          apiKey: "04ffad9d-73ed-4d44-9e6a-3cbf2db31d2b",
         }),
       });
       if (!response.ok) {
@@ -47,13 +55,14 @@ export default function Dashboard() {
     <>
       <Navbar />
       <div className="flex">
-        <Sidenav />
+        <Sidenav toggleInsight={toggleInsight} />
 
         <div className="border-l bg-stone-50 border-slate-300 w-full h-screen">
           {/* <div>Your logs</div> */}
           <h1 className="ml-20 mt-10 font-semibold text-2xl">Recent activity</h1>
-
-          {tableRows.length === 0 ? <DashTable /> : <DashTable />}
+          {insight ?
+          <ChartContainer /> : <DashTable />
+          }
           {/* <InputInstance setTableRows={setTableRows}/> */}
         </div>
       </div>

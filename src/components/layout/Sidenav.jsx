@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import data from "./MOCKdb.json";
 
-export default function Sidenav() {
+export default function Sidenav(props) {
   // const [supiciousLogs, setSuspiciousLogs] = useState([])
 
   // const renderLogs = suspiciousLogs.map(suspiciousLogs) => {
@@ -47,7 +47,7 @@ export default function Sidenav() {
             {queries}
           </ul>
         </details>
-        <h1 className="font-lg mb-2 text-slate-900 px-4 py-4 hover:bg-gray-100 hover:text-primary rounded-md w-full">
+        <h1 onClick={() => props.toggleInsight()} className="font-lg mb-2 text-slate-900 px-4 py-4 hover:bg-gray-100 hover:text-primary rounded-md w-full">
           <FontAwesomeIcon icon={faChartLine} /> Insights
         </h1>
         <a
