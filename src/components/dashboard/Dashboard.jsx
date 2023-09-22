@@ -15,6 +15,7 @@ export default function Dashboard() {
   const [apiKey, setApiKey] = useState("");
   const [tableRows, setTableRows] = useState([]);
   const [insight, setInsight] = useState(false);
+  const [instance, setInstance] = useState('')
 
   const toggleInsight = () => {
     console.log('clicked')
@@ -62,7 +63,7 @@ export default function Dashboard() {
           {/* <div>Your logs</div> */}
           <h1 className="ml-20 mt-10 font-semibold text-2xl">Recent activity</h1>
           {insight ?
-          <ChartContainer /> : <GridTable />
+          <ChartContainer instance={instance}/> : <GridTable instance={instance} setInstance={setInstance}/>
           }
           {/* <InputInstance setTableRows={setTableRows}/> */}
         </div>

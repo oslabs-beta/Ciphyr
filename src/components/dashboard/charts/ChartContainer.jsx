@@ -3,7 +3,7 @@ import LineChart from './LineChart.jsx';
 import BarChart from './BarChart.jsx';
 import PieChart from './PieChart.jsx';
 
-export default function ChartContainer() {
+export default function ChartContainer(props) {
   const [data, setData] = useState([])
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function ChartContainer() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          apiKey: "04ffad9d-73ed-4d44-9e6a-3cbf2db31d2b",
+          apiKey: props.instance,
         }),
       });
       if (!response.ok) {
