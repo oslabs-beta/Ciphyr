@@ -7,8 +7,6 @@ import {
   getPaginationRowModel,
   getFilteredRowModel,
 } from "@tanstack/react-table";
-import mData from "./REAL_MOCK.json";
-import FilterFunction from "./FilterFunction";
 import EmptyMessage from "../common/EmptyMessage";
 
 export default function DashTable(props) {
@@ -16,7 +14,17 @@ export default function DashTable(props) {
   const [columnFilters, setColumnFilters] = useState("");
   const [tableRows, setTableRows] = useState([]);
   const [instance, setInstance] = useState("");
+  const [cellValue, setCellValue] = useState('')
   //One time on load of page render the instances logs
+  const getCellValue = (cell) => {
+    //setCellValue(cell.value);
+    console.log(cell)
+    console.log('cell clicked');
+  }
+
+  const cellCheck = () => {
+    console.log(cellValue)
+  }
 
   useEffect(() => {
     fetchLogs();
@@ -135,10 +143,10 @@ export default function DashTable(props) {
 
   return (
     <>
-
       <div className="relative flex flex-col items-start mt-5 ml-5rem mr-8 w-2/3">
         <div className="">
           <div className="flex justify-between">
+
             <input
               className="border bg-white rounded-md px-2 py-1"
               type="text"
@@ -199,6 +207,7 @@ export default function DashTable(props) {
                   >
                     {row.getVisibleCells().map((cell) => (
                       <td
+                        onClick={() => console.log(cell.getValue)}
                         key={cell.id}
                         className="text-left px-4 py-4 border-r border-b border-gray-200 overflow-clip h-[20] cursor-pointer"
                       >
