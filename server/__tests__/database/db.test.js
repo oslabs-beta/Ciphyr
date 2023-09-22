@@ -66,20 +66,23 @@ const dropClientsTable = `DROP TABLE IF EXISTS test_clients;`;
 const dropInstancesTable = `DROP TABLE IF EXISTS test_instances;`;
 const dropLogsTable = `DROP TABLE IF EXISTS test_logs;`;
 
-describe("Database Tests", () => {
+describe("SQL Database connection and ability to create main tables", () => {
   beforeEach(async () => {
     const mockQuery = vi.spyOn(db, "query");
+  });
+  test("mock tables should be empty", async () => {
     await db.query(dropClientsTable);
-    await db.query(dropInstancesTable);
-    await db.query(dropLogsTable);
     const clientTableExists = await db.query(checkClientsTable);
-    const instancesTableExists = await db.query(checkInstanceTable);
-    const logsTableExists = await db.query(checkLogTable);
     expect(clientTableExists).toBeFalsy;
+    await db.query(dropInstancesTable);
+    const instancesTableExists = await db.query(checkInstanceTable);
+    expect(instancesTableExists).toBeFalsy;
+    await db.query(dropLogsTable);
+    const logsTableExists = await db.query(checkLogTable);
+    expect(logsTableExists).toBeFalsy;
   });
 
   test("should create a clients table", async () => {
-    const mockQuery = vi.spyOn(db, "query");
     try {
       await db.query(createClientsTable);
       expect(db.query).toHaveBeenCalledWith(createClientsTable);
@@ -89,7 +92,6 @@ describe("Database Tests", () => {
     }
   });
   test("should create an instances table", async () => {
-    const mockQuery = vi.spyOn(db, "query");
     try {
       await db.query(createInstancesTable);
       expect(db.query).toHaveBeenCalledWith(createInstancesTable);
@@ -99,7 +101,6 @@ describe("Database Tests", () => {
     }
   });
   test("should create a logs table", async () => {
-    const mockQuery = vi.spyOn(db, "query");
     try {
       await db.query(createLogsTable);
       expect(db.query).toHaveBeenCalledWith(createLogsTable);
