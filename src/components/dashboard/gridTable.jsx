@@ -1,18 +1,21 @@
 import {AgGridReact} from 'ag-grid-react'
 import 'ag-grid-community/styles/ag-grid.css';
-import 'ag-grid-community/styles/ag-theme-alpine.css';
+import 'ag-grid-community/styles/ag-theme-material.css';
 import { useState, useEffect, useMemo, useCallback} from 'react'
-import QueryModal from './QueryModal.jsx'
+import QueryModal from './QueryModal.jsx';
+import Dropdown from './Dropdown.jsx';
 
 
 export default function GridTable () {
   const [modal, toggleModal] = useState(false);
   const [rows, setRows] = useState('');
   const [raw, setRaw] = useState('')
+  const [instance, setInstance] = useState('')
+
 
   useEffect(() => {
     fetchLogs();
-  }, []);
+  }, [instance]);
 
   const fetchLogs = async () => {
     console.log("in try block");
@@ -23,7 +26,7 @@ export default function GridTable () {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          apiKey: "04ffad9d-73ed-4d44-9e6a-3cbf2db31d2b",
+          apiKey: instance,
         }),
       });
       if (!response.ok) {
@@ -72,8 +75,18 @@ export default function GridTable () {
   return (
     <>
     { modal && <QueryModal modal={modal} toggleModal={toggleModal} raw={raw} />}
+    <div className="flex justify-between">
+            <select
+              className="border bg-white rounded-md px-4 py-1 mr-4"
+              placeholder="Search by keywords"
+              value={instance}
+              onChange={(e) => setInstance(e.target.value)}
+            >
+              <Dropdown />
+            </select>
+          </div>
     <h1 className='font-semibold text-xl m-8' >Dashboard</h1>
-    <div className='ag-theme-alpine ml-8' style={{height: 500}}>
+    <div className='ag-theme-material ml-8' style={{height: 500, width: '100%'}}>
       <AgGridReact
         rowData={rows}
         columnDefs={columnDefs}

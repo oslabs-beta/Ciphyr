@@ -7,8 +7,6 @@ import {
   getPaginationRowModel,
   getFilteredRowModel,
 } from "@tanstack/react-table";
-import mData from "./REAL_MOCK.json";
-import FilterFunction from "./FilterFunction";
 import EmptyMessage from "../common/EmptyMessage";
 
 export default function DashTable(props) {
@@ -146,7 +144,6 @@ export default function DashTable(props) {
   return (
     <>
       <div className="relative flex flex-col items-start mt-5 ml-5rem mr-8 w-2/3">
-      <button onClick={cellCheck} className='bg-blue-400 p-4 rounded-md text-white'>cell check</button>
         <div className="">
           <div className="flex justify-between">
 
