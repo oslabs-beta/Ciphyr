@@ -6,16 +6,15 @@ import QueryModal from './QueryModal.jsx';
 import Dropdown from './Dropdown.jsx';
 
 
-export default function GridTable () {
+export default function GridTable (props) {
   const [modal, toggleModal] = useState(false);
   const [rows, setRows] = useState('');
   const [raw, setRaw] = useState('')
-  const [instance, setInstance] = useState('')
 
 
   useEffect(() => {
     fetchLogs();
-  }, [instance]);
+  }, [props.instance]);
 
   const fetchLogs = async () => {
     console.log("in try block");
@@ -26,7 +25,7 @@ export default function GridTable () {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          apiKey: instance,
+          apiKey: props.instance,
         }),
       });
       if (!response.ok) {
@@ -79,8 +78,8 @@ export default function GridTable () {
             <select
               className="border bg-white rounded-md px-4 py-1 mr-4"
               placeholder="Search by keywords"
-              value={instance}
-              onChange={(e) => setInstance(e.target.value)}
+              value={props.instance}
+              onChange={(e) => props.setInstance(e.target.value)}
             >
               <Dropdown />
             </select>
