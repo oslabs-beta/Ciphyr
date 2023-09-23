@@ -5,14 +5,11 @@ const crypto = require('crypto');
 const instanceController = {};
 
 instanceController.verifyToken = async (req, res, next) => {
-  // const authHeader = req.headers['authorization']
-  // const token = authHeader && authHeader.split(' ')[1]
-  // if (token == null) return res.sendStatus(401)
+
 
   const jwtToken = req.cookies.token;
   jwt.verify(jwtToken, process.env.TOKEN_SECRET, (err, user) => {
 
-    // how to use the status code properly?
     if (err) return res.sendStatus(403)
 
     res.locals.client = user;
@@ -42,11 +39,10 @@ instanceController.createInstance = async (req, res, next) => {
     }
     const id = res.locals.client.client_id;
     const apiKey = crypto.randomUUID();
-    //const hashedToken = await bcrypt.hash(token, salt)
     const instanceQuery = `INSERT INTO instance (label, api_key, client_id) VALUES ( '${label}', '${apiKey}','${id}')`;
     const newInstance = await db.query(instanceQuery);
+    // send back api key to user once after creation
     res.locals.instance = { message: 'New instance created', apiKey: apiKey};
-    // add: send back the api key when created
     return next();
   }
 
@@ -57,9 +53,9 @@ instanceController.createInstance = async (req, res, next) => {
 
 instanceController.getInstances = async (req, res, next) => {
   const jwtToken = req.cookies.token;
+  // retrieve instances based the clien_id in JWT token
   jwt.verify(jwtToken, process.env.TOKEN_SECRET, async (err, user) => {
 
-    // how to use the status code properly?
     if (err) return res.sendStatus(403)
 
     const instanceQuery = `SELECT * FROM instance WHERE client_id = '${user.client_id}';`

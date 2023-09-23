@@ -1,12 +1,9 @@
-
-
 export default function QueryModal(props) {
 
 
   return (
     <>
     <div></div>
-        {/* <div className='fixed w-screen h-screen bg-slate-500 opacity-50'></div> */}
       <div className='absolute inset-0 flex justify-center items-center z-10'>
         <div className='border bg-white flex flex-col p-8 rounded-md shadow-lg'>
           <h1 className='font-semibold text-lg w-96 mb-5'>Query</h1>
