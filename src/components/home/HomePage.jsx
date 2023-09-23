@@ -82,7 +82,27 @@ export default function Homepage() {
         )}
       </div>
       <div className="bg-gradient-to-t from-custom-start to-custom-end  h-screen flex flex-auto">
-        
+        <span className="border-l border-slate-300 w-full flex flex-col items-center">
+          <div className="flex flex-col items-center my-10 w-1/2">
+            <div className="text-slate-200 bg-slate-700 rounded-full text-lg drop-shadow-md px-6 py-2 my-4 ">
+              {currentDate()}
+            </div>
+            <div className="text-slate-700">
+              <h1 className="text-3xl text-slate-800 drop-shadow-sm mt-4">{introMessage()} </h1>
+            </div>
+          </div>
+          <main className="flex flex-2 flex-col items-center my-8">
+            <div className="shadow p-4 bg-white rounded-lg w-2/3">
+              <ConnectionKeysCard />
+              <div>
+                <InstanceTable />
+              </div>
+              <div>
+                <CreateInstance toggleModal={toggleModal} />
+              </div>
+            </div>
+          </main>
+        </span>
       </div>
     </>
   );
