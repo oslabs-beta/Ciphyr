@@ -62,7 +62,8 @@ export default function GridTable (props) {
   return (
     <>
     { modal && <QueryModal modal={modal} toggleModal={toggleModal} raw={raw} />}
-    <div className="flex justify-between">
+    <h1 className="ml-20 mt-10 font-semibold text-2xl">Recent activity</h1>
+    <div className="flex justify-end mb-3">
             <select
               className="border bg-white rounded-md px-4 py-1 mr-4"
               placeholder="Search by keywords"
@@ -71,8 +72,7 @@ export default function GridTable (props) {
             >
               <Dropdown />
             </select>
-          </div>
-    <h1 className='font-semibold text-xl m-8' >Dashboard</h1>
+     </div>
     <div className='ag-theme-material ml-8' style={{height: 500, width: '100%'}}>
       <AgGridReact
         rowData={rows}
