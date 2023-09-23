@@ -29,7 +29,9 @@ oauthController.getAccessToken = async (req, res, next) => {
 
 oauthController.getUserData = async (req, res, next) => {
   const accessToken = res.locals.accessToken.access_token;
+  console.log('in oauthController.getUserData')
   try {
+    console.log('entered getUserData try block')
     const response = await fetch('https://api.github.com/user', {
       method: 'GET',
       headers: {
