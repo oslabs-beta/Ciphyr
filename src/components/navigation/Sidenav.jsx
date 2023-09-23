@@ -11,6 +11,14 @@ import { useState } from "react";
 
 export default function Sidenav(props) {
 
+  const insights = () => {
+    if (props.instance === '') {
+      alert('Please choose an instance')
+    } else {
+      props.toggleInsight()
+    }
+
+  }
 
 /** WORK IN PROGRESS - suspicious queries component
  * remember to import at the top --> import data from './MOCKdb.json'
@@ -52,7 +60,7 @@ export default function Sidenav(props) {
         <h1 onClick={() => props.toggleLogs()} className="font-lg mb-4 px-1 py-1 text-slate-900  hover:bg-gray-100 hover:text-primary rounded-md w-full cursor-pointer">
         <FontAwesomeIcon icon={faTableList} /> Logs
         </h1>
-        <h1 onClick={() => props.toggleInsight()} className="font-lg mb-4 px-1 py-1 text-slate-900  hover:bg-gray-100 hover:text-primary rounded-md w-full cursor-pointer">
+        <h1 onClick={insights} className="font-lg mb-4 px-1 py-1 text-slate-900  hover:bg-gray-100 hover:text-primary rounded-md w-full cursor-pointer">
           <FontAwesomeIcon icon={faChartLine} /> Insights
         </h1>
         <a
