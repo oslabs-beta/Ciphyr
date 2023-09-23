@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faChartLine } from "@fortawesome/free-solid-svg-icons";
 import { faFileLines } from "@fortawesome/free-regular-svg-icons";
+import { faTableList } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
 
@@ -36,7 +37,7 @@ export default function Sidenav(props) {
 
 
   return (
-    <nav className="flex flex-col px-10 w-20rem h-screen">
+    <nav className="flex flex-col px-10 w-56 h-screen">
       <div className="border-slate-400 mt-10 py-3 flex flex-col items-start">
         <h1 className="text-md w-full mb-5 text-slate border-b pb-3">Data</h1>
         {/* <details className="mb-5 px-4 py-2 hover:bg-gray-100 hover:font-semibold rounded-md">
@@ -48,17 +49,20 @@ export default function Sidenav(props) {
             {queries}
           </ul>
         </details> */}
-        <h1 onClick={() => props.toggleInsight()} className="font-lg mb-2 text-slate-900 px-4 py-4 hover:bg-gray-100 hover:text-primary rounded-md w-full">
+        <h1 onClick={() => props.toggleLogs()} className="font-lg mb-4 px-1 py-1 text-slate-900  hover:bg-gray-100 hover:text-primary rounded-md w-full cursor-pointer">
+        <FontAwesomeIcon icon={faTableList} /> Logs
+        </h1>
+        <h1 onClick={() => props.toggleInsight()} className="font-lg mb-4 px-1 py-1 text-slate-900  hover:bg-gray-100 hover:text-primary rounded-md w-full cursor-pointer">
           <FontAwesomeIcon icon={faChartLine} /> Insights
         </h1>
         <a
-          className="font-lg mb-2 text-slate-900 px-4 py-4 hover:bg-gray-100 hover:text-primary  rounded-md w-full"
+          className="font-lg mb-4 px-1 py-1 text-slate-900 hover:bg-gray-100 hover:text-primary  rounded-md w-full"
           href="https://excalidraw.com/#room=dbe379f1b41fb715af36,kbu-9fyp1LDuPpKJNTyf4g"
           target="_blank"
         >
-          <FontAwesomeIcon icon={faFileLines} /> Documentation
+          <FontAwesomeIcon icon={faFileLines} /> Docs
         </a>
-        <h1 className="font-lg mb-2 text-slate-900 px-4 py-4 hover:bg-gray-100 hover:text-primary rounded-md w-full">
+        <h1 className="font-lg px-1 py-1 mb-4 text-slate-900  hover:bg-gray-100 hover:text-primary rounded-md w-full">
           More
         </h1>
       </div>
