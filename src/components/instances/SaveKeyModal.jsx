@@ -1,3 +1,7 @@
+/**
+ * File name: SaveKeyModal
+ * Purpose: This file informs users to save their instance key somewhere safe. In addition, it suggests user's to copy the instance key
+ */
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy } from '@fortawesome/free-regular-svg-icons';
 

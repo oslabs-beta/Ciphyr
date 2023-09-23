@@ -39,18 +39,6 @@ export default function GridTable (props) {
     }
   };
 
-  const rowData = [
-    {Time: '2023', Name: 'QueryTest', Type: 'Mutation', Depth: '3', Latency: '4', QueryLog: '{query{hello}}'},
-    {Time: '2023', Name: 'QueryTest', Type: 'Mutation', Depth: '3', Latency: '4', QueryLog: '{query{hello}}'},
-    {Time: '2023', Name: 'QueryTest', Type: 'Mutation', Depth: '3', Latency: '4', QueryLog: '{query{hello}}'},
-    {Time: '2023', Name: 'QueryTest', Type: 'Mutation', Depth: '3', Latency: '4', QueryLog: '{query{hello}}'},
-    {Time: '2023', Name: 'QueryTest', Type: 'Mutation', Depth: '3', Latency: '4', QueryLog: '{query{hello}}'},
-    {Time: '2023', Name: 'QueryTest', Type: 'Mutation', Depth: '3', Latency: '4', QueryLog: '{query{hello}}'},
-    {Time: '2023', Name: 'QueryTest', Type: 'Mutation', Depth: '3', Latency: '4', QueryLog: '{query{hello}}'},
-    {Time: '2023', Name: 'QueryTest', Type: 'Mutation', Depth: '3', Latency: '4', QueryLog: '{query{hello}}'},
-    {Time: '2023', Name: 'QueryTest', Type: 'Mutation', Depth: '3', Latency: '4', QueryLog: '{query{hello}}'},
-  ]
-
   const columnDefs = [
     {field: 'timestamp'},
     {field: 'query_name'},

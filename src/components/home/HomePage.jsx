@@ -1,9 +1,9 @@
-import InstanceTable from "./InstanceTable.jsx";
-import CreateInstance from "./CreateInstance.jsx";
-import NavBar from "../layout/Navbar.jsx";
-import Sidenav from "../layout/Sidenav";
-import InstanceModal from './InstanceModal'
-import ApiModal from './ApiModal'
+import InstanceTable from "../instances/InstanceTable.jsx";
+import CreateInstance from "../instances/CreateInstance.jsx";
+import NavBar from "../navigation/Navbar.jsx";
+import Sidenav from "../navigation/Sidenav";
+import CreateKeyModal from '../instances/CreateKeyModal'
+import SaveKeyModal from '../instances/SaveKeyModal'
 import { useState } from 'react'
 
 export default function Homepage() {
@@ -24,8 +24,8 @@ export default function Homepage() {
     <>
       <NavBar />
       <div>
-        { modal ? <InstanceModal setApiKey={setApiKey} toggleAPI={toggleAPI} toggleModal={toggleModal}/> : '' }
-        { API ? <ApiModal apiKey={apiKey} setApiKey={setApiKey} toggleAPI={toggleAPI} /> : '' }
+        { modal ? <CreateKeyModal setApiKey={setApiKey} toggleAPI={toggleAPI} toggleModal={toggleModal}/> : '' }
+        { API ? <SaveKeyModal apiKey={apiKey} setApiKey={setApiKey} toggleAPI={toggleAPI} /> : '' }
       </div>
       <div className="bg-gradient-to-t from-custom-start to-custom-end  h-screen flex flex-auto">
         <span className ="border-l border-slate-300 w-full">

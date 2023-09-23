@@ -49,7 +49,7 @@ const data = [
 export default function Barchart() {
 
     return (
-      <div className='border border-2 rounded-md shadow p-5 w-1/2 ml-8 mt-3 bg-white'>
+      <div className='border-2 rounded-md shadow p-5 w-1/2 ml-8 mt-3 bg-white'>
          <h1 className='font-semibold'>Errors</h1>
         <BarChart
           width={500}

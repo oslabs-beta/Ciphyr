@@ -17,11 +17,12 @@ userController.signup = async (req, res, next) => {
     }
     let hashedPassword = await bcrypt.hash(password, salt);
 
+    // select entered email and username from database to check duplicates
     const usernameQuery = `SELECT * FROM clients WHERE username = '${username}'`;
     const emailQuery = `SELECT * FROM clients WHERE email = '${email}';`;
     const usernameResult = await db.query(usernameQuery);
     const emailResult = await db.query(emailQuery);
- 
+
     if (emailResult.row) {
       res.locals.newClient = { message: 'Email already in use' };
     } else if (usernameResult.row) {
@@ -50,10 +51,10 @@ userController.login = async (req, res, next) => {
     const verified = await bcrypt.compare(password, passwordResult.rows[0].password);
 
     if (!verified) {
-      res.locals.result = {verified: verified, message: "You do not have access, please try again"}
+      res.locals.result = {verified: verified, message: "Incorrect information entered"}
     } else {
+      // After successful login, store client id in httpOnly cookie to prevent access from DOM action
       const jwtToken = jwt.sign({client_id: clientID}, process.env.TOKEN_SECRET);
-      
       res.cookie('token', jwtToken, { httpOnly: true, secure: true });
       res.locals.result = {verified: verified, message: "login successfully"}
     }

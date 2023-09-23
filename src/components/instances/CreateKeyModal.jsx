@@ -1,3 +1,7 @@
+/**
+ * File name: CreateKeyModal
+ * Purpose: Prompts users to enter a name for their new instance. This is the modal that appears after users click on create instance button
+ */
 import { useState } from 'react';
 
 export default function InstanceModal(props) {
