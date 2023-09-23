@@ -9,7 +9,6 @@ export default function InputInstance(props) {
   };
 
 
-
   const postInstance = async () => {
     try {
       const data = await fetch(`/api/user/login/${instance}`, {
@@ -24,7 +23,7 @@ export default function InputInstance(props) {
       console.log(err)
     }
   }
-  // flex-auto, flex-1, flex
+
   return (
       <div className="flex flex-auto justify-center items-center h-screen">
         <div className="border">

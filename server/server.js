@@ -1,11 +1,12 @@
 const express = require("express");
 const port = process.env.PORT || 3000;
 const app = express();
-const userRouter = require("./routes/userRouter");
-const instanceRouter = require("./routes/instanceRouter");
-const logRouter = require("./routes/logRouter");
-const cookieParser = require("cookie-parser");
-const cors = require("cors");
+const userRouter = require('./routes/userRouter');
+const instanceRouter = require('./routes/instanceRouter')
+const logRouter = require('./routes/logRouter');
+const oauthRouter = require('./routes/oauthRouter')
+const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 app.use(express.json());
 app.use(cookieParser());
@@ -22,9 +23,10 @@ app.use(
   }
 );
 
-app.use("/api/user", userRouter);
-app.use("/api/instance", instanceRouter);
-app.use("/api/log", logRouter);
+app.use('/api/user', userRouter);
+app.use('/api/instance', instanceRouter);
+app.use('/api/log', logRouter);
+app.use('/api/github', oauthRouter)
 
 app.use("*", (req, res) => res.status(404).send("Not Found"));
 
