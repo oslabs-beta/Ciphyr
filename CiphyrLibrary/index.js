@@ -5,6 +5,7 @@ dotenv.config();
 
 const ciphyr = {};
 
+// Plugin methods
 ciphyr.myPlugin = {
   async serverWillStart() {
     try {
@@ -17,10 +18,13 @@ ciphyr.myPlugin = {
 
   async requestDidStart(context) {
     try {
+      // Call the function to set start time
       ciphyr.getStartTime();
+      // Return an object containing the willSendResponse function
       return {
         async willSendResponse(requestContext) {
           try {
+            // Call the function to convert the response
             ciphyr.convertStr(requestContext);
           } catch (err) {
             throw new Error("Conversion failed: " + err.message);
@@ -99,3 +103,5 @@ ciphyr.savingQuery = async (result) => {
     console.log(err);
   }
 };
+
+module.exports = ciphyr;
