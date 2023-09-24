@@ -34,10 +34,10 @@ export default function Sidenav(props) {
  */
 
   return (
-    <nav className="flex flex-col pl-6 pr-4 w-60 h-full ">
+    <nav className="flex flex-col pl-6 pr-4 w-60">
       <div className="flex flex-col justify-end">
         <div className="border-slate-400 mt-4 py-3 flex flex-col items-start">
-          <h1 className="text-md w-full mb-5 text-slate border-b pb-3">
+          <h1 className="text-xl w-full mb-5 text-slate border-b pb-3 font-semibold">
             Your Dashboard
           </h1>
           {/* <details className="mb-5 px-4 py-2 hover:bg-gray-100 hover:font-semibold rounded-md">
@@ -53,19 +53,21 @@ export default function Sidenav(props) {
             onClick={() => props.toggleLogs()}
             className="font-lg mb-4 px-1 py-1 text-slate-900  hover:bg-gray-100 hover:text-primary rounded-md w-full cursor-pointer"
           >
-            <FontAwesomeIcon icon={faTableList} /> Logs
+            <FontAwesomeIcon icon={faTableList} />{" "}
+            <span className="pl-2"> Main Table </span>
           </div>
           <div
             onClick={() => props.toggleInsight()}
             className="font-lg mb-4 px-1 py-1 text-slate-900 hover:bg-gray-100 hover:text-primary rounded-md w-full cursor-pointer"
           >
-            <FontAwesomeIcon icon={faChartLine} /> Insights
+            <FontAwesomeIcon icon={faChartLine} />{" "}
+            <span className="pl-2"> Insights </span>
           </div>
         </div>
       </div>
-      <div className="flex flex-col">
-        <div className="border mt-10 py-3 flex flex-col items-start">
-          <div className="font-lg mb-4 py-1 text-slate-900 hover:bg-gray-100 hover:text-primary rounded-md w-full cursor-pointer">
+      <div className="flex flex-col mt-auto py-3 flex flex-col items-start mb-10 border-t">
+        <div className="">
+          <div className="font-lg  border-slate-600 mb-4 py-1 text-slate-900 hover:text-sky-700  w-full cursor-pointer">
             <a
               href="https://excalidraw.com/#room=dbe379f1b41fb715af36,kbu-9fyp1LDuPpKJNTyf4g"
               target="_blank"
@@ -74,7 +76,7 @@ export default function Sidenav(props) {
               <span className="pl-2"> Documentation </span>
             </a>
           </div>
-          <div className="font-lg py-1 mb-4 text-slate-900  hover:bg-gray-100 hover:text-primary rounded-md w-full">
+          <div className="font-lg py-1 mb-4 text-slate-900  hover:text-sky-700 rounded-md w-full  cursor-pointer">
             <FontAwesomeIcon icon={faCircleQuestion} />{" "}
             <span className="pl-2"> Feedback </span>
           </div>

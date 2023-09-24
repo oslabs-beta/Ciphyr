@@ -35,7 +35,7 @@ export default function ChartContainer(props) {
 
   return (
     <>
-      <h1 className="ml-20 mt-10 font-semibold text-2xl">Insights</h1>
+      <h1 className="ml-10 mt-10 font-light text-2xl">Insights</h1>{" "}
       <div className="h-3/4 overflow-scroll mt-5">
         <LineChart queryData={data} />
         <div className="flex">
