@@ -31,7 +31,11 @@ export default function ConnectionKeysCard() {
             <div className="mt-5 ">
               {`For detailed guidance, refer to our`}&nbsp;
               <span>
-                <a className="underline hover:text-sky-900" href="https://github.com/oslabs-beta/Ciphyr" target="_blank">
+                <a
+                  className="underline hover:text-sky-900"
+                  href="https://github.com/oslabs-beta/Ciphyr"
+                  target="_blank"
+                >
                   documentation
                 </a>
               </span>
@@ -66,10 +70,12 @@ export default function ConnectionKeysCard() {
                 not display your secret API keys again after you generate them
               </p>
               <p className="mt-5">
-                Do not share your connection key with others, or expose it in
-                the browser or other client-side code. In order to protect the
-                security of your account, Ciphyr may also automatically disable
-                any connection key that we have found has leaked publicly.
+                Please ensure to keep your instance keys confidential and
+                refrain from sharing or exposing them within your application's
+                code or the browser. To bolster the security of your account,
+                Ciphyr may automatically disable any leaked or publicly exposed
+                instance keys, prioritizing the safety of your data and
+                connections.
               </p>
             </div>
           </div>
