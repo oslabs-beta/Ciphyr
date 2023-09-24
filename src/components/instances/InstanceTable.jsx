@@ -18,19 +18,10 @@ export default function InstanceTable() {
     getData();
   }, []);
 
-  // const tableData = [
-  //   { name: "Secret key", apiKey: "sk-...yZDhr", created: "Aug 19, 2023" },
-  //   { name: "Secret key", apiKey: "sk-...yZDhr", created: "Aug 19, 2023" },
-  //   { name: "Secret key", apiKey: "sk-...yZDhr", created: "Aug 19, 2023" },
-  //   { name: "Secret key", apiKey: "sk-...yZDhr", created: "Aug 19, 2023" },
-  //   { name: "Secret key", apiKey: "sk-...yZDhr", created: "Aug 19, 2023" },
-  //   { name: "Secret key", apiKey: "sk-...yZDhr", created: "Aug 19, 2023" },
-  // ];
-
   return (
     <>
       {data.length === 0 ? (
-        <EmptyInstanceMessage />
+        <> </>
       ) : (
         <div className='h-56 bg-white overflow-scroll'>
           <table className='table-auto w-full'>

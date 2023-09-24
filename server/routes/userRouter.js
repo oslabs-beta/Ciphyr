@@ -18,4 +18,8 @@ router.get('/logout', (req, res) => {
   return res.status(202).clearCookie('token').send('Logged out successfully');
 });
 
+router.get('/getUserInfo', userController.getUserInfo, (req, res) => {
+  return res.status(200).json(res.locals.userInfo); 
+})
+
 module.exports = router;

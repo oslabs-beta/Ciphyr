@@ -18,9 +18,6 @@ export default function EmptyInstanceMessage() {
         <LoadingScreen />
       ) : (
         <div>
-          <p className="text-slate-600 py-10 my-10">
-            No data available. Get started by creating an instance below{" "}
-          </p>
         </div>
       )}
     </div>

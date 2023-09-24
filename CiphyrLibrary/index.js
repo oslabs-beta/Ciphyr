@@ -1,28 +1,41 @@
-import gql from 'graphql-tag';
-import db from './PSQL.js';
-import dotenv from 'dotenv';
+import gql from "graphql-tag";
+import db from "./PSQL.js";
+import dotenv from "dotenv";
 dotenv.config();
-
-const ciphyrPlugin = {
-  async serverWillStart() {
-    const ciphyr = require('./ciphyr');
-    console.log('Ciphyr starting up!');
-  },
-  async requestDidStart() {
-    ciphyr.getStartTime();
-    return {
-      async willSendResponse(requestContext) {
-        ciphyr.convertStr(requestContext);
-      },
-    };
-  },
-};
 
 const ciphyr = {};
 
-// class ciphyr {
-//   constructor(query)
-// };
+// Plugin methods
+ciphyr.myPlugin = {
+  async serverWillStart() {
+    try {
+      console.log("Ciphyr starting up!");
+      // Additional logic related to server startup can go here
+    } catch (error) {
+      throw new Error("Error during server startup: " + error.message);
+    }
+  },
+
+  async requestDidStart(context) {
+    try {
+      // Call the function to set start time
+      ciphyr.getStartTime();
+      // Return an object containing the willSendResponse function
+      return {
+        async willSendResponse(requestContext) {
+          try {
+            // Call the function to convert the response
+            ciphyr.convertStr(requestContext);
+          } catch (err) {
+            throw new Error("Conversion failed: " + err.message);
+          }
+        },
+      };
+    } catch (err) {
+      throw new Error("Request did not start: " + err.message);
+    }
+  },
+};
 
 ciphyr.getStartTime = () => {
   ciphyr.startTime = Date.now();
@@ -34,12 +47,12 @@ ciphyr.convertStr = async (query) => {
     let count = 0;
 
     for (let i = 0; i < str.length; i++) {
-      if (str[i] === '{') {
+      if (str[i] === "{") {
         count++;
         if (count > max) {
           max = count;
         }
-      } else if (str[i] === '}') {
+      } else if (str[i] === "}") {
         count--;
       }
     }
@@ -61,10 +74,10 @@ ciphyr.convertStr = async (query) => {
   result.queryName = definitions[0].name.value;
   //query string
   result.queryString = queryString
-    .replace(/ /g, '')
-    .replace(/\s+/g, '')
-    .replace(`${result.operation}`, '')
-    .replace(`${result.queryName}`, '');
+    .replace(/ /g, "")
+    .replace(/\s+/g, "")
+    .replace(`${result.operation}`, "")
+    .replace(`${result.queryName}`, "");
   //query string structure
   result.raw = queryString;
   //depth of query
@@ -72,7 +85,7 @@ ciphyr.convertStr = async (query) => {
   //latency of query
   result.latency = Date.now() - ciphyr.startTime;
 
-  console.log('result', result);
+  console.log("result", result);
 
   ciphyr.savingQuery(result);
 };
@@ -90,3 +103,5 @@ ciphyr.savingQuery = async (result) => {
     console.log(err);
   }
 };
+
+module.exports = ciphyr;
