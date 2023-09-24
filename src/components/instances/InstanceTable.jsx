@@ -21,7 +21,7 @@ export default function InstaceTable() {
   return (
     <>
       {data.length === 0 ? (
-        <EmptyInstanceMessage />
+        <> </>
       ) : (
         <div className="h-56 bg-white overflow-scroll">
           <table className="table-auto w-full">

@@ -22,18 +22,22 @@ export default function ConnectionKeysCard() {
             Read me 👋🏼
           </div>
           <div className="mt-6 mx-4 mb-5 text-slate-600 text-lg">
-            <p>
+            <p className="mt-5 ">
               Welcome to Ciphyr! We're thrilled to introduce you to our
               lightweight middleware SDK designed to cater to your GraphQL
               security monitoring needs. If you haven't already, ensure that
-              Ciphyr is properly installed within your application. For detailed
-              guidance, refer to our documentation, or don't hesitate to reach
-              out if you have any questions or concerns.
+              Ciphyr is properly installed within your application.
             </p>
-            <p className="mt-5">
-              For detailed guidance, refer to our documentation, or don't
-              hesitate to reach out if you have any questions or concerns.
-            </p>
+            <div className="mt-5 ">
+              {`For detailed guidance, refer to our`}&nbsp;
+              <span>
+                <a className="underline hover:text-sky-900" href="https://github.com/oslabs-beta/Ciphyr" target="_blank">
+                  documentation
+                </a>
+              </span>
+              , or don't hesitate to reach out if you have any questions or
+              concerns.
+            </div>
             <p className="mt-5">
               Once you create your first instance, you'll be able to view and
               manage your instances in the table below. We're eager for you to
@@ -53,7 +57,7 @@ export default function ConnectionKeysCard() {
       ) : (
         <div>
           <div className="text-4xl mx-4 my-2 subpixel-antialiased font-semibold">
-            Connection Keys
+            Connection Keys 🔐
           </div>
           <div>
             <div className="mt-5 mb-5 text-slate-600">
