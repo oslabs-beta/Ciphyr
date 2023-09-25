@@ -12,21 +12,21 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 
-const oauthController = require("./controllers/oauthController.js");
+// const oauthController = require("./controllers/oauthController.js");
 
-app.use(
-  "/api/getAccessToken",
-  oauthController.getAccessToken,
-  oauthController.getUserData,
-  (req, res) => {
-    return res.status(200).redirect("/");
-  }
-);
+// app.use(
+//   "/api/getAccessToken",
+//   oauthController.getAccessToken,
+//   oauthController.getUserData,
+//   (req, res) => {
+//     return res.status(200).redirect("/");
+//   }
+// );
 
 app.use('/api/user', userRouter);
 app.use('/api/instance', instanceRouter);
 app.use('/api/log', logRouter);
-app.use('/api/github', oauthRouter)
+//app.use('/api/github', oauthRouter)
 
 app.use("*", (req, res) => res.status(404).send("Not Found"));
 
