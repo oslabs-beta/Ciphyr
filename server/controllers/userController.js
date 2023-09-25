@@ -47,11 +47,12 @@ userController.login = async (req, res, next) => {
   try {
     // input takes username or email
     const { input, password } = req.body;
-    const passwordQuery = `SELECT client_id, password FROM clients WHERE username = '${input}' OR email = '${input}';`;
+    const passwordQuery = `SELECT client_id, username, password FROM clients WHERE username = '${input}' OR email = '${input}';`;
     const passwordResult = await db.query(passwordQuery);
     
     // need to check if passwordResult.rows[0] is defined? if not, return username/email does not exist
     const clientID = passwordResult.rows[0].client_id;
+    const username = passwordResult.rows[0].username;
 
     const verified = await bcrypt.compare(
       password,
@@ -70,6 +71,8 @@ userController.login = async (req, res, next) => {
         process.env.TOKEN_SECRET
       );
       res.cookie("token", jwtToken, { httpOnly: true, secure: true });
+      // username is less sensitive (public info)? So it's saved directly in cookie for verification
+      res.cookie("username", username, { httpOnly: true, secure: true });
       res.locals.result = { verified: verified, message: "login successfully" };
 
       // update last_login time
@@ -93,8 +96,6 @@ userController.getUserInfo = async (req, res, next) => {
       const userQuery = `SELECT username FROM clients WHERE client_id = '${user.client_id}';`;
       const userResult = await db.query(userQuery);
       const username = userResult.rows[0].username
-      // save username in the cookie to reduce JWT verification for session
-      res.cookie("username", username, { httpOnly: true, secure: true });
       res.locals.userInfo = username;
       return next();
     });

@@ -12,6 +12,8 @@ export default function Homepage() {
   const [API, setAPI] = useState(false);
   const [apiKey, setApiKey] = useState("");
   const [user, setUser] = useState("");
+  const [count, setCount] = useState(0);
+
   const toggleModal = () => {
     setModal(!modal);
   };
@@ -32,19 +34,23 @@ export default function Homepage() {
   const introMessage = () => {
     const now = new Date();
     const hour = now.getHours();
+    let message = '';
     console.log(now.getHours());
     console.log(Intl.DateTimeFormat().resolvedOptions().timeZone);
     if (hour > 3 && hour < 5) {
-      return `Up early, or working late?`;
+      message = `Up early, or working late?`;
     } else if (hour >= 5 && hour < 12) {
-      return `Good morning, ${user}`;
+      message = `Good morning, ${user}`;
     } else if (hour >= 12 && hour < 16) {
-      return `Good afternoon, ${user}`;
+      message = `Good afternoon, ${user}`;
     } else if (hour >= 16 && hour < 21) {
-      return `Good evening, ${user}`;
+      message = `Good evening, ${user}`;
     } else {
-      return `We hope you're enjoying, Ciphyr`;
+      message = `We hope you're enjoying, Ciphyr`;
     }
+    message += `\n Since you left, we've recorded ${count} query logs`
+
+    return message;
   };
 
   const getUsername = async () => {
@@ -54,9 +60,19 @@ export default function Homepage() {
     setUser(result);
   };
 
+  const getLogCount = async () => {
+    const response = await fetch('/api/log/getLogCount');
+    const result = await response.json();
+    console.log("countttt", result.count)
+    setCount(result.count);
+  }
+
   useEffect(() => {
     getUsername();
+    getLogCount();
   }, []);
+
+
 
   return (
     <>
