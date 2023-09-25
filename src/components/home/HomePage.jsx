@@ -48,7 +48,6 @@ export default function Homepage() {
     } else {
       message = `We hope you're enjoying, Ciphyr`;
     }
-    message += `\n Since you left, we've recorded ${count} query logs`
 
     return message;
   };
@@ -105,6 +104,9 @@ export default function Homepage() {
             </div>
             <div className="text-slate-700">
               <h1 className="text-3xl text-slate-800 drop-shadow-sm mt-4">{introMessage()} </h1>
+            </div>
+            <div className="text-slate-700">
+              <h1 className="text-3xl text-slate-800 drop-shadow-sm mt-4">Since you left, we've recorded {count} query logs </h1>
             </div>
           </div>
           <main className="flex flex-2 flex-col items-center my-8">
