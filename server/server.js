@@ -4,7 +4,7 @@ const app = express();
 const userRouter = require('./routes/userRouter');
 const instanceRouter = require('./routes/instanceRouter')
 const logRouter = require('./routes/logRouter');
-const oauthRouter = require('./routes/oauthRouter')
+//const oauthRouter = require('./routes/oauthRouter')
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
