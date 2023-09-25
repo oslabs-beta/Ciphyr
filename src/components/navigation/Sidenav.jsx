@@ -4,12 +4,14 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faChartLine } from "@fortawesome/free-solid-svg-icons";
 import { faFileLines } from "@fortawesome/free-regular-svg-icons";
 import { faTableList } from "@fortawesome/free-solid-svg-icons";
+import { faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
 import { useNavigate } from "react-router-dom";
-
 
 import { useState } from "react";
 
 export default function Sidenav(props) {
+  
+  /** WORK IN PROGRESS - suspicious queries component
 
   const insights = () => {
     if (props.instance === '') {
@@ -21,6 +23,7 @@ export default function Sidenav(props) {
   }
 
 /** WORK IN PROGRESS - suspicious queries component
+
  * remember to import at the top --> import data from './MOCKdb.json'
  *  const [supiciousLogs, setSuspiciousLogs] = useState([])
 
@@ -43,12 +46,14 @@ export default function Sidenav(props) {
 
  */
 
-
   return (
-    <nav className="flex flex-col px-10 w-56 h-screen">
-      <div className="border-slate-400 mt-10 py-3 flex flex-col items-start">
-        <h1 className="text-md w-full mb-5 text-slate border-b pb-3">Data</h1>
-        {/* <details className="mb-5 px-4 py-2 hover:bg-gray-100 hover:font-semibold rounded-md">
+    <nav className="flex flex-col pl-6 pr-4 w-60">
+      <div className="flex flex-col justify-end">
+        <div className="border-slate-400 mt-4 py-3 flex flex-col items-start">
+          <h1 className="text-xl w-full mb-5 text-slate border-b pb-3 font-semibold">
+            Your Dashboard
+          </h1>
+          {/* <details className="mb-5 px-4 py-2 hover:bg-gray-100 hover:font-semibold rounded-md">
           <summary className="m-1 btn text-slate-700 hover:text-primary list-none cursor-pointer">
             <FontAwesomeIcon className="mr-2 " icon={faEye} />
             Suspicious Queries
@@ -57,22 +62,38 @@ export default function Sidenav(props) {
             {queries}
           </ul>
         </details> */}
-        <h1 onClick={() => props.toggleLogs()} className="font-lg mb-4 px-1 py-1 text-slate-900  hover:bg-gray-100 hover:text-primary rounded-md w-full cursor-pointer">
-        <FontAwesomeIcon icon={faTableList} /> Logs
-        </h1>
-        <h1 onClick={insights} className="font-lg mb-4 px-1 py-1 text-slate-900  hover:bg-gray-100 hover:text-primary rounded-md w-full cursor-pointer">
-          <FontAwesomeIcon icon={faChartLine} /> Insights
-        </h1>
-        <a
-          className="font-lg mb-4 px-1 py-1 text-slate-900 hover:bg-gray-100 hover:text-primary  rounded-md w-full"
-          href="https://excalidraw.com/#room=dbe379f1b41fb715af36,kbu-9fyp1LDuPpKJNTyf4g"
-          target="_blank"
-        >
-          <FontAwesomeIcon icon={faFileLines} /> Docs
-        </a>
-        <h1 className="font-lg px-1 py-1 mb-4 text-slate-900  hover:bg-gray-100 hover:text-primary rounded-md w-full">
-          More
-        </h1>
+          <div
+            onClick={() => props.toggleLogs()}
+            className="font-lg mb-4 px-1 py-1 text-slate-900  hover:bg-gray-100 hover:text-primary rounded-md w-full cursor-pointer"
+          >
+            <FontAwesomeIcon icon={faTableList} />{" "}
+            <span className="pl-2"> Main Table </span>
+          </div>
+          <div
+            onClick={() => props.toggleInsight()}
+            className="font-lg mb-4 px-1 py-1 text-slate-900 hover:bg-gray-100 hover:text-primary rounded-md w-full cursor-pointer"
+          >
+            <FontAwesomeIcon icon={faChartLine} />{" "}
+            <span className="pl-2"> Insights </span>
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-col mt-auto py-3 flex flex-col items-start mb-10 border-t">
+        <div className="">
+          <div className="font-lg  border-slate-600 mb-4 py-1 text-slate-900 hover:text-sky-700  w-full cursor-pointer">
+            <a
+              href="https://excalidraw.com/#room=dbe379f1b41fb715af36,kbu-9fyp1LDuPpKJNTyf4g"
+              target="_blank"
+            >
+              <FontAwesomeIcon icon={faFileLines} />{" "}
+              <span className="pl-2"> Documentation </span>
+            </a>
+          </div>
+          <div className="font-lg py-1 mb-4 text-slate-900  hover:text-sky-700 rounded-md w-full  cursor-pointer">
+            <FontAwesomeIcon icon={faCircleQuestion} />{" "}
+            <span className="pl-2"> Feedback </span>
+          </div>
+        </div>
       </div>
     </nav>
   );

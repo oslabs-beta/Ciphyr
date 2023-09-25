@@ -24,15 +24,17 @@ export default function DashContainer() {
 
   return (
     <>
+    <div className="flex flex-col h-screen">
       <Navbar />
-      <div className="flex">
+      <div className="flex w-full h-full w-screen mb-0 mt-0">
         <Sidenav toggleInsight={toggleInsight} toggleLogs={toggleLogs} instance={instance}/>
-        <div className="border-l bg-stone-50 border-slate-300 w-full h-screen">
+        <div className=" border-l bg-stone-50 border-slate-300 w-full">
           {insight ?
           <ChartContainer instance={instance}/> : <MainTable instance={instance} setInstance={setInstance}/>
           }
         </div>
       </div>
+    </div>
     </>
   );
 }

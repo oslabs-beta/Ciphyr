@@ -1,10 +1,10 @@
-import { useState, useEffect} from 'react'
-import LineChart from './LineChart.jsx';
-import BarChart from './BarChart.jsx';
-import PieChart from './PieChart.jsx';
+import { useState, useEffect } from "react";
+import LineChart from "./LineChart.jsx";
+import BarChart from "./BarChart.jsx";
+import PieChart from "./PieChart.jsx";
 
 export default function ChartContainer(props) {
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     fetchLogs();
@@ -27,7 +27,7 @@ export default function ChartContainer(props) {
       }
       const data = await response.json();
       setData(data);
-      console.log(data)
+      console.log(data);
     } catch (error) {
       console.error("Fetch error:", error);
     }
@@ -35,14 +35,14 @@ export default function ChartContainer(props) {
 
   return (
     <>
-    <h1 className="ml-20 mt-10 font-semibold text-2xl">Insights</h1>
-    <div className='h-3/4 overflow-scroll mt-5'>
-    <LineChart queryData={data}/>
-    <div className='flex'>
-    <BarChart queryData={data}/>
-    <PieChart queryData={data}/>
-    </div>
-    </div>
-  </>
-  )
+      <h1 className="ml-10 mt-10 font-light text-2xl">Insights</h1>{" "}
+      <div className="h-3/4 overflow-scroll mt-5">
+        <LineChart queryData={data} />
+        <div className="flex">
+          <BarChart queryData={data} />
+          <PieChart queryData={data} />
+        </div>
+      </div>
+    </>
+  );
 }
