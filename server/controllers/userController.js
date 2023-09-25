@@ -49,6 +49,8 @@ userController.login = async (req, res, next) => {
     const { input, password } = req.body;
     const passwordQuery = `SELECT client_id, password FROM clients WHERE username = '${input}' OR email = '${input}';`;
     const passwordResult = await db.query(passwordQuery);
+    
+    // need to check if passwordResult.rows[0] is defined? if not, return username/email does not exist
     const clientID = passwordResult.rows[0].client_id;
 
     const verified = await bcrypt.compare(
@@ -69,6 +71,11 @@ userController.login = async (req, res, next) => {
       );
       res.cookie("token", jwtToken, { httpOnly: true, secure: true });
       res.locals.result = { verified: verified, message: "login successfully" };
+
+      // update last_login time
+      const loginQuery = `UPDATE clients SET last_login = NOW()
+        WHERE client_id = '${clientID}';`
+      await db.query(loginQuery);
     }
     return next();
   } catch (err) {
@@ -85,12 +92,28 @@ userController.getUserInfo = async (req, res, next) => {
 
       const userQuery = `SELECT username FROM clients WHERE client_id = '${user.client_id}';`;
       const userResult = await db.query(userQuery);
-      res.locals.userInfo = userResult.rows[0].username;
+      const username = userResult.rows[0].username
+      // save username in the cookie to reduce JWT verification for session
+      res.cookie("username", username, { httpOnly: true, secure: true });
+      res.locals.userInfo = username;
       return next();
     });
   } catch (err) {
     return next(err);
   }
 };
+
+userController.logout = async (req, res, next) => {
+  try {
+    const username = req.cookies.username;
+    const loginQuery = `UPDATE clients SET last_logout = NOW()
+        WHERE username = '${username}';`
+      await db.query(loginQuery);
+    return next();
+  }
+  catch(err) {
+    return next(err);
+  }
+}
 
 module.exports = userController;

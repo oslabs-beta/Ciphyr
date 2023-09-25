@@ -14,6 +14,21 @@ export default function InstaceTable() {
     console.log(data);
   };
 
+  const deleteClick = async (e) => {
+    const ins_id = e.currentTarget.value;
+    console.log("idddd", ins_id);
+    const reponse = await fetch('/api/instance/deleteInstance', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: ins_id
+      })
+    })
+    //window.location.reload(false)
+  }
+
   useEffect(() => {
     getData();
   }, []);
@@ -52,7 +67,7 @@ export default function InstaceTable() {
                         </button>
                       </span>
                       <span>
-                        <button className="hover:bg-slate-200 p-1 rounded-md">
+                        <button onClick={deleteClick} className="hover:bg-slate-200 p-1 rounded-md" value={rowData.id}>
                           <FontAwesomeIcon icon={faTrashCan} />
                         </button>
                       </span>
