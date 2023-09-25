@@ -10,7 +10,20 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export default function Sidenav(props) {
+  
   /** WORK IN PROGRESS - suspicious queries component
+
+  const insights = () => {
+    if (props.instance === '') {
+      alert('Please choose an instance')
+    } else {
+      props.toggleInsight()
+    }
+
+  }
+
+/** WORK IN PROGRESS - suspicious queries component
+
  * remember to import at the top --> import data from './MOCKdb.json'
  *  const [supiciousLogs, setSuspiciousLogs] = useState([])
 
