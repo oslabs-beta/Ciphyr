@@ -4,7 +4,8 @@ const app = express();
 const userRouter = require('./routes/userRouter');
 const instanceRouter = require('./routes/instanceRouter')
 const logRouter = require('./routes/logRouter');
-const oauthRouter = require('./routes/oauthRouter')
+const oauthRouter = require('./routes/oauthRouter');
+const alertRouter = require('./routes/alertRouter');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
@@ -26,7 +27,9 @@ app.use(
 app.use('/api/user', userRouter);
 app.use('/api/instance', instanceRouter);
 app.use('/api/log', logRouter);
-app.use('/api/github', oauthRouter)
+app.use('/api/github', oauthRouter);
+app.use('/api/alert', alertRouter);
+
 
 app.use("*", (req, res) => res.status(404).send("Not Found"));
 

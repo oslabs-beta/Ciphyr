@@ -1,4 +1,25 @@
+import { useState } from 'react';
+
+
 export default function Alerts() {
+   const [depth, setDepth] = useState('');
+
+   const sendCriteria = async () => {
+     await fetch('/api/alert', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({depth: depth})
+     })
+   }
+
+
+
+
+
+
+
   return (
     <>
       <div className='bg-white h-full'>
@@ -35,6 +56,7 @@ export default function Alerts() {
                 </div>
                 <div className=''>
                   <input
+                    onChange={(e) => setDepth(e.target.value)}
                     className='border-2 rounded-md w-16 pl-1'
                     type='text'
                     placeholder='10'

@@ -11,6 +11,7 @@ export default function DashContainer() {
   const [activeTab, setActiveTab] = useState('table');
   const [instance, setInstance] = useState('');
 
+  //rendering specific container in dashboard based upon the activeTab state
   const content = () => {
     if (activeTab === 'table') {
       return <MainTable instance={instance} setInstance={setInstance}/>
@@ -20,8 +21,6 @@ export default function DashContainer() {
       return <Alerts />
     }
   }
-
-  // contains our navbar, sidenav, and passes state through sideNav. also conditionally renders our MainTable depending our Instance State
 
   return (
     <>
