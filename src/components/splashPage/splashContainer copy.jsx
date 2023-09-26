@@ -35,6 +35,30 @@ export default function splashContainer() {
             </div>
           </div>
         </section>
+        <section className="flex flex-col w-full items-center border border-sky-800 ">
+          <div className="text-2xl font-semibold py-4 ">Services</div>
+          <div className="text-4xl font-thin py-2 mb-12">
+            Bolster your GraphQL application
+          </div>
+          <div className="flex flex-row space-x-10 w-full justify-around mb-6">
+            <div className="flex flex-col items-center w-1/3">
+              <img src={ciphyrIcon} className="w-20 py-2" />
+              <div className="border px-6 py-2 ">
+                Monitor your client's traffic
+              </div>
+            </div>
+            <div className="flex flex-col items-center w-1/3">
+              <img src={ciphyrIcon} className="w-20 py-2" />
+              <div className="border py-2 ">Get alerts for your queries</div>
+            </div>
+            <div className="flex flex-col items-center w-1/3">
+              <img src={ciphyrIcon} className="w-20 py-2" />
+              <div className="border px-6 py-2 ">
+                Visualize your GraphQL analytics
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </>
   );
