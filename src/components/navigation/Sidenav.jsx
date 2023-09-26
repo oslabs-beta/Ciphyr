@@ -5,12 +5,13 @@ import { faChartLine } from "@fortawesome/free-solid-svg-icons";
 import { faFileLines } from "@fortawesome/free-regular-svg-icons";
 import { faTableList } from "@fortawesome/free-solid-svg-icons";
 import { faCircleQuestion } from "@fortawesome/free-regular-svg-icons";
+import { faBell } from "@fortawesome/free-regular-svg-icons";
 import { useNavigate } from "react-router-dom";
 
 import { useState } from "react";
 
 export default function Sidenav(props) {
-  
+
   /** WORK IN PROGRESS - suspicious queries component
 
   const insights = () => {
@@ -75,6 +76,13 @@ export default function Sidenav(props) {
           >
             <FontAwesomeIcon icon={faChartLine} />{" "}
             <span className="pl-2"> Insights </span>
+          </div>
+          <div
+            onClick={() => props.toggleAlerts()}
+            className="font-lg mb-4 px-1 py-1 text-slate-900 hover:bg-gray-100 hover:text-primary rounded-md w-full cursor-pointer"
+          >
+            <FontAwesomeIcon icon={faBell} />{" "}
+            <span className="pl-2"> Alerts </span>
           </div>
         </div>
       </div>
