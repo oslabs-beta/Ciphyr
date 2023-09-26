@@ -104,6 +104,11 @@ export default function splashContainer() {
             </aside>
           </div>
         </section>
+        <section className="flex flex-col w-full items-center border border-sky-800 ">
+            <div className="flex flex-row w-full py-16 justify-center">
+              <div className="ml-16 text-3xl font-light">Getting started</div>
+            </div>
+          </section>
       </div>
     </>
   );
