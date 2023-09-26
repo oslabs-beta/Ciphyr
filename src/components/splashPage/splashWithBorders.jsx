@@ -3,12 +3,12 @@ import ciphyrLogo from "../../assets/ciphyrLogo.png";
 
 export default function splashContainer() {
   return (
-    <div className="flex flex-col border-indigo-700">
-      <div className="flex flex-row  border-sky-400 w-full ">
-        <main className=" w-full my-12 mx-36 space-y-4">
-          <section className=" border-sky-800">
-            <nav className=" flex justify-between mb-10">
-              <div className="">
+    <div className="flex flex-col border-4 border-indigo-700">
+      <div className="flex flex-row border-4 border-sky-400 w-full ">
+        <main className="border w-full my-12 mx-36 space-y-4">
+          <section className="border border-sky-800">
+            <nav className="border flex justify-between mb-10">
+              <div className="border">
                 <img src={ciphyrLogo} className="w-40" />
               </div>
               <div>
@@ -18,7 +18,7 @@ export default function splashContainer() {
                 </div>
               </div>
             </nav>
-            <div className="flex flex-col space-y-2 ml-2 my-8">
+            <div className="flex flex-col space-y-2 ml-4 my-8">
               <div>
                 <h1 className="text-6xl font-semibold">
                   The Power of Security
@@ -65,8 +65,8 @@ export default function splashContainer() {
             </div>
           </section>
           <section className="flex flex-col w-full items-start border border-sky-800 ">
-            <div className="flex flex-row  border-emerald-400 w-full my-4">
-              <div className="w-1/2  mx-6 my-4 space-y-4">
+            <div className="flex flex-row border border-emerald-400 w-full my-4">
+              <div className="w-1/2 border-2 border-dashed mx-6 my-4 space-y-4">
                 <div className="text-2xl font-semibold">
                   So, what's the big idea?
                 </div>
@@ -99,7 +99,7 @@ export default function splashContainer() {
                   </p>
                 </div>
               </div>
-              <aside className="w-1/2 flex justify-center mx-6 my-4">
+              <aside className="w-1/2 flex justify-center border-2 border-dashed mx-6 my-4">
                 <img src={ciphyrIcon} className="scale-75" />
               </aside>
             </div>
@@ -110,34 +110,34 @@ export default function splashContainer() {
             </div>
           </section>
           <section className="flex flex-col w-full items-center border border-sky-800 ">
-            <div className="flex flex-row  border-emerald-400 w-full my-4 py-6">
+            <div className="flex flex-row border border-emerald-400 w-full my-4 py-6">
               <aside className="w-1/2 flex justify-center border-2 border-dashed mx-2 my-2">
                 <img src={ciphyrLogo} className="w-48" />
               </aside>
-              <div className="w-1/2  border-dashed mx-2 my-2 flex justify-center items-center">
+              <div className="w-1/2 border-2 border-dashed mx-2 my-2 flex justify-center items-center">
                 <div className="text-xl">NPM install Ciphyr</div>
               </div>
             </div>
-            <div className="flex flex-row  border-emerald-400 w-full mx-4 my-4 py-6">
-              <div className="w-1/2 border-dashed mx-2 my-2 flex justify-center items-center">
+            <div className="flex flex-row border border-emerald-400 w-full mx-4 my-4 py-6">
+              <div className="w-1/2 border-2 border-dashed mx-2 my-2 flex justify-center items-center">
                 <div className="text-xl">Plug in config</div>
               </div>
               <aside className="w-1/2 flex justify-center border-2 border-dashed mx-2 my-2">
                 <img src={ciphyrLogo} className="w-48" />
               </aside>
             </div>
-            <div className="flex flex-row  border-emerald-400 w-full mx-4 my-4 py-6">
+            <div className="flex flex-row border border-emerald-400 w-full mx-4 my-4 py-6">
               <aside className="w-1/2 flex justify-center border-2 border-dashed mx-2 my-2">
                 <img src={ciphyrLogo} className="w-48" />
               </aside>
-              <div className="w-1/2  border-dashed mx-2 my-2 flex justify-center items-center">
+              <div className="w-1/2 border-2 border-dashed mx-2 my-2 flex justify-center items-center">
                 <a className="text-xl">Create an account</a>
               </div>
             </div>
           </section>
           <footer className="flex flex-col w-full items-center border border-sky-800 ">
-            <div className="flex flex-row  border-emerald-400 w-full my-4">
-              <div className="w-1/2  border-dashed mx-2 my-2 px-4 py-4 "> 
+            <div className="flex flex-row border border-emerald-400 w-full my-4">
+              <div className="w-1/2 border-2 border-dashed mx-2 my-2 px-4 py-4 "> 
                 <div className="text-2xl font-semibold">Active Contributors</div>
                 <div className="py-2">
                 <div className="text-lg font-light">Aidan Berger</div>
@@ -146,7 +146,7 @@ export default function splashContainer() {
                 <div className="text-lg font-light">Mike Zhang</div>
                 </div>
               </div>
-              <div className="w-1/2 mx-2 my-2 py-4">
+              <div className="w-1/2 border-2 border-dashed mx-2 my-2 py-4">
                 <div className="text-2xl font-semibold">Write to us</div>
                 <div className="my-2">
                   <input className="border border-slate-500 rounded w-full px-2 py-1 text-lg" placeholder="johndoe@email.com"></input>
