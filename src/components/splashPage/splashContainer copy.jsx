@@ -59,6 +59,11 @@ export default function splashContainer() {
             </div>
           </div>
         </section>
+        <section className="flex flex-col w-full items-center border border-sky-800 ">
+            <div className="flex flex-row w-full py-16">
+              <div className="ml-16 text-3xl font-light">Made with love</div>
+            </div>
+          </section>
       </div>
     </>
   );
