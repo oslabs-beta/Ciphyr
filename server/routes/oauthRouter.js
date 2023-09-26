@@ -25,7 +25,7 @@ passport.use(
     {
       clientID: GITHUB_CLIENT_ID,
       clientSecret: GITHUB_CLIENT_SECRET,
-      callbackURL: 'http://localhost:5173:/api/auth/github/callback',
+      callbackURL: 'http://localhost:5173/api/auth/github/callback',
     },
     async (accessToken, refreshToken, profile, done) => {
       // try{
@@ -36,6 +36,7 @@ passport.use(
         const gitHubUser = `INSERT INTO clients (username, password, email) VALUES ($1, $2, $3)`;
         const values = [profile.username, hashedPassword, 'ghub@ghub.com'];
         const createdUser = await db.query(gitHubUser, values);
+        console.log('createdUser', createdUser);
         console.log('github profile', profile);
       }
       //   res.cookie('token', accessToken, { httpOnly: true });
@@ -51,6 +52,14 @@ router.get(
   '/github',
   passport.authenticate('github', { scope: ['user:email'] })
 );
+
+// router.get(
+//   '/github/callback',
+//   passport.authenticate('github', { failureRedirect: '/' }),
+//   function (req, res) {
+//     return res.redirect('/home');
+//   }
+// );
 
 router.get(
   '/github/callback',
