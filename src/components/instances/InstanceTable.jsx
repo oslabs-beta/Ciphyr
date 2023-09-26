@@ -11,12 +11,10 @@ export default function InstaceTable() {
     const response = await fetch("/api/instance");
     const data = await response.json();
     setData(data.reverse());
-    console.log(data);
   };
 
   const deleteClick = async (e) => {
     const ins_id = e.currentTarget.value;
-    console.log("idddd", ins_id);
     const reponse = await fetch('/api/instance/deleteInstance', {
       method: 'POST',
       headers: {
@@ -26,7 +24,11 @@ export default function InstaceTable() {
         id: ins_id
       })
     })
-    //window.location.reload(false)
+  }
+
+  const refresh = async (e) => {
+    deleteClick(e);
+    window.location.reload(false);
   }
 
   useEffect(() => {
@@ -67,7 +69,7 @@ export default function InstaceTable() {
                         </button>
                       </span>
                       <span>
-                        <button onClick={deleteClick} className="hover:bg-slate-200 p-1 rounded-md" value={rowData.id}>
+                        <button onClick={refresh} className="hover:bg-slate-200 p-1 rounded-md" value={rowData.id}>
                           <FontAwesomeIcon icon={faTrashCan} />
                         </button>
                       </span>
