@@ -25,4 +25,5 @@ router.get('/getUserInfo', userController.getUserInfo, (req, res) => {
 router.get('/getLastLogout', userController.getLastLogout, (req, res) => {
   return res.status(200).json(res.locals.lastLogout);
 })
+
 module.exports = router;

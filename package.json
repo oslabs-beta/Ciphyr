@@ -31,11 +31,12 @@
     "passport-github2": "^0.1.12",
     "pg": "^8.11.3",
     "postcss": "^8.4.29",
+    "query-string": "^8.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0",
-    "supertest": "^6.3.3",
     "recharts": "^2.8.0",
+    "supertest": "^6.3.3",
     "tailwindcss": "^3.3.3",
     "to-regex-range": "^5.0.1"
   },

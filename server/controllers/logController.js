@@ -1,5 +1,4 @@
 const db = require('../db');
-
 const logController = {};
 
 logController.getAllLog = async (req, res, next) => {

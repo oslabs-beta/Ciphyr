@@ -11,9 +11,11 @@ CREATE TABLE instance (
 CREATE TABLE clients (
   client_id SERIAL PRIMARY KEY,
   username VARCHAR(255) NOT NULL,
-  password VARCHAR(255) NOT NULL,
+  password VARCHAR(255),
   email VARCHAR(255) NOT NULL,
-  auth_token INT
+  auth_token INT,
+  last_login TIMESTAMP,
+  last_logout TIMESTAMP
 )
 
 CREATE TABLE log (
