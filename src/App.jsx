@@ -5,6 +5,7 @@ import Dashboard from "./components/dashboard/DashContainer.jsx";
 import Login from "./components/auth/Login.jsx";
 import Signup from "./components/auth/Signup.jsx";
 import InputInstance from "./components/dashboard/InputInstance.jsx";
+import SplashPage from "./components/splashPage/splashContainer.jsx";
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/home" element={<HomePage />}></Route>
           <Route path="/dashboard" element={<Dashboard />}></Route>
-          <Route path="/" element={<Login />}></Route>
+          <Route path="/" element={<SplashPage />}></Route>
           <Route path="/signup" element={<Signup />}></Route>
         </Routes>
       </BrowserRouter>
