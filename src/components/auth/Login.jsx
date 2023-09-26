@@ -41,13 +41,13 @@ export default function Login() {
     }
   };
 
-  // const github = () => {
-  //   window.location.href = '/api/auth/github';
-  // };
-
   const github = () => {
-    window.open('http://localhost:5173/api/auth/github', '_self');
+    window.location.href = 'http://localhost:5173/api/auth/github';
   };
+
+  // const github = () => {
+  //   window.open('/api/auth/github', '_self');
+  // };
 
   return (
     <>

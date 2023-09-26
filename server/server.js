@@ -7,27 +7,30 @@ const logRouter = require('./routes/logRouter');
 //const oauthRouter = require('./routes/oauthRouter')
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const githubRouter = require('./routes/githubRouter');
+const passportSetup = require('./passport');
+const passport = require('passport');
+const cookieSession = require('cookie-session');
+require('dotenv').config();
 
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 
-// const oauthController = require("./controllers/oauthController.js");
+//use cookiesession to persist passport authentication for 24hours
+app.use(
+  cookieSession({
+    maxAge: 24 * 60 * 60 * 1000,
+    keys: ['testtesttesttest'],
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
 
-// app.use(
-//   "/api/getAccessToken",
-//   oauthController.getAccessToken,
-//   oauthController.getUserData,
-//   (req, res) => {
-//     return res.status(200).redirect("/");
-//   }
-// );
-
-app.use('/api/auth', oauthRouter);
+app.use('/api/auth', githubRouter);
 app.use('/api/user', userRouter);
 app.use('/api/instance', instanceRouter);
 app.use('/api/log', logRouter);
-//app.use('/api/github', oauthRouter)
 
 app.use('*', (req, res) => res.status(404).send('Not Found'));
 
