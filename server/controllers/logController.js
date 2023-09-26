@@ -15,6 +15,21 @@ logController.getAllLog = async (req, res, next) => {
   }
 };
 
+logController.newLogInfo = async (req, res, next) => {
+  try {
+    const username = req.cookies.username;
+    // retrieve logs from api key provided
+    const logCountQuery = `SELECT COUNT(*) FROM log l JOIN instance i ON l.api_key = i.api_key
+      JOIN clients c ON i.client_id = c.client_id 
+      WHERE c.username = '${username}' AND l.timestamp > c.last_logout`;
+      logCount = await db.query(logCountQuery);
+    res.locals.logCount = logCount.rows[0];
+    return next();
+  } catch (err) {
+    return next(err);
+  }
+};
+
 /*
 logController.getSuspiciousLog = async (req, res, next) => {
   try {

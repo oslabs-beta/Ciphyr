@@ -11,7 +11,24 @@ export default function InstanceTable() {
     const response = await fetch('/api/instance');
     const data = await response.json();
     setData(data.reverse());
-    console.log(data);
+  };
+
+  const deleteClick = async (e) => {
+    const ins_id = e.currentTarget.value;
+    const reponse = await fetch('/api/instance/deleteInstance', {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        id: ins_id,
+      }),
+    });
+  };
+
+  const refresh = async (e) => {
+    deleteClick(e);
+    window.location.reload(false);
   };
 
   useEffect(() => {
@@ -52,7 +69,11 @@ export default function InstanceTable() {
                         </button>
                       </span>
                       <span>
-                        <button className='hover:bg-slate-200 p-1 rounded-md'>
+                        <button
+                          onClick={refresh}
+                          className='hover:bg-slate-200 p-1 rounded-md'
+                          value={rowData.id}
+                        >
                           <FontAwesomeIcon icon={faTrashCan} />
                         </button>
                       </span>

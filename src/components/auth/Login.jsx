@@ -6,15 +6,15 @@ import { useNavigate } from 'react-router-dom';
 import ciphyrLogo from '../../assets/ciphyrLogo.png';
 
 export default function Login() {
-  const [email, setEmail] = useState('');
+  const [input, setInput] = useState('');
   const [password, setPassword] = useState('');
 
   const navigate = useNavigate();
 
-  const getEmail = (e) => {
-    const email = e.target.value;
-    console.log(email);
-    setEmail(email);
+  const getInput = (e) => {
+    const input = e.target.value;
+    console.log(input);
+    setInput(input);
   };
 
   const getPassword = (e) => {
@@ -30,7 +30,7 @@ export default function Login() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ input: email, password: password }),
+        body: JSON.stringify({ input: input, password: password }),
       });
       const parsed = await response.json();
       if (parsed.verified === true) {
@@ -107,7 +107,7 @@ export default function Login() {
                     <div id='user' className='mb-4'>
                       <input
                         id='email'
-                        onChange={getEmail}
+                        onChange={getInput}
                         className='border-2 rounded-md px-4 py-2 block w-full placeholder:text-xs'
                         type='text'
                         placeholder='you@example.com'
