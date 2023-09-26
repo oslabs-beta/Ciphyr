@@ -104,6 +104,22 @@ userController.getUserInfo = async (req, res, next) => {
   }
 };
 
+userController.getLastLogout = async (req, res, next) => {
+  try {
+    const username = req.cookies.username;
+    const lastDateQuery = `SELECT last_logout FROM clients WHERE username = '${username}'`
+    const lastDate = await db.query(lastDateQuery);
+    // .toString() change the date object to string form of date
+    const lastLogout = lastDate.rows[0].last_logout.toString();
+    //.substring() to remove timezone
+    res.locals.lastLogout = lastLogout.substring(0, 25);
+    return next()
+  }
+  catch (err) {
+    return next(err);
+  }
+}
+
 userController.logout = async (req, res, next) => {
   try {
     const username = req.cookies.username;

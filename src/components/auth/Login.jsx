@@ -41,9 +41,9 @@ export default function Login() {
     }
   };
 
-  const github = () => {
-    window.location.href = "/api/github"
-  }
+  // const github = () => {
+  //   window.location.href = "/api/github"
+  // }
 
   return (
     <>
