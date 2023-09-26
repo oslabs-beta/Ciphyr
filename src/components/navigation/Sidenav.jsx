@@ -64,21 +64,21 @@ export default function Sidenav(props) {
           </ul>
         </details> */}
           <div
-            onClick={() => props.toggleLogs()}
+            onClick={() => props.setActiveTab('table')}
             className="font-lg mb-4 px-1 py-1 text-slate-900  hover:bg-gray-100 hover:text-primary rounded-md w-full cursor-pointer"
           >
             <FontAwesomeIcon icon={faTableList} />{" "}
             <span className="pl-2"> Main Table </span>
           </div>
           <div
-            onClick={() => props.toggleInsight()}
+            onClick={() => props.setActiveTab('insights')}
             className="font-lg mb-4 px-1 py-1 text-slate-900 hover:bg-gray-100 hover:text-primary rounded-md w-full cursor-pointer"
           >
             <FontAwesomeIcon icon={faChartLine} />{" "}
             <span className="pl-2"> Insights </span>
           </div>
           <div
-            onClick={() => props.toggleAlerts()}
+            onClick={() => props.setActiveTab('alerts')}
             className="font-lg mb-4 px-1 py-1 text-slate-900 hover:bg-gray-100 hover:text-primary rounded-md w-full cursor-pointer"
           >
             <FontAwesomeIcon icon={faBell} />{" "}
