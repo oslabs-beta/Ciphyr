@@ -39,10 +39,9 @@ export default function Navbar() {
                 onClick={() => navigate("/home")}
                 className="text-slate-800 font-semibold hover:text-secondary cursor-pointer"
               >
-                Home
+                Instance
               </a>
             </li>
-
             <li>
               <a
                 onClick={() => navigate("/dashboard")}
