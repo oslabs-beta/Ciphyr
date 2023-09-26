@@ -135,6 +135,7 @@ export default function splashContainer() {
             </div>
           </div>
         </section>
+        <footer className="flex flex-col w-full items-center border border-sky-800 ">
       </div>
     </>
   );
