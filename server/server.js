@@ -18,14 +18,14 @@ app.use(cookieParser());
 app.use(cors());
 
 //use cookiesession to persist passport authentication for 24hours
-app.use(
-  cookieSession({
-    maxAge: 24 * 60 * 60 * 1000,
-    keys: ['testtesttesttest'],
-  })
-);
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(
+//   cookieSession({
+//     maxAge: 24 * 60 * 60 * 1000,
+//     keys: ['testtesttesttest'],
+//   })
+// );
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 app.use('/api/auth', githubRouter);
 app.use('/api/user', userRouter);
