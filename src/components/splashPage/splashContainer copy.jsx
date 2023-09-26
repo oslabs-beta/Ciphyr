@@ -136,6 +136,16 @@ export default function splashContainer() {
           </div>
         </section>
         <footer className="flex flex-col w-full items-center border border-sky-800 ">
+        <div className="flex flex-row  border-emerald-400 w-full my-4">
+              <div className="w-1/2  border-dashed mx-2 my-2 px-4 py-4 "> 
+                <div className="text-2xl font-semibold">Active Contributors</div>
+                <div className="py-2">
+                <div className="text-lg font-light">Aidan Berger</div>
+                <div className="text-lg font-light">Jeremy Wang</div>
+                <div className="text-lg font-light">John Le</div>
+                <div className="text-lg font-light">Mike Zhang</div>
+                </div>
+              </div>
       </div>
     </>
   );
