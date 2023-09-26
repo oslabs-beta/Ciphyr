@@ -7,7 +7,8 @@ export default defineConfig({
   test: {
     globals: true,
   },
-  plugins: [react()],
+  plugins: [
+    react()],
   server: {
     proxy: {
       "/api": {

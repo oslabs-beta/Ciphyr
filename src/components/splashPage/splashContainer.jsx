@@ -1,28 +1,35 @@
 import ciphyrIcon from "../../assets/ciphyrIcon.png";
 import ciphyrLogo from "../../assets/ciphyrLogo.png";
+import background from "../../assets/bg-image-ciphyr.jpg";
+
 
 export default function splashContainer() {
   return (
     <div className="flex flex-col border-indigo-700">
       <div className="flex flex-row  border-sky-400 w-full ">
         <main className=" w-full my-12 mx-36 space-y-4">
-          <section className=" border-sky-800">
+          <section className=" border-sky-800 ">
             <nav className=" flex justify-between mb-10">
               <div className="">
                 <img src={ciphyrLogo} className="w-40" />
               </div>
               <div>
                 <div id="loginGroup">
-                  <button className="border mr-2 px-4 py-2 rounded-lg text-lg">Login</button>
-                  <button className="border px-4 py-2 rounded-lg text-lg">Sign up</button>
+                  <button className="border mr-2 px-4 py-2 rounded-lg text-lg">
+                    Login
+                  </button>
+                  <button className="border px-4 py-2 rounded-lg text-lg">
+                    Sign up
+                  </button>
                 </div>
               </div>
             </nav>
-            <div className="flex flex-col space-y-2 ml-2 my-8">
+            <div className="flex flex-col space-y-2 ml-2 my-8 mb-12 ">
               <div>
                 <h1 className="text-6xl font-semibold">
                   The Power of Security
                 </h1>
+
               </div>
               <div className="text-xl font-light py-2">
                 Ciphyr is a powerful go-to solution for GraphQL traffic
@@ -60,8 +67,10 @@ export default function splashContainer() {
             </div>
           </section>
           <section className="flex flex-col w-full items-center border border-sky-800 ">
-            <div className="flex flex-row w-full py-16">
-              <div className="ml-16 text-3xl font-light">Made with love</div>
+            <div className="flex flex-row w-full py-16 justify-center">
+              <div className="ml-16 text-3xl font-light">
+                Built for deveopers
+              </div>
             </div>
           </section>
           <section className="flex flex-col w-full items-start border border-sky-800 ">
@@ -137,25 +146,35 @@ export default function splashContainer() {
           </section>
           <footer className="flex flex-col w-full items-center border border-sky-800 ">
             <div className="flex flex-row  border-emerald-400 w-full my-4">
-              <div className="w-1/2  border-dashed mx-2 my-2 px-4 py-4 "> 
-                <div className="text-2xl font-semibold">Active Contributors</div>
+              <div className="w-1/2  border-dashed mx-2 my-2 px-4 py-4 ">
+                <div className="text-2xl font-semibold">
+                  Active Contributors
+                </div>
                 <div className="py-2">
-                <div className="text-lg font-light">Aidan Berger</div>
-                <div className="text-lg font-light">Jeremy Wang</div>
-                <div className="text-lg font-light">John Le</div>
-                <div className="text-lg font-light">Mike Zhang</div>
+                  <div className="text-lg font-light">Aidan Berger</div>
+                  <div className="text-lg font-light">Jeremy Wang</div>
+                  <div className="text-lg font-light">John Le</div>
+                  <div className="text-lg font-light">Mike Zhang</div>
                 </div>
               </div>
               <div className="w-1/2 mx-2 my-2 py-4">
                 <div className="text-2xl font-semibold">Write to us</div>
                 <div className="my-2">
-                  <input className="border border-slate-500 rounded w-full px-2 py-1 text-lg" placeholder="johndoe@email.com"></input>
+                  <input
+                    className="border border-slate-500 rounded w-full px-2 py-1 text-lg"
+                    placeholder="johndoe@email.com"
+                  ></input>
                 </div>
                 <div className="mt-4">
-                  <input className="border border-slate-500 rounded w-full px-2 pb-12 text-lg" placeholder="Ciphyr is..."></input>
+                  <input
+                    className="border border-slate-500 rounded w-full px-2 pb-12 text-lg"
+                    placeholder="Ciphyr is..."
+                  ></input>
                 </div>
                 <div className="flex items-end justify-end w-full">
-                  <button className="px-4 py-2 border rounded-lg text-lg">Submit</button>
+                  <button className="px-4 py-2 border rounded-lg text-lg">
+                    Submit
+                  </button>
                 </div>
               </div>
             </div>
