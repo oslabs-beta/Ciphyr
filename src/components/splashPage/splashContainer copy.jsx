@@ -60,10 +60,50 @@ export default function splashContainer() {
           </div>
         </section>
         <section className="flex flex-col w-full items-center border border-sky-800 ">
-            <div className="flex flex-row w-full py-16">
-              <div className="ml-16 text-3xl font-light">Made with love</div>
+          <div className="flex flex-row w-full py-16">
+            <div className="ml-16 text-3xl font-light">Made with love</div>
+          </div>
+        </section>
+        <section className="flex flex-col w-full items-start border border-sky-800 ">
+          <div className="flex flex-row  border-emerald-400 w-full my-4">
+            <div className="w-1/2  mx-6 my-4 space-y-4">
+              <div className="text-2xl font-semibold">
+                So, what's the big idea?
+              </div>
+              <div className="text-xl font-light">We love GraphQL</div>
+              <div className="text-lg font-light">
+                <p className="text-sky-700 font-normal">
+                  But there's still much to be done.
+                </p>
+              </div>
+              <div className="text-lg font-light">
+                <p className="">
+                  We are Ciphyr. An open-source platform dedicated to the
+                  developer community and motivated by the challenges GraphQL
+                  faces. We are a lightweight, middleware SDK that monitors your
+                  application's GraphQL queries.
+                </p>
+              </div>
+              <div className="text-lg font-light">
+                <p className="">
+                  As long as security remains a consideration when considering
+                  whether to utilize GraphQL in your appplication, Ciphyr wants
+                  to be your intuitive solution!
+                </p>
+              </div>
+              <div className="text-lg font-light">
+                <p className="">
+                  We hope you enjoy using our product, and greatly welcome any
+                  feedback. We are constantly iterating, so feel free to check
+                  in every once and a while.
+                </p>
+              </div>
             </div>
-          </section>
+            <aside className="w-1/2 flex justify-center mx-6 my-4">
+              <img src={ciphyrIcon} className="scale-75" />
+            </aside>
+          </div>
+        </section>
       </div>
     </>
   );
