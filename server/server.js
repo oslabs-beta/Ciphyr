@@ -26,7 +26,7 @@ app.use(cors());
 app.get(process.env.REDIRECT_URI, oauthController.getAccessToken, oauthController.getUserProfile, 
   oauthController.saveOauthUser, async (req, res) => {
     console.log(req.cookies);
-    return res.status(200).redirect('/');
+    res.redirect('/home');
 });
 
 app.use('/api/user', userRouter);

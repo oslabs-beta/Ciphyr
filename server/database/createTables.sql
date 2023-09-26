@@ -14,8 +14,8 @@ CREATE TABLE clients (
   password VARCHAR(255),
   email VARCHAR(255) NOT NULL,
   auth_token INT,
-  last_login TIMESTAMP,
-  last_logout TIMESTAMP
+  last_login TIMESTAMP default NOW(),
+  last_logout TIMESTAMP default NOW()
 )
 
 CREATE TABLE log (
