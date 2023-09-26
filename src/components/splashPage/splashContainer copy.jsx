@@ -146,6 +146,8 @@ export default function splashContainer() {
                 <div className="text-lg font-light">Mike Zhang</div>
                 </div>
               </div>
+              <div className="w-1/2 mx-2 my-2 py-4"></div> 
+                </footer>
       </div>
     </>
   );
