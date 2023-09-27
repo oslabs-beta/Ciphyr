@@ -1,20 +1,22 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import DashboardImage from "../../assets/Dashboard.png";
-import { redirect, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ciphyrLogo from "../../assets/ciphyrLogo.png";
 
-export default function Login() {
-  const [input, setInput] = useState("");
+export default function Signup() {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const navigate = useNavigate();
+  const navigate = useNavigate("");
 
-  const getInput = (e) => {
-    const input = e.target.value;
-    console.log(input);
-    setInput(input);
+  const getEmail = (e) => {
+    const email = e.target.value;
+    console.log(email);
+    setEmail(email);
   };
 
   const getPassword = (e) => {
@@ -23,26 +25,27 @@ export default function Login() {
     setPassword(password);
   };
 
-  const validate = async () => {
-    try {
-      const response = await fetch("/api/user/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ input: input, password: password }),
-      });
-      const parsed = await response.json();
-      if (parsed.verified === true) {
-        navigate("/home");
-      }
-    } catch (err) {
-      console.log(err);
-    }
+  const getUsername = (e) => {
+    const username = e.target.value;
+    console.log(username);
+    setUsername(username);
   };
 
-  const googleAuth = () => {
-    window.location.href = "/api/oauth/auth";
+  const signup = async () => {
+    const response = await fetch("/api/user/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        username: username,
+        password: password,
+      }),
+    });
+    const data = await response.json();
+    navigate("/");
+    console.log("data in signup", data);
   };
 
   return (
@@ -54,27 +57,24 @@ export default function Login() {
               <img src={ciphyrLogo} className="w-[200px]" />
             </nav>
           </div>
-          <div className="flex flex-1 ">
-            <main className=" flex flex-col flex-shrink-0 items-center border-r border-slate-200 w-2/5 md:h-full lg:h-screen  px-5 pt-16 shadow">
+          <div className="flex flex-1">
+            <main className="flex flex-col flex-shrink-0 items-center border-r border-slate-200 w-2/5 h-screen px-5 pt-16 shadow">
               <section className="flex-1 flex flex-col justify-center w-2/3">
                 <div>
-                  <h1 className="text-3xl text-slate-800 mb-2">Welcome back</h1>
+                  <h1 className="text-3xl text-slate-800 mb-2">Get Started</h1>
                   <h2 className="text-l text-slate-500">
-                    Sign in to your account
+                    Create a new account
                   </h2>
                 </div>
-                <div className="flex flex-col gap-5 mb-5">
-                  <button
-                    onClick={googleAuth}
-                    className="flex items-center justify-center border border-slate-300 rounded-md my-5 py-2 px-4 hover:bg-slate-100"
-                  >
+                <div className="flex flex-col gap-5">
+                  <button className="flex items-center justify-center border border-slate-300 rounded-md my-5 py-2 px-4 hover:bg-slate-100">
                     <FontAwesomeIcon
                       className="mr-2"
-                      icon={faGoogle}
+                      icon={faGithub}
                       style={{ color: "#000000" }}
                     />
                     <span className="border-slate-200 ">
-                      Continue with Google
+                      Continue with GitHub
                     </span>
                   </button>
                 </div>
@@ -96,18 +96,37 @@ export default function Login() {
                         className="text-sm mb-1 text-slate-500"
                         htmlFor="email"
                       >
-                        Username or Email
+                        Email
                       </label>
                     </div>
-                    <div id="user" className="mb-4">
+                    <div id="email" className="mb-4">
                       <input
                         id="email"
-                        onChange={getInput}
+                        onChange={getEmail}
                         className="border-2 rounded-md px-4 py-2 block w-full placeholder:text-xs"
                         type="text"
                         placeholder="you@example.com"
                       />
                     </div>
+
+                    <div className="flex flex-row space-x-2 justify-between">
+                      <label
+                        className="text-sm mb-1 text-slate-500"
+                        htmlFor="email"
+                      >
+                        Username
+                      </label>
+                    </div>
+                    <div id="user" className="mb-4">
+                      <input
+                        id="user"
+                        onChange={getUsername}
+                        className="border-2 rounded-md px-4 py-2 block w-full placeholder:text-xs"
+                        type="text"
+                        placeholder="username"
+                      />
+                    </div>
+
                     <div className="flex flex-row space-x-2 justify-between">
                       <label
                         className="text-sm mb-1 text-slate-500"
@@ -115,9 +134,6 @@ export default function Login() {
                       >
                         Password
                       </label>
-                      <span className="text-xs text-slate-500 italic">
-                        Forgot Password?
-                      </span>
                     </div>
                     <input
                       id="Password"
@@ -130,26 +146,24 @@ export default function Login() {
                 </div>
                 <div>
                   <button
-                    onClick={validate}
+                    onClick={signup}
                     className="text-white p-2 w-full rounded-md bg-sky-600 hover:bg-sky-700 mb-4"
                   >
-                    Sign in
+                    Sign Up
                   </button>
                 </div>
                 <div className="self-center">
                   <div>
-                    <span className="text-scale-1000">
-                      Don't have an account?
-                    </span>
+                    <span className="text-scale-1000">Have an account?</span>
                     <a
                       className="ml-2 underline transition text-slate-400 hover:text-slate-300"
-                      onClick={() => navigate("/signup")}
+                      onClick={() => navigate("/")}
                     >
-                      {"Sign Up Now"}
+                      {"Sign In Now"}
                     </a>
                   </div>
                 </div>
-                <div className="mt-[6em] py-4 flex flex-col bottom-0 text-center text-xs text-slate-500 italic">
+                <div className="mt-10rem flex flex-col bottom-0 text-center text-xs text-slate-500 italic">
                   <p>
                     By continuing, you agree to Ciphyer's Terms of Service and
                     Privacy Policy, and to receive periodic emails with updates.
@@ -159,15 +173,15 @@ export default function Login() {
             </main>
             <aside className="flex flex-col items-center justify-center w-3/4">
               <div className="relative text-4xl text-slate-600 font-serif italic ml-20 mb-12 w-3/4">
-                <div className="-left-8 -top-10 z-[0] absolute text-7xl font-serif italic text-slate-500">
+                <div className="-left-8 -top-10 z-[0] absolute text-8xl font-serif italic text-slate-500">
                   "
                 </div>
-                {"Ciphyr makes monitoring easy"}
+                {"We were able to scale more confidently thanks to Ciphyer'"}
               </div>
               <div className="flex justify-end items-center ml-5 mt-6 top text-2xl text-slate-500 font-serif italic w-3/4">
                 <img
                   className="w-12 h-12 rounded-full mx-4"
-                  src="https://images.unsplash.com/photo-1615813967515-e1838c1c5116?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80"
+                  src="https://images.unsplash.com/photo-1535295972055-1c762f4483e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80"
                 />
                 <div>@anonymous_user</div>
               </div>
@@ -178,8 +192,3 @@ export default function Login() {
     </>
   );
 }
-
-/**
- *                   src="https://media.licdn.com/dms/image/C4D03AQG2XwBr2rylkg/profile-displayphoto-shrink_800_800/0/1572454199260?e=1700092800&v=beta&t=I2J8vm4K3mzwIEDvxOtxNt2o1sG6FVbOh__2dcEhi9w"
- *
- */

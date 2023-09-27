@@ -30,7 +30,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/oslabs-beta/Ciphyr">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="src/assets/ciphyrLogo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Ciphyr</h3>

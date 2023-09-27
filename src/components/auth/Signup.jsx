@@ -52,17 +52,16 @@ export default function Signup() {
     <>
       <div className="min-h full flex flex-col">
         <div className="flex flex-col flex-1 bg-scale-100">
-          <div className="absolute top-0 w-full px-8 pt-6 mx-auto">
+          <div className="absolute top-0 w-full px-8 pt-4 mx-auto">
             <nav className="relative flex justify-between">
               <img src={ciphyrLogo} className="w-[200px]" />
-              <div>light mode</div>
             </nav>
           </div>
-          <div className="flex flex-1">
-            <main className="flex flex-col flex-shrink-0 items-center border-r border-slate-200 w-2/5 h-screen px-5 pt-16 shadow-lg">
+          <div className="flex flex-1 ">
+            <main className=" flex flex-col flex-shrink-0 items-center border-r border-slate-200 w-2/5 md:h-full lg:h-screen px-5 pt-32 shadow">
               <section className="flex-1 flex flex-col justify-center w-2/3">
                 <div>
-                  <h1 className="text-3xl text-slate-800 mb-2">Get Started</h1>
+                  <h1 className="text-3xl text-slate-800 mb-2">Get started</h1>
                   <h2 className="text-l text-slate-500">
                     Create a new account
                   </h2>
@@ -89,7 +88,7 @@ export default function Signup() {
                     </div>
                     <div className="w-1/2 border-t border-scale-00"></div>
                   </div>
-                </div>
+                </div>{" "}
                 <div className="flex flex-col gap-5 mb-8" id="logIn">
                   <div>
                     <div className="flex flex-row space-x-2 justify-between">
@@ -155,16 +154,18 @@ export default function Signup() {
                 </div>
                 <div className="self-center">
                   <div>
-                    <span className="text-scale-1000">Have an account?</span>
+                    <span className="text-scale-1000">
+                      Don't have an account?
+                    </span>
                     <a
                       className="ml-2 underline transition text-slate-400 hover:text-slate-300"
                       onClick={() => navigate("/")}
                     >
-                      {"Sign In Now"}
+                      {"Sign Up Now"}
                     </a>
                   </div>
                 </div>
-                <div className="mt-10rem flex flex-col bottom-0 text-center text-xs text-slate-500 italic">
+                <div className="mt-[6em] py-4 flex flex-col bottom-0 text-center text-xs text-slate-500 italic">
                   <p>
                     By continuing, you agree to Ciphyer's Terms of Service and
                     Privacy Policy, and to receive periodic emails with updates.
@@ -174,19 +175,17 @@ export default function Signup() {
             </main>
             <aside className="flex flex-col items-center justify-center w-3/4">
               <div className="relative text-4xl text-slate-600 font-serif italic ml-20 mb-12 w-3/4">
-                <div className="-left-8 -top-10 z-[0] absolute text-8xl font-serif italic text-slate-500">
+                <div className="-left-8 -top-10 z-[0] absolute text-7xl font-serif italic text-slate-500">
                   "
                 </div>
-                {
-                  "our team's GraphQL security has massively improved thanks to Ciphyr"
-                }
+                {"Ciphyr makes monitoring easy"}
               </div>
               <div className="flex justify-end items-center ml-5 mt-6 top text-2xl text-slate-500 font-serif italic w-3/4">
                 <img
                   className="w-12 h-12 rounded-full mx-4"
-                  src="https://media.licdn.com/dms/image/C5603AQH89aF7fDuxYQ/profile-displayphoto-shrink_800_800/0/1661982849820?e=1700092800&v=beta&t=zBgzK7aY2HhFyurGgAcuq2WFzc0wbLocmPYkvCS-ejQ"
+                  src="https://images.unsplash.com/photo-1615813967515-e1838c1c5116?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80"
                 />
-                <div>@not_ryanmcdaniel</div>
+                <div>@anonymous_user</div>
               </div>
             </aside>
           </div>
