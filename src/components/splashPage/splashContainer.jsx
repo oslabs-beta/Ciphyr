@@ -17,10 +17,15 @@ import magnifying from "./__assets__/icons/magnifying.png";
 import group from "./__assets__/icons/group.png";
 // CONSIDER MODULARIZING //
 //
+
+
+// MODULARIZED COMPONENTS
+import Services from "./servicesSection.jsx";
 import { Link } from "react-scroll";
 
 export default function splashContainer() {
   const navigate = useNavigate();
+
 
   return (
     <div className="flex flex-col border-indigo-700">
@@ -77,46 +82,7 @@ export default function splashContainer() {
               </div>
             </div>
           </section>
-          <section
-            id="services"
-            className="flex flex-col items-center mx-12 mt-28 mb-32"
-          >
-            <div className="text-2xl font-medium py-4 ">Services</div>
-            <div className="text-4xl font-thin py-2 pb-12 mb-12">
-              Bolster your GraphQL application
-            </div>
-            <div className="flex flex-row space-x-10 w-full justify-around mb-12">
-              <div className="flex flex-col items-center w-1/3 rounded-full hover:bg-sky-200 ">
-                <img src={binoculars} className="w-20 py-2" />
-                <div className="py-2 ">
-                  Monitor your client's traffic
-                </div>
-              </div>
-              <div className="flex flex-col items-center w-1/3 rounded-full hover:bg-sky-200">
-                <img src={notifcation} className="w-20 py-2" />
-                <div className="  ">Get alerts for your queries</div>
-              </div>
-              <div className="flex flex-col items-center w-1/3 rounded-full hover:bg-sky-200">
-                <img src={barChart} className="w-20 py-2" />
-                <div className="py-2 ">
-                  Visualize your GraphQL analytics
-                </div>
-              </div>
-            </div>
-            <div className="flex flex-row space-x-10 w-full justify-around my-6">
-              <div className="flex flex-col items-center rounded-full hover:bg-sky-200 w-1/3">
-                <img src={magnifying} className="w-20 py-2" />
-                <div className=" py-2 ">
-                  Inspect and filter your queries
-                </div>
-              </div>
-              <div className="flex flex-col items-center rounded-full hover:bg-sky-200 w-1/3">
-                <img src={group} className="w-20 py-2" />
-                <div className=" py-2 ">Installable for multiple instances</div>
-              </div>
-
-            </div>
-          </section>
+          <Services/>
           <section className="flex-col w-full items-center shadow">
             <div className="flex flex-row w-full py-16 justify-center bg-slate-900">
               <div className="ml-16 text-3xl font-light text-slate-200 ">
