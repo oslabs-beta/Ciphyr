@@ -4,7 +4,8 @@ const app = express();
 const userRouter = require('./routes/userRouter');
 const instanceRouter = require('./routes/instanceRouter');
 const logRouter = require('./routes/logRouter');
-//const oauthRouter = require('./routes/oauthRouter')
+const oauthRouter = require('./routes/oauthRouter');
+const oauthController = require('./controllers/oauthController');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const githubRouter = require('./routes/githubRouter');
@@ -19,18 +20,28 @@ app.use(cors());
 
 //use cookiesession to persist passport authentication for 24hours
 // app.use(
-//   cookieSession({
-//     maxAge: 24 * 60 * 60 * 1000,
-//     keys: ['testtesttesttest'],
-//   })
+//   "/api/getAccessToken",
+//   oauthController.getAccessToken,
+//   oauthController.getUserData,
+//   (req, res) => {
+//     return res.status(200).redirect("/");
+//   }
 // );
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.get(
+  process.env.REDIRECT_URI,
+  oauthController.getAccessToken,
+  oauthController.getUserProfile,
+  oauthController.saveOauthUser,
+  async (req, res) => {
+    console.log(req.cookies);
+    res.redirect('/home');
+  }
+);
 
-app.use('/api/auth', githubRouter);
 app.use('/api/user', userRouter);
 app.use('/api/instance', instanceRouter);
 app.use('/api/log', logRouter);
+app.use('/api/oauth', oauthRouter);
 
 app.use('*', (req, res) => res.status(404).send('Not Found'));
 

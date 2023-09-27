@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faGoogle } from '@fortawesome/free-brands-svg-icons';
 import DashboardImage from '../../assets/Dashboard.png';
-import { useNavigate } from 'react-router-dom';
+import { redirect, useNavigate } from 'react-router-dom';
 import ciphyrLogo from '../../assets/ciphyrLogo.png';
 
 export default function Login() {
@@ -41,13 +41,9 @@ export default function Login() {
     }
   };
 
-  const github = () => {
-    window.location.href = 'http://localhost:5173/api/auth/github';
+  const googleAuth = () => {
+    window.location.href = '/api/oauth/auth';
   };
-
-  // const github = () => {
-  //   window.open('/api/auth/github', '_self');
-  // };
 
   return (
     <>
@@ -70,16 +66,16 @@ export default function Login() {
                 </div>
                 <div className='flex flex-col gap-5 mb-5'>
                   <button
-                    onClick={github}
+                    onClick={googleAuth}
                     className='flex items-center justify-center border border-slate-300 rounded-md my-5 py-2 px-4 hover:bg-slate-100'
                   >
                     <FontAwesomeIcon
                       className='mr-2'
-                      icon={faGithub}
+                      icon={faGoogle}
                       style={{ color: '#000000' }}
                     />
                     <span className='border-slate-200 '>
-                      Continue with GitHub
+                      Continue with Google
                     </span>
                   </button>
                 </div>
