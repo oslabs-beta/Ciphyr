@@ -109,21 +109,27 @@ Super easy to get started
 
 ### Prerequisites
 
-You need tpo do this
+Ciphyr supports Apollo Server V4. Create your graphQL server with '@apollo/server'.
 
-- npm
+- Install Apollo Server
   ```sh
-  npm install npm@latest -g
+  npm install @apollo/server
+  ```
+- Import Required Module
+  ```sh
+  import { ApolloServer } from '@apollo/server'
+  
+  import { startStandaloneServer } from '@apollo/server/standalone'
   ```
 
 ### Installation
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Get a free API Key at [Ciphyr Home Page](https://example.com)
 2. Clone the repo
    ```sh
-   npm i ciphyr
+   npm install ciphyr
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
