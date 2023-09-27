@@ -71,4 +71,18 @@ alertController.sendEmail = async (req, res, next) => {
   return next();
 };
 
+alertController.update = async (req, res, next) => {
+  const { depth } = req.body;
+  const { username } = req.cookies;
+
+  const updateQuery = `UPDATE clients SET depth_preference = ${depth} WHERE username = '${username}'`
+  try {
+    const result = await db.query(updateQuery);
+    return next()
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+
 module.exports = alertController;
