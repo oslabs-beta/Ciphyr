@@ -5,6 +5,8 @@ import NavBar from "../navigation/Navbar.jsx";
 import CreateKeyModal from "../instances/CreateKeyModal";
 import SaveKeyModal from "../instances/SaveKeyModal";
 import ConnectionKeysCard from "../instances/ConnectionKeysCard.jsx";
+import SummaryBar from "./SummaryBar.jsx";
+
 import { useState, useEffect } from "react";
 
 export default function Homepage() {
@@ -12,7 +14,7 @@ export default function Homepage() {
   const [API, setAPI] = useState(false);
   const [apiKey, setApiKey] = useState("");
   const [user, setUser] = useState("");
-  const [count, setCount] = useState(0);
+  const [queryCount, setQueryCount] = useState(0);
   const [lastDate, setLastDate] = useState('');
 
   const toggleModal = () => {
@@ -68,7 +70,7 @@ export default function Homepage() {
   const getLogCount = async () => {
     const response = await fetch('/api/log/getLogCount');
     const result = await response.json();
-    setCount(result.count);
+    setQueryCount(result.count);
   }
 
   useEffect(() => {
@@ -109,14 +111,13 @@ export default function Homepage() {
               {currentDate()}
             </div>
             <div className="text-slate-700">
-              <h1 className="text-3xl text-slate-800 drop-shadow-sm mt-4">{introMessage()} </h1>
+              <h1 className="text-3xl text-slate-800 drop-shadow-sm mt-2">{introMessage()} </h1>
             </div>
-            <div className="text-slate-700">
-              <h1 className="text-3xl text-slate-800 drop-shadow-sm mt-4"> Last session: {lastDate} </h1>
-            </div>
-            <div className="text-slate-700">
-              <h1 className="text-3xl text-slate-800 drop-shadow-sm mt-4">We've recorded {count} query logs </h1>
-            </div>
+            <SummaryBar
+              numberOfLogs = {queryCount}
+              session = {lastDate}
+            /> 
+
           </div>
           <main className="flex flex-2 flex-col items-center my-8">
             <div className="shadow p-4 bg-white rounded-lg w-2/3">
