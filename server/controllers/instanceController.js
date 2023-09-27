@@ -74,7 +74,21 @@ instanceController.deleteInstance = async (req, res, next) => {
     return next();
   }
   catch(err) {
-    console.log(err);
+    return next(err);
+  }
+}
+
+instanceController.changeTimeZone = async (req, res, next) => {
+  try {
+    const { timeZone } = req.body;
+    console.log(timeZone)
+    const timeZoneQuery = `ALTER DATABASE sgobvnzo SET TIMEZONE TO '${timeZone}';`
+    const result = await db.query(timeZoneQuery);
+    return next();
+  }
+  catch(err) {
+    console.log(err)
+    return next(err);
   }
 }
 

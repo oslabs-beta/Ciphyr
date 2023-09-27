@@ -9,6 +9,7 @@ export default function GridTable(props) {
   const [modal, toggleModal] = useState(false);
   const [rows, setRows] = useState("");
   const [raw, setRaw] = useState("");
+  const [timeZone, setTimeZone] = useState("");
 
   useEffect(() => {
     fetchLogs();
@@ -30,6 +31,9 @@ export default function GridTable(props) {
         throw new Error(`Server side error. Status: ${response.status}`);
       }
       const data = await response.json();
+      data.forEach(el => {
+        el.timestamp = el.timestamp.substring(0, 19).replace('T', ' ')
+      })
       setRows(data);
       console.log(data);
     } catch (error) {
@@ -43,7 +47,7 @@ export default function GridTable(props) {
     { field: "operation" },
     { field: "depth" },
     { field: "latency" },
-    { field: "raw" },
+    //{ field: "raw" },
   ];
 
   const defaultColDef = useMemo(
@@ -69,7 +73,19 @@ export default function GridTable(props) {
       <div className="flex justify-end mb-3">
         <select
           className="border bg-white rounded-md px-4 py-1 mr-4"
-          placeholder="Search by keywords"
+          placeholder="Choose a Timezone"
+          onChange={(e) => props.setTimeZone(e.target.value)}
+        >
+          <option value="Universal">Choose a Timezone</option>
+          <option value="Canada/Eastern">Canada/Eastern</option>
+          <option value="US/Eastern">US/Eastern</option>
+          <option value="US/Central">US/Central</option>
+          <option value="US/Mountain">US/Mountain</option>
+          <option value="US/Pacific">US/Pacific</option>
+        </select>
+        <select
+          className="border bg-white rounded-md px-4 py-1 mr-4"
+          placeholder="Choose a Instance"
           value={props.instance}
           onChange={(e) => props.setInstance(e.target.value)}
         >
