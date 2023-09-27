@@ -33,6 +33,7 @@ passport.use(
       const userQuery = `SELECT * FROM clients WHERE username = $1`;
       const { rows } = await db.query(userQuery, [profile.username]);
       const hashedPassword = await bcrypt.hash(profile.username, salt);
+      
       if (rows[0]) {
         console.log('user is: ', rows[0]);
         //pass user to serializeUser method

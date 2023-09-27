@@ -22,7 +22,6 @@ router.get(
 
 router.get('/github/callback', passport.authenticate('github'), (req, res) => {
   //take code from github URI to grab github user data
-  console.log(profile);
   res.redirect('/home');
 });
 
