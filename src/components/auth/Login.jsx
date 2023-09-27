@@ -42,8 +42,8 @@ export default function Login() {
   };
 
   const googleAuth = () => {
-    window.location.href = "/api/oauth/auth";
-  };
+    window.location.href = "/api/user/oauth";
+  }
 
   return (
     <>

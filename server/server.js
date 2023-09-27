@@ -4,7 +4,7 @@ const app = express();
 const userRouter = require('./routes/userRouter');
 const instanceRouter = require('./routes/instanceRouter')
 const logRouter = require('./routes/logRouter');
-const oauthRouter = require('./routes/oauthRouter')
+//const oauthRouter = require('./routes/oauthRouter')
 const oauthController = require('./controllers/oauthController');
 const alertRouter = require('./routes/alertRouter');
 const cookieParser = require('cookie-parser');
@@ -14,17 +14,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 
-// const oauthController = require("./controllers/oauthController.js");
-
-// app.use(
-//   "/api/getAccessToken",
-//   oauthController.getAccessToken,
-//   oauthController.getUserData,
-//   (req, res) => {
-//     return res.status(200).redirect("/");
-//   }
-// );
-app.get(process.env.REDIRECT_URI, oauthController.getAccessToken, oauthController.getUserProfile,
+app.get(process.env.REDIRECT_URI, oauthController.getAccessToken, oauthController.getUserProfile, 
   oauthController.saveOauthUser, async (req, res) => {
     console.log(req.cookies);
     res.redirect('/home');
@@ -33,7 +23,6 @@ app.get(process.env.REDIRECT_URI, oauthController.getAccessToken, oauthControlle
 app.use('/api/user', userRouter);
 app.use('/api/instance', instanceRouter);
 app.use('/api/log', logRouter);
-app.use('/api/oauth', oauthRouter);
 app.use('/api/alert', alertRouter);
 
 app.use("*", (req, res) => res.status(404).send("Not Found"));
