@@ -6,6 +6,12 @@ import CiphyrRoundIcon from "./__assets__/Ciphyr-Round-Icon.png";
 import CiphyrRoundLogo from "./__assets__/Ciphyr-Round-Logo.png";
 import bigIdea from "./__assets__/undraw_bigIdea.png";
 import graphQL from "./__assets__/GraphQL_Logo.png";
+import jsLogo from "./__assets__/icons/JS-logo.png";
+import nodeJS from "./__assets__/icons/nodeJS.png";
+import pgLogo from "./__assets__/icons/pgLogo.png";
+import reactLogo from "./__assets__/icons/React.png";
+import npmLogo from "./__assets__/icons/npmLogo.png";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
 // SECTION FOR ICONS FOR SERVICES SECTION //
@@ -101,7 +107,7 @@ export default function splashContainer() {
                 </div> */}
               </div>
 
-              <div className="mt-[5em] flex item-end justify-center text-3xl animate-bounce mb-34 cursor-pointer">
+              <div className="mt-[3em] mb-[4em] flex item-end justify-center text-3xl animate-bounce cursor-pointer">
                 <Link to="services" smooth={true} duration={1000}>
                   <FontAwesomeIcon icon={faAnglesDown} />
                 </Link>
@@ -110,13 +116,28 @@ export default function splashContainer() {
           </section>
           <Services />
           <section className="flex-col w-full items-center shadow">
-            <div className="flex flex-row w-full py-16 justify-center bg-slate-900">
-              <div className="ml-16 text-3xl font-light text-slate-200 ">
-                Our stack
+            <div className="flex flex-row w-full py-16 justify-center items-center bg-slate-900">
+              <div className="text-4xl font-light text-slate-200 mr-6">
+                Built with ❤️ but also
               </div>
+              <span className="flex flex-row text-3xl font-light text-slate-200 space-x-4 ">
+                <span>
+                  <img src={jsLogo} className="w-12" />
+                </span>
+                <span>
+                  <img src={reactLogo} className="w-14" />
+                </span>
+                <span>
+                  <img src={graphQL} className="w-14" />
+                </span>
+
+                <span>
+                  <img src={pgLogo} className="w-12" />
+                </span>
+              </span>
             </div>
           </section>
-          <section className="flex flex-col items-start mx-36">
+          <section className="flex flex-col items-start mx-40">
             <div className="flex flex-row  border-emerald-400 w-full my-36">
               <div className="w-1/2  mx-6 my-4 space-y-4">
                 <div className="text-2xl font-semibold">
@@ -160,7 +181,7 @@ export default function splashContainer() {
             <div className="flex flex-row w-full py-16 justify-center">
               <div
                 id="getStarted"
-                className="ml-16 text-3xl font-light text-slate-200"
+                className=" text-4xl font-light text-slate-200"
               >
                 Getting started
               </div>

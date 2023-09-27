@@ -74,7 +74,7 @@ export default function Services() {
             </div>
 
             {isExpanded[index] && (
-              <div className="p-4 mt-2 border flex text-center">
+              <div className="p-4 mt-2 border-t text-center">
                  {messages[expandedIndex] || 'Message not found for this index'}
               </div>
             )}
@@ -99,7 +99,7 @@ export default function Services() {
             </div>
 
             {isExpanded[index] && (
-              <div className="p-4 mt-2">
+              <div className="p-4 mt-2 border-t text-center">
                  {messages[expandedIndex] || 'Message not found for this index'}
               </div>
             )}
