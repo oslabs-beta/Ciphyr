@@ -104,14 +104,14 @@ export default function Homepage() {
           ""
         )}
       </div>
-      <div className="bg-gradient-to-t from-custom-start to-custom-end  h-screen flex flex-auto">
+      <div className="bg-gradient-to-t from-custom-start to-custom-end sm:h-full h-screen flex flex-auto">
         <span className="border-l border-slate-300 w-full flex flex-col items-center">
           <div className="flex flex-col items-center my-10 w-1/2">
             <div className="text-slate-200 bg-slate-700 rounded-full text-lg drop-shadow-md px-6 py-2 my-4 ">
               {currentDate()}
             </div>
             <div className="text-slate-700">
-              <h1 className="text-3xl text-slate-800 drop-shadow-sm mt-2">{introMessage()} </h1>
+              <h1 className="text-5xl text-slate-800 drop-shadow-sm mt-2">{introMessage()} </h1>
             </div>
             <SummaryBar
               numberOfLogs = {queryCount}
