@@ -1,8 +1,8 @@
-import gql from 'graphql-tag';
-import { GraphQLError } from 'graphql';
-import dotenv from 'dotenv';
-//import jwt from 'jsonwebtoken';
-import pkg from 'pg';
+// const jwt = require('jsonwebtoken');
+const gql = require('graphql-tag');
+const { GraphQLError } = require('graphql');
+const dotenv = require('dotenv');
+const pkg = require('pg');
 
 dotenv.config();
 
@@ -97,9 +97,9 @@ ciphyr.convertStr = async (query) => {
   //latency of query
   result.latency = Date.now() - ciphyr.startTime;
 
-  console.log('result', result);
+  
 
-  //ciphyr.savingQuery(result);
+  ciphyr.savingQuery(result);
 }
 
 //save incoming query into PostgresQL
@@ -154,4 +154,4 @@ ciphyr.myPlugin = {
 
 };
 
-export default ciphyr;
+module.exports = ciphyr;

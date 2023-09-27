@@ -1,29 +1,41 @@
 const express = require("express");
 const port = process.env.PORT || 3000;
 const app = express();
-const userRouter = require('./routes/userRouter');
-const instanceRouter = require('./routes/instanceRouter')
-const logRouter = require('./routes/logRouter');
+const userRouter = require("./routes/userRouter");
+const instanceRouter = require("./routes/instanceRouter");
+const logRouter = require("./routes/logRouter");
 //const oauthRouter = require('./routes/oauthRouter')
-const oauthController = require('./controllers/oauthController');
-const alertRouter = require('./routes/alertRouter');
-const cookieParser = require('cookie-parser');
-const cors = require('cors');
+const oauthController = require("./controllers/oauthController");
+const alertRouter = require("./routes/alertRouter");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 
-app.get(process.env.REDIRECT_URI, oauthController.getAccessToken, oauthController.getUserProfile, 
-  oauthController.saveOauthUser, async (req, res) => {
+app.get(
+  process.env.REDIRECT_URI,
+  oauthController.getAccessToken,
+  oauthController.getUserProfile,
+  oauthController.saveOauthUser,
+  async (req, res) => {
     console.log(req.cookies);
-    res.redirect('/home');
-});
+    res.redirect("/home");
+  }
+);
 
-app.use('/api/user', userRouter);
-app.use('/api/instance', instanceRouter);
-app.use('/api/log', logRouter);
-app.use('/api/alert', alertRouter);
+if (process.env.NODE_ENV === "production") {
+  app.use(express.statistic(path.join(path.resolve(), "dist")));
+  app.get("/*", (_req, res) => {
+    return res.sendFile(path.join(path.resolve(), "dist", "index.html"));
+  });
+}
+
+app.use("/api/user", userRouter);
+app.use("/api/instance", instanceRouter);
+app.use("/api/log", logRouter);
+app.use("/api/alert", alertRouter);
 
 app.use("*", (req, res) => res.status(404).send("Not Found"));
 
