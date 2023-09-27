@@ -10,9 +10,9 @@ router.post('/newInstance', instanceController.verifyToken, instanceController.c
   return res.status(200).json(res.locals.instance);
 });
 
-router.post('/changeTimeZone', instanceController.changeTimeZone, (req, res) => {
-  return res.status(200)
-})
+// router.post('/changeTimeZone', instanceController.changeTimeZone, (req, res) => {
+//   return res.status(200)
+// })
 
 router.post('/deleteInstance', instanceController.deleteInstance, (req, res) => {
   return res.status(200)
