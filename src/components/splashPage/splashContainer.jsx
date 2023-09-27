@@ -20,6 +20,8 @@ import group from "./__assets__/icons/group.png";
 
 // MODULARIZED COMPONENTS
 import Services from "./servicesSection.jsx";
+import Footer from "./footer.jsx";
+
 import { Link } from "react-scroll";
 
 export default function splashContainer() {
@@ -30,7 +32,7 @@ export default function splashContainer() {
       <div className="flex flex-row  border-sky-400 w-full ">
         <main className=" w-full">
           <section className="mb-12">
-            <nav className=" flex flex-row justify-between mb-3 py-4 mx-12 items-center">
+            <nav className=" flex flex-row justify-between mb-3 py-4 mx-32 items-center">
               <div className="">
                 <img src={CiphyrRoundLogo} className="w-[12em]" />
               </div>
@@ -54,43 +56,43 @@ export default function splashContainer() {
                 </div>
               </div>
             </nav>
-            <div className="bg-gradient-to-b from-custom-start to-custom-end pt-20 pb-24 h-full">
-                <div className="flex flex-row">
-              <div className="flex flex-col items-start space-y-2 ml-20 mb-12 ">
-                <div>
-                  <h1 className="text-6xl font-semibold drop-shadow-lg">
-                    Unlock the Power of GraphQL
-                  </h1>
-                </div>
-                <div className="text-xl font-light py-2">
-                  Ciphyr is a comprehensive go-to solution for query traffic
-                  monitoring
-                </div>
-                <div>
-                  <Link to="getStarted" smooth={true} duration={2000}>
-                    <button className="mt-8 border px-4 py-2 rounded-lg bg-primary text-white text-lg">
-                      Get started for free
-                    </button>
-                  </Link>
-                </div>
-              </div>
-              <div className="border flex ml-32 w-1/4  border-sky-800 sticky">
-                <div>
-                <img
-                  src={CiphyrRoundIcon}
-                  className="w-[18em] absolute z-[1] left-0"
-                />
-                <img
-                  src={graphQL}
-                  className="w-[18em] absolute z-[0] left-32 top-20"
-                />
-                </div>
-                <div>
+            <div className="bg-gradient-to-b from-custom-start to-custom-end pt-20 pb-24 h-full flex flex-col items-center justify-center">
+              <div className="flex flex-row">
+                <div className="flex flex-col w-full items-center mx-36 mt-20 mb-10 ">
+                  <div>
+                    <h1 className="py-4 text-7xl font-semibold drop-shadow-lg bg-gradient-to-r from-blue-600 via-red-800 to-indigo-400 inline-block text-transparent bg-clip-text">
+                      UNLOCK SECURITY WITH
+                    </h1>
+                    <h1 className="text-6xl text-center font-semibold drop-shadow-lg">
+                      TRANSPARENT GRAPHQL
+                    </h1>
                   </div>
-              </div>
+                  <div className="text-2xl font-light py-8">
+                    Server-side GraphQL monitoring. All in one place.
+                  </div>
+                  <div>
+                    <Link to="getStarted" smooth={true} duration={2000}>
+                      <button className="mt-8 border px-4 py-2 rounded-lg bg-primary text-white text-lg">
+                        Get started
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+                {/* <div className="border flex ml-32 w-1/4  border-sky-800 sticky">
+                  <div>
+                    <img
+                      src={CiphyrRoundIcon}
+                      className="w-[18em] absolute z-[1] left-0"
+                    />
+                    <img
+                      src={graphQL}
+                      className="w-[18em] absolute z-[0] left-32 top-20"
+                    />
+                  </div>
+                </div> */}
               </div>
 
-              <div className="mt-[12em] flex item-end justify-center text-3xl animate-bounce mb-34 cursor-pointer">
+              <div className="mt-[7em] flex item-end justify-center text-3xl animate-bounce mb-34 cursor-pointer">
                 <Link to="services" smooth={true} duration={1000}>
                   <FontAwesomeIcon icon={faAnglesDown} />
                 </Link>
@@ -181,39 +183,7 @@ export default function splashContainer() {
               </div>
             </div>
           </section>
-          <footer className="bg-gradient-to-t from-custom-start to-custom-end  flex flex-col items-center mt-4">
-            <div className="flex flex-row w-4/5 my-4">
-              <div className="w-1/2  mx-2 my-2 px-4 py-4 ">
-                <div className="text-2xl font-semibold">Our Team</div>
-                <div className="py-4 space-y-2">
-                  <div className="text-lg font-light">Aidan Berger</div>
-                  <div className="text-lg font-light">Jeremy Wang</div>
-                  <div className="text-lg font-light">John Le</div>
-                  <div className="text-lg font-light">Mike Zhang</div>
-                </div>
-              </div>
-              <div className="w-1/2 mx-2 my-2 py-4">
-                <div className="text-2xl font-semibold">Write to us</div>
-                <div className="my-2">
-                  <input
-                    className="rounded w-full px-2 py-1 text-lg"
-                    placeholder="johndoe@email.com"
-                  ></input>
-                </div>
-                <div className="mt-4">
-                  <input
-                    className="rounded w-full px-2 pb-12 text-lg"
-                    placeholder="Ciphyr is..."
-                  ></input>
-                </div>
-                <div className="my-2 flex items-end justify-end w-full">
-                  <button className="border border-slate-400 hover:bg-transparenthover:border-primary hover:text-primary mr-2 px-4 py-1 rounded-lg ">
-                    Submit
-                  </button>
-                </div>
-              </div>
-            </div>
-          </footer>
+          <Footer />
         </main>
       </div>
     </div>
