@@ -18,14 +18,12 @@ import group from "./__assets__/icons/group.png";
 // CONSIDER MODULARIZING //
 //
 
-
 // MODULARIZED COMPONENTS
 import Services from "./servicesSection.jsx";
 import { Link } from "react-scroll";
 
 export default function splashContainer() {
   const navigate = useNavigate();
-
 
   return (
     <div className="flex flex-col border-indigo-700">
@@ -42,7 +40,7 @@ export default function splashContainer() {
                   <span>
                     <button
                       onClick={() => navigate("/")}
-                      className="border  border-slate-400 hover:bg-white hover:border-primary hover:text-primary mr-2 px-4 py-1 rounded-lg text-"
+                      className="border  border-slate-400 hover:bg-white hover:border-primary hover:text-primary mr-2 px-4 py-1 rounded-lg "
                     >
                       Login
                     </button>
@@ -57,24 +55,41 @@ export default function splashContainer() {
               </div>
             </nav>
             <div className="bg-gradient-to-b from-custom-start to-custom-end pt-20 pb-24 h-full">
-              <div className="flex flex-col items-center mb-12"></div>
-              <div className="flex flex-col items-center space-y-2 ">
+                <div className="flex flex-row">
+              <div className="flex flex-col items-start space-y-2 ml-20 mb-12 ">
                 <div>
                   <h1 className="text-6xl font-semibold drop-shadow-lg">
                     Unlock the Power of GraphQL
                   </h1>
                 </div>
                 <div className="text-xl font-light py-2">
-                  Ciphyr is a simple go-to solution for query traffic monitoring
+                  Ciphyr is a comprehensive go-to solution for query traffic
+                  monitoring
                 </div>
                 <div>
                   <Link to="getStarted" smooth={true} duration={2000}>
                     <button className="mt-8 border px-4 py-2 rounded-lg bg-primary text-white text-lg">
-                      Get started
+                      Get started for free
                     </button>
                   </Link>
                 </div>
               </div>
+              <div className="border flex ml-32 w-1/4  border-sky-800 sticky">
+                <div>
+                <img
+                  src={CiphyrRoundIcon}
+                  className="w-[18em] absolute z-[1] left-0"
+                />
+                <img
+                  src={graphQL}
+                  className="w-[18em] absolute z-[0] left-32 top-20"
+                />
+                </div>
+                <div>
+                  </div>
+              </div>
+              </div>
+
               <div className="mt-[12em] flex item-end justify-center text-3xl animate-bounce mb-34 cursor-pointer">
                 <Link to="services" smooth={true} duration={1000}>
                   <FontAwesomeIcon icon={faAnglesDown} />
@@ -82,11 +97,11 @@ export default function splashContainer() {
               </div>
             </div>
           </section>
-          <Services/>
+          <Services />
           <section className="flex-col w-full items-center shadow">
             <div className="flex flex-row w-full py-16 justify-center bg-slate-900">
               <div className="ml-16 text-3xl font-light text-slate-200 ">
-                Built for deveopers, by developers
+                Our stack
               </div>
             </div>
           </section>
@@ -166,7 +181,7 @@ export default function splashContainer() {
               </div>
             </div>
           </section>
-          <footer className="flex flex-col items-center border-t  ">
+          <footer className="bg-gradient-to-t from-custom-start to-custom-end  flex flex-col items-center mt-4">
             <div className="flex flex-row w-4/5 my-4">
               <div className="w-1/2  mx-2 my-2 px-4 py-4 ">
                 <div className="text-2xl font-semibold">Our Team</div>
@@ -181,18 +196,18 @@ export default function splashContainer() {
                 <div className="text-2xl font-semibold">Write to us</div>
                 <div className="my-2">
                   <input
-                    className="border border-slate-500 rounded w-full px-2 py-1 text-lg"
+                    className="rounded w-full px-2 py-1 text-lg"
                     placeholder="johndoe@email.com"
                   ></input>
                 </div>
                 <div className="mt-4">
                   <input
-                    className="border border-slate-500 rounded w-full px-2 pb-12 text-lg"
+                    className="rounded w-full px-2 pb-12 text-lg"
                     placeholder="Ciphyr is..."
                   ></input>
                 </div>
-                <div className="flex items-end justify-end w-full">
-                  <button className="px-4 py-2 border rounded-lg text-lg">
+                <div className="my-2 flex items-end justify-end w-full">
+                  <button className="border border-slate-400 hover:bg-transparenthover:border-primary hover:text-primary mr-2 px-4 py-1 rounded-lg ">
                     Submit
                   </button>
                 </div>
