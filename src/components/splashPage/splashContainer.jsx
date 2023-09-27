@@ -1,49 +1,59 @@
 import ciphyrIcon from "../../assets/ciphyrIcon.png";
 import ciphyrLogo from "../../assets/ciphyrLogo.png";
-import background from "../../assets/bg-image-ciphyr.jpg";
-
+import bigIdea from "./__assets__/undraw_bigIdea.png";
+import graphQL from "./__assets__/GraphQL_Logo.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-scroll";
 
 export default function splashContainer() {
   return (
     <div className="flex flex-col border-indigo-700">
       <div className="flex flex-row  border-sky-400 w-full ">
-        <main className=" w-full my-12 mx-36 space-y-4">
-          <section className=" border-sky-800 ">
-            <nav className=" flex justify-between mb-10">
+        <main className=" w-full my-8">
+          <section className=" border-sky-800 h-screen">
+            <nav className=" flex justify-between mb-3 mx-32">
               <div className="">
                 <img src={ciphyrLogo} className="w-40" />
               </div>
               <div>
                 <div id="loginGroup">
-                  <button className="border mr-2 px-4 py-2 rounded-lg text-lg">
+                  <button className="border mr-2 px-4 py-1 rounded-lg text-lg">
                     Login
                   </button>
-                  <button className="border px-4 py-2 rounded-lg text-lg">
+                  <button className="border px-4 py-1 rounded-lg text-lg">
                     Sign up
                   </button>
                 </div>
               </div>
             </nav>
-            <div className="flex flex-col space-y-2 ml-2 my-8 mb-12 ">
+            <div className="bg-sky-600 pt-36 h-full">
+            <div className="flex flex-col items-center space-y-2 sm:mb-[8em] md:mb-[20em] lg:mb-[30em]">
               <div>
                 <h1 className="text-6xl font-semibold">
-                  The Power of Security
+                  Unlock the Power of GraphQL
                 </h1>
-
               </div>
               <div className="text-xl font-light py-2">
-                Ciphyr is a powerful go-to solution for GraphQL traffic
-                monitoring
+                Ciphyr is a powerful go-to solution for query traffic monitoring
               </div>
               <div>
-                <button className="border px-4 py-2 rounded-lg bg-primary text-white text-lg">
-                  Get started
-                </button>
+                <Link to="getStarted" smooth={true} duration={2000}>
+                  <button className="mt-8 border px-4 py-2 rounded-lg bg-primary text-white text-lg">
+                    Get started
+                  </button>
+                </Link>
               </div>
             </div>
+            <div className="flex item-end justify-center text-3xl animate-bounce mb-34">
+              <Link to="services" smooth={true} duration={1000}>
+                <FontAwesomeIcon icon={faAnglesDown} />
+              </Link>
+            </div>
+            </div>
           </section>
-          <section className="flex flex-col w-full items-center border border-sky-800 ">
-            <div className="text-2xl font-semibold py-4 ">Services</div>
+          <section id="services" className="flex flex-col items-center mx-12 ">
+            <div className="text-2xl font-medium py-4 ">Services</div>
             <div className="text-4xl font-thin py-2 mb-12">
               Bolster your GraphQL application
             </div>
@@ -66,15 +76,15 @@ export default function splashContainer() {
               </div>
             </div>
           </section>
-          <section className="flex flex-col w-full items-center border border-sky-800 ">
-            <div className="flex flex-row w-full py-16 justify-center">
-              <div className="ml-16 text-3xl font-light">
-                Built for deveopers
+          <section className="flex-col w-full items-center shadow">
+            <div className="flex flex-row w-full py-16 justify-center bg-slate-900">
+              <div className="ml-16 text-3xl font-light text-slate-200 ">
+                Built for deveopers, by developers
               </div>
             </div>
           </section>
-          <section className="flex flex-col w-full items-start border border-sky-800 ">
-            <div className="flex flex-row  border-emerald-400 w-full my-4">
+          <section className="flex flex-col items-start mx-36">
+            <div className="flex flex-row  border-emerald-400 w-full my-36">
               <div className="w-1/2  mx-6 my-4 space-y-4">
                 <div className="text-2xl font-semibold">
                   So, what's the big idea?
@@ -109,16 +119,18 @@ export default function splashContainer() {
                 </div>
               </div>
               <aside className="w-1/2 flex justify-center mx-6 my-4">
-                <img src={ciphyrIcon} className="scale-75" />
+                <img src={bigIdea} className="" />
               </aside>
             </div>
           </section>
-          <section className="flex flex-col w-full items-center border border-sky-800 ">
+          <section className="flex flex-col w-full items-center border border-sky-800 bg-slate-900">
             <div className="flex flex-row w-full py-16 justify-center">
-              <div className="ml-16 text-3xl font-light">Getting started</div>
+              <div id="getStarted" className="ml-16 text-3xl font-light text-slate-200">
+                Getting started
+              </div>
             </div>
           </section>
-          <section className="flex flex-col w-full items-center border border-sky-800 ">
+          <section className="flex flex-col items-center border border-sky-800 mx-36 ">
             <div className="flex flex-row  border-emerald-400 w-full my-4 py-6">
               <aside className="w-1/2 flex justify-center border-2 border-dashed mx-2 my-2">
                 <img src={ciphyrLogo} className="w-48" />
@@ -144,13 +156,11 @@ export default function splashContainer() {
               </div>
             </div>
           </section>
-          <footer className="flex flex-col w-full items-center border border-sky-800 ">
-            <div className="flex flex-row  border-emerald-400 w-full my-4">
-              <div className="w-1/2  border-dashed mx-2 my-2 px-4 py-4 ">
-                <div className="text-2xl font-semibold">
-                  Active Contributors
-                </div>
-                <div className="py-2">
+          <footer className="flex flex-col items-center border-t  ">
+            <div className="flex flex-row w-4/5 my-4">
+              <div className="w-1/2  mx-2 my-2 px-4 py-4 ">
+                <div className="text-2xl font-semibold">Our Team</div>
+                <div className="py-4 space-y-2">
                   <div className="text-lg font-light">Aidan Berger</div>
                   <div className="text-lg font-light">Jeremy Wang</div>
                   <div className="text-lg font-light">John Le</div>
