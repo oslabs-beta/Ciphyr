@@ -91,6 +91,15 @@ ciphyr.convertStr = async (query) => {
 };
 
 ciphyr.savingQuery = async (result) => {
+  const queryObj = {
+    operation: result.operation,
+    query_name: result.queryName,
+    log: result.queryString,
+    raw: result.raw
+    depth: result.depth,
+    latency: result.latency,
+    api_key: process.env.API_KEY
+  }
   // will the user be willing to send query log to Ciphyr's database?
   // how to connect to user's own database instead
   const sqlQuery = `INSERT INTO log (operation, query_name, log, raw, depth, latency, api_key)
@@ -99,11 +108,19 @@ ciphyr.savingQuery = async (result) => {
   try {
     const output = await db.query(sqlQuery);
     console.log(output);
+    //send query to server
+    const result = fetch('/api/alert', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(queryObj);
+    })
   } catch (err) {
     console.log(err);
   }
   //add a post to server
-  
+
 };
 
 module.exports = ciphyr;
