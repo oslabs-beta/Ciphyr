@@ -9,6 +9,7 @@ const oauthController = require("./controllers/oauthController");
 const alertRouter = require("./routes/alertRouter");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
+const path = require("path");
 
 app.use(express.json());
 app.use(cookieParser());
@@ -26,7 +27,7 @@ app.get(
 );
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.statistic(path.join(path.resolve(), "dist")));
+  app.use(express.static(path.join(path.resolve(), "dist")));
   app.get("/*", (_req, res) => {
     return res.sendFile(path.join(path.resolve(), "dist", "index.html"));
   });
