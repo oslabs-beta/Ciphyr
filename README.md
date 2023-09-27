@@ -227,15 +227,15 @@ Use this space to list resources you find helpful and would like to give credit 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+[contributors-shield]: https://img.shields.io/github/contributors/oslabs-beta/Ciphyr.svg?style=for-the-badge
 [contributors-url]: https://github.com/oslabs-beta/Ciphyr/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/oslabs-beta/Ciphyr.svg?style=for-the-badge
 [forks-url]: https://github.com/oslabs-beta/Ciphyr/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/oslabs-beta/Ciphyr.svg?style=for-the-badge
 [stars-url]: https://github.com/oslabs-beta/Ciphyr/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/oslabs-beta/Ciphyr.svg?style=for-the-badge
 [issues-url]: https://github.com/oslabs-beta/Ciphyr/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/oslabs-beta/Ciphyr.svg?style=for-the-badge
 [license-url]: https://github.com/oslabs-beta/Ciphyr/blob/john/splash/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/company/ciphyr/
