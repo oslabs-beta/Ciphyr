@@ -21,6 +21,7 @@ import group from "./__assets__/icons/group.png";
 // MODULARIZED COMPONENTS
 import Services from "./servicesSection.jsx";
 import Footer from "./footer.jsx";
+import InstructionSection from "./instructionSection.jsx";
 
 import { Link } from "react-scroll";
 
@@ -32,50 +33,58 @@ export default function splashContainer() {
       <div className="flex flex-row  border-sky-400 w-full ">
         <main className=" w-full">
           <section className="mb-12">
-            <nav className=" flex flex-row justify-between mb-3 py-4 mx-32 items-center">
-              <div className="">
-                <img src={CiphyrRoundLogo} className="w-[12em]" />
-              </div>
-              <div className="flex flex-row">
-                <div id="login" className="space-x-4">
-                  {/* <span className="font-light text-sm text-slate-700"> Already have an account?</span> */}
-                  <span>
+            <div className="bg-gradient-to-b from-custom-start via-splash-via to-splash-end pt-20 pb-24 h-full flex flex-col items-center justify-center">
+              <nav className=" flex flex-row justify-between mx-32 items-center">
+                <div className="">
+                  <img src={CiphyrRoundLogo} className="w-[12em]" />
+                </div>
+                <div className="flex flex-row">
+                  <div id="login" className="space-x-4">
+                    {/* <span className="font-light text-sm text-slate-700"> Already have an account?</span> */}
+                    {/* <span>
                     <button
                       onClick={() => navigate("/")}
                       className="border  border-slate-400 hover:bg-white hover:border-primary hover:text-primary mr-2 px-4 py-1 rounded-lg "
                     >
                       Login
                     </button>
-                  </span>
-                  {/* <button
+                  </span> */}
+                    {/* <button
                     onClick={() => navigate("/signup")}
                     className="border px-4 py-1 rounded-lg text-lg"
                   >
                     Sign up
                   </button> */}
+                  </div>
                 </div>
-              </div>
-            </nav>
-            <div className="bg-gradient-to-b from-custom-start to-custom-end pt-20 pb-24 h-full flex flex-col items-center justify-center">
+              </nav>
               <div className="flex flex-row">
                 <div className="flex flex-col w-full items-center mx-36 mt-20 mb-10 ">
                   <div>
-                    <h1 className="py-4 text-7xl font-semibold drop-shadow-lg bg-gradient-to-r from-blue-600 via-red-800 to-indigo-400 inline-block text-transparent bg-clip-text">
+                    <h1 className="py-4 text-7xl font-semibold drop-shadow-lg bg-gradient-to-r from-blue-600 via-red-800 to-indigo-400 text-transparent bg-clip-text">
                       UNLOCK SECURITY WITH
                     </h1>
-                    <h1 className="text-6xl text-center font-semibold drop-shadow-lg">
+                    <h1 className="text-6xl text-center font-semibold drop-shadow-lg bg-gradient-to-r from-slate-800 via-slate-600 to-slate-800 text-transparent bg-clip-text">
                       TRANSPARENT GRAPHQL
                     </h1>
                   </div>
-                  <div className="text-2xl font-light py-8">
+                  <div className="text-2xl font-light py-6 mt-8">
                     Server-side GraphQL monitoring. All in one place.
                   </div>
                   <div>
                     <Link to="getStarted" smooth={true} duration={2000}>
-                      <button className="mt-8 border px-4 py-2 rounded-lg bg-primary text-white text-lg">
+                      <button className="mt-4 px-4 py-2 rounded-full bg-black text-white text-lg hover:bg-primary hover:text-white transition ease-in-out">
                         Get started
                       </button>
                     </Link>
+                  </div>
+                  <div>
+                    <button
+                      onClick={() => navigate("/")}
+                      className="mt-4 border border-slate-500 px-3 py-1 rounded-full bg-transparent text-slate-600 text-md"
+                    >
+                      Already have an account?
+                    </button>
                   </div>
                 </div>
                 {/* <div className="border flex ml-32 w-1/4  border-sky-800 sticky">
@@ -92,7 +101,7 @@ export default function splashContainer() {
                 </div> */}
               </div>
 
-              <div className="mt-[7em] flex item-end justify-center text-3xl animate-bounce mb-34 cursor-pointer">
+              <div className="mt-[5em] flex item-end justify-center text-3xl animate-bounce mb-34 cursor-pointer">
                 <Link to="services" smooth={true} duration={1000}>
                   <FontAwesomeIcon icon={faAnglesDown} />
                 </Link>
@@ -157,32 +166,7 @@ export default function splashContainer() {
               </div>
             </div>
           </section>
-          <section className="flex flex-col items-center border border-sky-800 mx-36 ">
-            <div className="flex flex-row  border-emerald-400 w-full my-4 py-6">
-              <aside className="w-1/2 flex justify-center border-2 border-dashed mx-2 my-2">
-                <img src={ciphyrLogo} className="w-48" />
-              </aside>
-              <div className="w-1/2  border-dashed mx-2 my-2 flex justify-center items-center">
-                <div className="text-xl">NPM install Ciphyr</div>
-              </div>
-            </div>
-            <div className="flex flex-row  border-emerald-400 w-full mx-4 my-4 py-6">
-              <div className="w-1/2 border-dashed mx-2 my-2 flex justify-center items-center">
-                <div className="text-xl">Plug in config</div>
-              </div>
-              <aside className="w-1/2 flex justify-center border-2 border-dashed mx-2 my-2">
-                <img src={ciphyrLogo} className="w-48" />
-              </aside>
-            </div>
-            <div className="flex flex-row  border-emerald-400 w-full mx-4 my-4 py-6">
-              <aside className="w-1/2 flex justify-center border-2 border-dashed mx-2 my-2">
-                <img src={ciphyrLogo} className="w-48" />
-              </aside>
-              <div className="w-1/2  border-dashed mx-2 my-2 flex justify-center items-center">
-                <a className="text-xl">Create an account</a>
-              </div>
-            </div>
-          </section>
+          <InstructionSection />
           <Footer />
         </main>
       </div>

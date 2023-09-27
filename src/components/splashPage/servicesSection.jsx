@@ -14,7 +14,7 @@ export default function Services() {
   const [expandedIndex, setExpandedIndex] = useState();
 
   const messages = {
-    0: "Peek behind the curtain of your GraphQL application! Keep an eye on how your clients interact with your server, understanding traffic flows and usage patterns.",
+    0: "Keep an eye on how your clients interact with your server, understanding traffic flows and usage patterns.",
     1: "Ciphyr keeps an eye out and alerts you when your queries start acting out of the ordinary, ensuring you're always in the loop.",
     2: "See the heartbeat of your GraphQL API! Our intuitive frontend displays useful metrics across a breath of charts and graphics",
     3: "Ciphyr lets you sift through and analyze your queries, allowing you to identify patterns and streamline them for peak efficiency.",
