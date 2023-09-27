@@ -138,4 +138,4 @@ ciphyr.myPlugin = {
   },
 };
 
-export default ciphyr;
+module.exports = ciphyr;
