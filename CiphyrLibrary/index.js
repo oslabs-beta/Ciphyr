@@ -108,15 +108,34 @@ ciphyr.convertStr = async (query) => {
 
 //save incoming query into PostgresQL
 ciphyr.savingQuery = async (result) => {
-  const sqlQuery = `INSERT INTO log (operation, query_name, log, raw, depth, 
-    latency, api_key, error_occured, error_code) 
-    VALUES ('${result.operation}', '${result.queryName}', 
-      '${result.queryString}', '${result.raw}', '${result.depth}', '${result.latency}', 
-      '${process.env.API_KEY}', '${result.error_occured}', '${result.error_code}');`;
+   const queryObj = {
+    operation: result.operation,
+    query_name: result.queryName,
+    log: result.queryString,
+    raw: result.raw
+    depth: result.depth,
+    latency: result.latency,
+    api_key: process.env.API_KEY
+  };
+  const sqlQuery = `INSERT INTO log (operation, query_name, log, raw, depth,
+    latency, api_key, error_occured, error_code)
+    VALUES ('${result.operation}', '${result.queryName}',
+      '${result.queryString}', '${result.raw}', '${result.depth}', '${result.latency}',
+      '${process.env.API_KEY}', '${result.error_occured}', '${result.error_code}');`
   try {
     const output = await db.query(sqlQuery);
     console.log(output);
-  } catch (err) {
+
+        //send query to server
+        const result = fetch('/api/alert', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(queryObj);
+        }).then((res) => console.log(res));
+        
+  } catch(err) {
     console.log(err);
   }
 };
