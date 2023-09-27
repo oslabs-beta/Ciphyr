@@ -29,23 +29,23 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/oslabs-beta/Ciphyr">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Best-README-Template</h3>
+  <h3 align="center">Ciphyr</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    A comprehensive solution for GraphQL traffic and security monitoring
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/oslabs-beta/Ciphyr"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://github.com/othneildrew/Best-README-Template">Our Splash</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/oslabs-beta/Ciphyr/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/oslabs-beta/Ciphyr/issues">Request Feature</a>
   </p>
 </div>
 
@@ -235,7 +235,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [stars-url]: https://github.com/oslabs-beta/Ciphyr/stargazers
 [issues-shield]: https://img.shields.io/github/issues/oslabs-beta/Ciphyr.svg?style=for-the-badge
 [issues-url]: https://github.com/oslabs-beta/Ciphyr/issues
-[license-shield]: https://img.shields.io/github/license/oslabs-beta/Ciphyr.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/oslabs-beta/Ciphyr/john/splash.svg?style=for-the-badge
 [license-url]: https://github.com/oslabs-beta/Ciphyr/blob/john/splash/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/company/ciphyr/
