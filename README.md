@@ -30,13 +30,13 @@
 <br />
 <div align="center">
   <a href="https://github.com/oslabs-beta/Ciphyr">
-    <img src="src/assets/ciphyrLogo.png" alt="Logo" width="80" height="80">
+    <img src="src/assets/ciphyrLogo.png" alt="Logo" width="60%" height="auto">
   </a>
 
-  <h3 align="center">Ciphyr</h3>
+  <h3 align="center"> A comprehensive solution for GraphQL traffic monitoring</h3>
 
   <p align="center">
-    A comprehensive solution for GraphQL traffic and security monitoring
+    Seamlessly integrate within your application today!
     <br />
     <a href="https://github.com/oslabs-beta/Ciphyr"><strong>Explore the docs »</strong></a>
     <br />
@@ -81,26 +81,23 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Ciphyr is security. Ciphyr is it. 
+Ciphyr is security. Ciphyr is it.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
 
-
-* [![React][React.js]][React-url]
-* [![Node][Node]][React-url]
-* [![GraphQL][GraphQL]][React-url]
-* [![Tailwind][Tailwind]][React-url]
-* [![PostgreSQL][PostgreSQL]][React-url]
-* [![Jest][Jest]][React-url]
-* [![Testing Library][Testing Library]][React-url]
-* [![Vite][Vite]][React-url]
-* [![Heroku][Heroku]][React-url]
-* [![Express][Express]][React-url]
-* [![Apollo-GraphQL][Apollo-GraphQL]][React-url]
-
-
+- [![React][React.js]][React-url]
+- [![Node][Node]][React-url]
+- [![GraphQL][GraphQL]][React-url]
+- [![Tailwind][Tailwind]][React-url]
+- [![PostgreSQL][PostgreSQL]][React-url]
+- [![Jest][Jest]][React-url]
+- [![Testing Library][Testing Library]][React-url]
+- [![Vite][Vite]][React-url]
+- [![Heroku][Heroku]][React-url]
+- [![Express][Express]][React-url]
+- [![Apollo-GraphQL][Apollo-GraphQL]][React-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -113,6 +110,7 @@ Super easy to get started
 ### Prerequisites
 
 You need tpo do this
+
 - npm
   ```sh
   npm install npm@latest -g
@@ -127,7 +125,6 @@ _Below is an example of how you can instruct your audience on installing and set
    ```sh
    npm i ciphyr
    ```
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -194,7 +191,6 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 
 - [CSS by Tailwind](https://tailwindcss.com)
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
@@ -208,13 +204,11 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 [stars-url]: https://github.com/oslabs-beta/Ciphyr/stargazers
 [issues-shield]: https://img.shields.io/github/issues/oslabs-beta/Ciphyr.svg?style=for-the-badge
 [issues-url]: https://github.com/oslabs-beta/Ciphyr/issues
-[license-shield]: https://img.shields.io/github/license/oslabs-beta/Ciphyr/john/splash.svg?style=for-the-badge
-[license-url]: https://github.com/oslabs-beta/Ciphyr/blob/john/splash/LICENSE
+[license-shield]: https://img.shields.io/github/license/oslabs-beta/Ciphyr.svg?style=for-the-badge
+[license-url]: https://github.com/oslabs-beta/Ciphyr/blob/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/company/ciphyr/
 [product-screenshot]: images/screenshot.png
-
-
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/
 [TypeScript]: https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white
