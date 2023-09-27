@@ -1,79 +1,120 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ciphyrIcon from "../../assets/ciphyrIcon.png";
 import ciphyrLogo from "../../assets/ciphyrLogo.png";
+import CiphyrRoundIcon from "./__assets__/Ciphyr-Round-Icon.png";
+import CiphyrRoundLogo from "./__assets__/Ciphyr-Round-Logo.png";
 import bigIdea from "./__assets__/undraw_bigIdea.png";
 import graphQL from "./__assets__/GraphQL_Logo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
+// SECTION FOR ICONS FOR SERVICES SECTION //
+
+import binoculars from "./__assets__/icons/binoculars.png";
+import notifcation from "./__assets__/icons/notification.png";
+import barChart from "./__assets__/icons/bar-chart.png";
+import magnifying from "./__assets__/icons/magnifying.png";
+import group from "./__assets__/icons/group.png";
+// CONSIDER MODULARIZING //
+//
 import { Link } from "react-scroll";
 
 export default function splashContainer() {
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-col border-indigo-700">
       <div className="flex flex-row  border-sky-400 w-full ">
-        <main className=" w-full my-8">
-          <section className=" border-sky-800 h-screen">
-            <nav className=" flex justify-between mb-3 mx-32">
+        <main className=" w-full">
+          <section className="mb-12">
+            <nav className=" flex flex-row justify-between mb-3 py-4 mx-12 items-center">
               <div className="">
-                <img src={ciphyrLogo} className="w-40" />
+                <img src={CiphyrRoundLogo} className="w-[12em]" />
               </div>
-              <div>
-                <div id="loginGroup">
-                  <button className="border mr-2 px-4 py-1 rounded-lg text-lg">
-                    Login
-                  </button>
-                  <button className="border px-4 py-1 rounded-lg text-lg">
+              <div className="flex flex-row">
+                <div id="login" className="space-x-4">
+                  {/* <span className="font-light text-sm text-slate-700"> Already have an account?</span> */}
+                  <span>
+                    <button
+                      onClick={() => navigate("/")}
+                      className="border  border-slate-400 hover:bg-white hover:border-primary hover:text-primary mr-2 px-4 py-1 rounded-lg text-"
+                    >
+                      Login
+                    </button>
+                  </span>
+                  {/* <button
+                    onClick={() => navigate("/signup")}
+                    className="border px-4 py-1 rounded-lg text-lg"
+                  >
                     Sign up
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </nav>
-            <div className="bg-sky-600 pt-36 h-full">
-            <div className="flex flex-col items-center space-y-2 sm:mb-[8em] md:mb-[20em] lg:mb-[30em]">
-              <div>
-                <h1 className="text-6xl font-semibold">
-                  Unlock the Power of GraphQL
-                </h1>
+            <div className="bg-gradient-to-b from-custom-start to-custom-end pt-20 pb-24 h-full">
+              <div className="flex flex-col items-center mb-12"></div>
+              <div className="flex flex-col items-center space-y-2 ">
+                <div>
+                  <h1 className="text-6xl font-semibold drop-shadow-lg">
+                    Unlock the Power of GraphQL
+                  </h1>
+                </div>
+                <div className="text-xl font-light py-2">
+                  Ciphyr is a simple go-to solution for query traffic monitoring
+                </div>
+                <div>
+                  <Link to="getStarted" smooth={true} duration={2000}>
+                    <button className="mt-8 border px-4 py-2 rounded-lg bg-primary text-white text-lg">
+                      Get started
+                    </button>
+                  </Link>
+                </div>
               </div>
-              <div className="text-xl font-light py-2">
-                Ciphyr is a powerful go-to solution for query traffic monitoring
-              </div>
-              <div>
-                <Link to="getStarted" smooth={true} duration={2000}>
-                  <button className="mt-8 border px-4 py-2 rounded-lg bg-primary text-white text-lg">
-                    Get started
-                  </button>
+              <div className="mt-[12em] flex item-end justify-center text-3xl animate-bounce mb-34 cursor-pointer">
+                <Link to="services" smooth={true} duration={1000}>
+                  <FontAwesomeIcon icon={faAnglesDown} />
                 </Link>
               </div>
             </div>
-            <div className="flex item-end justify-center text-3xl animate-bounce mb-34">
-              <Link to="services" smooth={true} duration={1000}>
-                <FontAwesomeIcon icon={faAnglesDown} />
-              </Link>
-            </div>
-            </div>
           </section>
-          <section id="services" className="flex flex-col items-center mx-12 ">
+          <section
+            id="services"
+            className="flex flex-col items-center mx-12 mt-28 mb-32"
+          >
             <div className="text-2xl font-medium py-4 ">Services</div>
-            <div className="text-4xl font-thin py-2 mb-12">
+            <div className="text-4xl font-thin py-2 pb-12 mb-12">
               Bolster your GraphQL application
             </div>
-            <div className="flex flex-row space-x-10 w-full justify-around mb-6">
-              <div className="flex flex-col items-center w-1/3">
-                <img src={ciphyrIcon} className="w-20 py-2" />
-                <div className="border px-6 py-2 ">
+            <div className="flex flex-row space-x-10 w-full justify-around mb-12">
+              <div className="flex flex-col items-center w-1/3 rounded-full hover:bg-sky-200 ">
+                <img src={binoculars} className="w-20 py-2" />
+                <div className="py-2 ">
                   Monitor your client's traffic
                 </div>
               </div>
-              <div className="flex flex-col items-center w-1/3">
-                <img src={ciphyrIcon} className="w-20 py-2" />
-                <div className="border py-2 ">Get alerts for your queries</div>
+              <div className="flex flex-col items-center w-1/3 rounded-full hover:bg-sky-200">
+                <img src={notifcation} className="w-20 py-2" />
+                <div className="  ">Get alerts for your queries</div>
               </div>
-              <div className="flex flex-col items-center w-1/3">
-                <img src={ciphyrIcon} className="w-20 py-2" />
-                <div className="border px-6 py-2 ">
+              <div className="flex flex-col items-center w-1/3 rounded-full hover:bg-sky-200">
+                <img src={barChart} className="w-20 py-2" />
+                <div className="py-2 ">
                   Visualize your GraphQL analytics
                 </div>
               </div>
+            </div>
+            <div className="flex flex-row space-x-10 w-full justify-around my-6">
+              <div className="flex flex-col items-center rounded-full hover:bg-sky-200 w-1/3">
+                <img src={magnifying} className="w-20 py-2" />
+                <div className=" py-2 ">
+                  Inspect and filter your queries
+                </div>
+              </div>
+              <div className="flex flex-col items-center rounded-full hover:bg-sky-200 w-1/3">
+                <img src={group} className="w-20 py-2" />
+                <div className=" py-2 ">Installable for multiple instances</div>
+              </div>
+
             </div>
           </section>
           <section className="flex-col w-full items-center shadow">
@@ -125,7 +166,10 @@ export default function splashContainer() {
           </section>
           <section className="flex flex-col w-full items-center border border-sky-800 bg-slate-900">
             <div className="flex flex-row w-full py-16 justify-center">
-              <div id="getStarted" className="ml-16 text-3xl font-light text-slate-200">
+              <div
+                id="getStarted"
+                className="ml-16 text-3xl font-light text-slate-200"
+              >
                 Getting started
               </div>
             </div>
