@@ -5,21 +5,13 @@ logController.getAllLog = async (req, res, next) => {
   try {
     // retrieve logs from api key provided
     const { apiKey, timezone } = req.body;
-    console.log(apiKey)
-    console.log(timezone)
     const logQuery = `SELECT * FROM Log WHERE api_key = '${apiKey}'`;
     const clientLogResult = await db.query(logQuery);
     const clientLog = clientLogResult.rows;
 
-
-    //console.log(clientLogResult.rows[0].timestamp.toLocaleString('en-US', { timeZone: timeZone }))
-    //convert timestamp (JS date object) to string with specific format option
-    if (timezone) {
-      clientLog.forEach(el => {
-        el.timestamp = el.timestamp.toLocaleString('en-US', { hour12: false, timeZone: timezone }).replace(',', '')
-        //console.log(el.timestamp);
-      })
-    }
+    clientLog.forEach(el => {
+      el.timestamp = el.timestamp.toLocaleString('en-US', { hour12: false, timeZone: timezone }).replace(',', '')
+    })
     console.log('loggg', clientLog)
     res.locals.allLog = clientLog
 

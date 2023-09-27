@@ -9,7 +9,7 @@ export default function GridTable(props) {
   const [modal, toggleModal] = useState(false);
   const [rows, setRows] = useState("");
   const [raw, setRaw] = useState("");
-  const [timeZone, setTimeZone] = useState("");
+  const [timeZone, setTimeZone] = useState("GMT");
 
   useEffect(() => {
     fetchLogs();
