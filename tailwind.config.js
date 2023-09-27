@@ -6,6 +6,8 @@ export default {
       colors: {
         "custom-start": "#EAE6E2",
         "custom-end": "#C2CFDB",
+        "splash-end": "#BBDCFA",
+        "splash-via": "#DAE3EA",
         primary: "#0D63F7",
         secondary: "#6996E9",
         tertiary: "#E9F4FB",

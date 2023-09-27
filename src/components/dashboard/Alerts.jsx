@@ -5,20 +5,19 @@ export default function Alerts() {
    const [depth, setDepth] = useState('');
 
    const sendCriteria = async () => {
-     await fetch('/api/alert', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({depth: depth})
-     })
+    try {
+      await fetch('/api/alert/update', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({depth: depth})
+       })
+    } catch (err) {
+      console.log(err)
+    }
+    window.location.reload();
    }
-
-
-
-
-
-
 
   return (
     <>
@@ -54,13 +53,14 @@ export default function Alerts() {
                     Get notified when a query reaches certain depth.
                   </p>
                 </div>
-                <div className=''>
+                <div className='ml-20'>
                   <input
                     onChange={(e) => setDepth(e.target.value)}
                     className='border-2 rounded-md w-16 pl-1'
                     type='text'
                     placeholder='10'
                   />
+                  <button onClick={sendCriteria} className='border border-blue-500 rounded-md px-2 text-blue-500 hover:bg-blue-700 hover:text-white shadow ml-3'>Save</button>
                 </div>
               </div>
               <div className='flex'>
