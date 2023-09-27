@@ -6,6 +6,7 @@ const instanceRouter = require('./routes/instanceRouter')
 const logRouter = require('./routes/logRouter');
 //const oauthRouter = require('./routes/oauthRouter')
 const oauthController = require('./controllers/oauthController');
+const alertRouter = require('./routes/alertRouter');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 
@@ -22,7 +23,7 @@ app.get(process.env.REDIRECT_URI, oauthController.getAccessToken, oauthControlle
 app.use('/api/user', userRouter);
 app.use('/api/instance', instanceRouter);
 app.use('/api/log', logRouter);
-//app.use('/api/oauth', oauthRouter);
+app.use('/api/alert', alertRouter);
 
 app.use("*", (req, res) => res.status(404).send("Not Found"));
 

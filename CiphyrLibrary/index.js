@@ -72,9 +72,9 @@ ciphyr.convertStr = async (query) => {
   const queryAST = gql(queryString);
   // Convert the AST to a JavaScript object
   const queryObject = JSON.parse(JSON.stringify(queryAST));
-  const definitions = queryObject.definitions; 
+  const definitions = queryObject.definitions;
 
-  const result = {};  
+  const result = {};
   //type of query
   result.operation = definitions[0].operation;
   //name of query (check if name is provided)
@@ -94,7 +94,7 @@ ciphyr.convertStr = async (query) => {
     result.error_occured = true;
     result.error_code = query.response.body.singleResult.errors[0].extensions.code
   }
-  //latency of query 
+  //latency of query
   result.latency = Date.now() - ciphyr.startTime;
 
   console.log('result', result);
@@ -104,14 +104,33 @@ ciphyr.convertStr = async (query) => {
 
 //save incoming query into PostgresQL
 ciphyr.savingQuery = async (result) => {
-  const sqlQuery = `INSERT INTO log (operation, query_name, log, raw, depth, 
-    latency, api_key, error_occured, error_code) 
-    VALUES ('${result.operation}', '${result.queryName}', 
-      '${result.queryString}', '${result.raw}', '${result.depth}', '${result.latency}', 
+   const queryObj = {
+    operation: result.operation,
+    query_name: result.queryName,
+    log: result.queryString,
+    raw: result.raw
+    depth: result.depth,
+    latency: result.latency,
+    api_key: process.env.API_KEY
+  };
+  const sqlQuery = `INSERT INTO log (operation, query_name, log, raw, depth,
+    latency, api_key, error_occured, error_code)
+    VALUES ('${result.operation}', '${result.queryName}',
+      '${result.queryString}', '${result.raw}', '${result.depth}', '${result.latency}',
       '${process.env.API_KEY}', '${result.error_occured}', '${result.error_code}');`
   try {
     const output = await db.query(sqlQuery);
     console.log(output);
+
+        //send query to server
+        const result = fetch('/api/alert', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(queryObj);
+        }).then((res) => console.log(res));
+        
   } catch(err) {
     console.log(err);
   }
