@@ -1,6 +1,6 @@
 const db = require('../db');
 const fetch = require("node-fetch");
-const nodeMailer = require('nodemailer')
+const nodeMailer = require('nodemailer');
 
 
 const alertController = {};
@@ -41,7 +41,7 @@ alertController.calculate = (req, res, next) => {
 alertController.sendEmail = async (req, res, next) => {
   console.log('inside send email');
   if (res.locals.send !== undefined) {
-    //Send email here 
+    //Send email here
 
     console.log('violation found');
   } else {

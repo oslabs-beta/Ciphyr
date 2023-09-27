@@ -51,7 +51,7 @@ export default function Alerts() {
                     Depth
                   </p>
                   <p className='text-sm text-slate-500 pb-3 ml-3'>
-                    Get notified when a query reaches certain depth
+                    Get notified when a query reaches certain depth.
                   </p>
                 </div>
                 <div className=''>
@@ -75,7 +75,7 @@ export default function Alerts() {
                     Latency
                   </p>
                   <p className='text-sm text-slate-500 pb-3 ml-3'>
-                    Get notified when latency ceiling reached
+                    Get notified when latency ceiling reached.
                   </p>
                 </div>
               </div>
@@ -91,7 +91,7 @@ export default function Alerts() {
                     Errors
                   </p>
                   <p className='text-sm text-slate-500 pb-3 ml-3'>
-                    Get notified when a query reaches certain depth
+                    Get notified when there are an unusual amout of errors.
                   </p>
                 </div>
               </div>
@@ -120,7 +120,7 @@ export default function Alerts() {
                     Reminders
                   </p>
                   <p className='text-sm text-slate-500 pb-3 ml-3'>
-                    Updates to remind you of reminders you may have missed
+                    Updates to remind you of reminders you may have missed.
                   </p>
                 </div>
               </div>
@@ -133,29 +133,14 @@ export default function Alerts() {
                 </div>
                 <div className='mb-3'>
                   <p className='text-sm text-slate-700 font-semibold ml-3'>
-                    Latency
+                    Updates
                   </p>
                   <p className='text-sm text-slate-500 pb-3 ml-3'>
-                    Get notified when latency ceiling reached
+                    These are notifications for any updates about Ciphyr.
                   </p>
                 </div>
               </div>
-              <div className='flex'>
-                <div>
-                  <label className='relative inline-flex items-center cursor-pointer'>
-                    <input type='checkbox' value='' className='sr-only peer' />
-                    <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-                  </label>
-                </div>
-                <div className='mb-3'>
-                  <p className='text-sm text-slate-700 font-semibold ml-3'>
-                    Errors
-                  </p>
-                  <p className='text-sm text-slate-500 pb-3 ml-3'>
-                    Get notified when a query reaches certain depth
-                  </p>
-                </div>
-              </div>
+
             </div>
 
           </div>
