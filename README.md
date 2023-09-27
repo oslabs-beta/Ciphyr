@@ -97,17 +97,17 @@ Use the `BLANK_README.md` to get started.
 
 ### Built With
 
-- [![React][React.js]][React-url]
-- [![Node][Node]][React-url]
-- [![GraphQL][GraphQL]][React-url]
-- [![Tailwind][Tailwind]][React-url]
-- [![PostgreSQL][PostgreSQL]][React-url]
-- [![Jest][Jest]][React-urll]
-- [![Testing Library][Testing Library]][React-url]
-- [![Vite][Vite]][React-url]
-- [![Heroku][Heroku]][React-url]
-- [![Express][Express]][React-url]
-- [![Apollo-GraphQL][Apollo-GraphQL]][React-url]
+[![React][React.js]][React-url]
+[![Node][Node]][React-url]
+[![GraphQL][GraphQL]][React-url]
+[![Tailwind][Tailwind]][React-url]
+[![PostgreSQL][PostgreSQL]][React-url]
+[![Jest][Jest]][React-url]
+[![Testing Library][Testing Library]][React-url]
+[![Vite][Vite]][React-url]
+[![Heroku][Heroku]][React-url]
+[![Express][Express]][React-url]
+[![Apollo-GraphQL][Apollo-GraphQL]][React-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -253,7 +253,7 @@ Use this space to list resources you find helpful and would like to give credit 
 [PostgreSQL]: https://img.shields.io/badge/PostgreSQL-4EA94B?style=for-the-badge&logo=postgres&logoColor=white
 [Tailwind]: https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
 [Jest]: https://img.shields.io/badge/Jest-323330?style=for-the-badge&logo=Jest&logoColor=white
-[Testing Library]: https://img.shields.io/badge/testing%20library-323330?style=for-the-badge&logo=testing-librarylogoColor=red)
+[Testing Library]: https://img.shields.io/badge/testing%20library-323330?style=for-the-badge&logo=testing-librarylogoColor=red
 [Vite]: https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white
 [Docker]: https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white
 [Chart.js]: https://img.shields.io/badge/chart.js-F5788D.svg?style=for-the-badge&logo=chart.js&logoColor=white
