@@ -124,12 +124,24 @@ Ciphyr supports Apollo Server V4. Create your graphQL server with '@apollo/serve
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+Follow these steps to connect to ciphyr library and visualizer
 
-1. Get a free API Key at [Ciphyr Home Page](https://example.com)
-2. Clone the repo
+1. Sign up at [Ciphyr Home Page](https://example.com)
+   
+2. Sign in to enter home page
+   
+3. Create your free instance and save your API key
+   
+4. Go back to your graphQL application, install and import ciphyr
    ```sh
    npm install ciphyr
+   ```
+   ```sh
+   import ciphyr from 'ciphyr' || const ciphyr = require('ciphyr')
+   ```
+5. Create a variable named API_KEY in your .env file
+   ```sh
+   API_KEY = <Your_API_Key>
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
