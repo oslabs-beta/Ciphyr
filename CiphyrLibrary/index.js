@@ -30,7 +30,7 @@ const ciphyr = {};
 
 ciphyr.getStartTime = () => {
   ciphyr.startTime = Date.now();
-}
+};
 
 // getAuthInfo need more test
 
@@ -48,40 +48,43 @@ ciphyr.getStartTime = () => {
 // }
 
 ciphyr.convertStr = async (query) => {
-
   const getDepth = (str) => {
     let max = 0;
     let count = 0;
 
-    for(let i = 0; i < str.length; i++) {
-        if (str[i] === '{') {
-            count++;
-            if (count > max) {
-                max = count;
-            }
-        } else if (str[i] === '}') {
-            count--;
+    for (let i = 0; i < str.length; i++) {
+      if (str[i] === '{') {
+        count++;
+        if (count > max) {
+          max = count;
         }
+      } else if (str[i] === '}') {
+        count--;
+      }
     }
 
-    return max - 1;  // Subtract 1 because the outermost brackets should not be considered in the count
-  }
+    return max - 1; // Subtract 1 because the outermost brackets should not be considered in the count
+  };
 
   const queryString = query.request.query;
   // Parse the GraphQL query string into an AST
   const queryAST = gql(queryString);
   // Convert the AST to a JavaScript object
   const queryObject = JSON.parse(JSON.stringify(queryAST));
-  const definitions = queryObject.definitions; 
+  const definitions = queryObject.definitions;
 
-  const result = {};  
+  const result = {};
   //type of query
   result.operation = definitions[0].operation;
   //name of query (check if name is provided)
-  result.queryName = (definitions[0].name === undefined) ? '' : definitions[0].name.value;
+  result.queryName =
+    definitions[0].name === undefined ? '' : definitions[0].name.value;
   //query string
-  result.queryString = queryString.replace(/ /g, '').replace(/\s+/g, '')
-    .replace(`${result.operation}`, '').replace(`${result.queryName}`,'');
+  result.queryString = queryString
+    .replace(/ /g, '')
+    .replace(/\s+/g, '')
+    .replace(`${result.operation}`, '')
+    .replace(`${result.queryName}`, '');
   //query raw string
   result.raw = queryString;
   //depth of query
@@ -92,15 +95,16 @@ ciphyr.convertStr = async (query) => {
     result.error_code = '';
   } else {
     result.error_occured = true;
-    result.error_code = query.response.body.singleResult.errors[0].extensions.code
+    result.error_code =
+      query.response.body.singleResult.errors[0].extensions.code;
   }
-  //latency of query 
+  //latency of query
   result.latency = Date.now() - ciphyr.startTime;
 
   console.log('result', result);
 
   //ciphyr.savingQuery(result);
-}
+};
 
 //save incoming query into PostgresQL
 ciphyr.savingQuery = async (result) => {
@@ -108,14 +112,14 @@ ciphyr.savingQuery = async (result) => {
     latency, api_key, error_occured, error_code) 
     VALUES ('${result.operation}', '${result.queryName}', 
       '${result.queryString}', '${result.raw}', '${result.depth}', '${result.latency}', 
-      '${process.env.API_KEY}', '${result.error_occured}', '${result.error_code}');`
+      '${process.env.API_KEY}', '${result.error_occured}', '${result.error_code}');`;
   try {
     const output = await db.query(sqlQuery);
     console.log(output);
-  } catch(err) {
+  } catch (err) {
     console.log(err);
   }
-}
+};
 
 ciphyr.myPlugin = {
   async serverWillStart() {
@@ -127,12 +131,11 @@ ciphyr.myPlugin = {
     ciphyr.getStartTime();
     return {
       async willSendResponse(requestContext) {
-        console.log('In willSendResponse')
+        console.log('In willSendResponse');
         ciphyr.convertStr(requestContext);
-      }
-    }
-  }
-
+      },
+    };
+  },
 };
 
-export default ciphyr;
+module.exports = ciphyr;
