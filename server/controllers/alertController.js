@@ -6,12 +6,15 @@ const alertController = {};
 
 //gets specific users alert setting criteria
 alertController.getCriteria = async (req, res, next) => {
+  const { queryObj } = req.body;
+  //getting depth preference from user, based on their api key sent on req body
+  const userQuery = `SELECT c.depth_preference FROM instance AS i JOIN clients AS c ON i.client_id = c.client_id WHERE i.api_key = '${queryObj.api_key}'`;
   console.log('in getCriteria');
-  const username = 'JASON2';
-  const query = `SELECT depth_preference FROM clients WHERE username = '${username}'`;
+
   try {
     console.log('in try block of get criteria');
-    const result = await db.query(query);
+    const result = await db.query(userQuery);
+    console.log(result.rows);
     res.locals.preference = result.rows[0].depth_preference;
     console.log(res.locals.preference);
     return next();
@@ -46,7 +49,7 @@ alertController.sendEmail = async (req, res, next) => {
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
     const msg = {
       to: 'ajberger905@gmail.com',
-      from: 'ciphyr4@gmail.com', 
+      from: 'ciphyr4@gmail.com',
       subject: 'Ciphyr Security Alert',
       text: `A suspicious Query was detected based on your ${send.type} parameters. We received a query with a ${send.type} of ${send.query[send.type]}`,
       html: `<strong>A suspicious Query was detected based on your ${send.type} parameters. We received a query with a ${send.type} of ${send.query[send.type]}</strong>`,
