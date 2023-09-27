@@ -66,4 +66,16 @@ instanceController.getInstances = async (req, res, next) => {
   })
 }
 
+instanceController.deleteInstance = async (req, res, next) => {
+  try {
+    const { id }  = req.body;
+    const deleteQuery = `DELETE FROM instance WHERE id = ${id}`;
+    const result = await db.query(deleteQuery);
+    return next();
+  }
+  catch(err) {
+    console.log(err);
+  }
+}
+
 module.exports = instanceController;

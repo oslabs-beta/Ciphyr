@@ -14,12 +14,16 @@ router.post('/login', userController.login, async (req, res) => {
   }
 });
 
-router.get('/logout', (req, res) => {
-  return res.status(202).clearCookie('token').send('Logged out successfully');
+router.get('/logout', userController.logout, (req, res) => {
+  return res.status(202).clearCookie('token').clearCookie('username').send('Logged out successfully');
 });
 
 router.get('/getUserInfo', userController.getUserInfo, (req, res) => {
   return res.status(200).json(res.locals.userInfo); 
+})
+
+router.get('/getLastLogout', userController.getLastLogout, (req, res) => {
+  return res.status(200).json(res.locals.lastLogout);
 })
 
 module.exports = router;

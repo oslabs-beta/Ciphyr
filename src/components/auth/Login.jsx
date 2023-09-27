@@ -1,20 +1,20 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import DashboardImage from "../../assets/Dashboard.png";
-import { useNavigate } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 import ciphyrLogo from "../../assets/ciphyrLogo.png";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
+  const [input, setInput] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
 
-  const getEmail = (e) => {
-    const email = e.target.value;
-    console.log(email);
-    setEmail(email);
+  const getInput = (e) => {
+    const input = e.target.value;
+    console.log(input);
+    setInput(input);
   };
 
   const getPassword = (e) => {
@@ -30,7 +30,7 @@ export default function Login() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ input: email, password: password }),
+        body: JSON.stringify({ input: input, password: password }),
       });
       const parsed = await response.json();
       if (parsed.verified === true) {
@@ -41,8 +41,8 @@ export default function Login() {
     }
   };
 
-  const github = () => {
-    window.location.href = "/api/github"
+  const googleAuth = () => {
+    window.location.href = "/api/oauth/auth";
   }
 
   return (
@@ -65,14 +65,14 @@ export default function Login() {
                   </h2>
                 </div>
                 <div className="flex flex-col gap-5 mb-5">
-                  <button onClick={github} className="flex items-center justify-center border border-slate-300 rounded-md my-5 py-2 px-4 hover:bg-slate-100">
+                  <button onClick={googleAuth} className="flex items-center justify-center border border-slate-300 rounded-md my-5 py-2 px-4 hover:bg-slate-100">
                     <FontAwesomeIcon
                       className="mr-2"
-                      icon={faGithub}
+                      icon={faGoogle}
                       style={{ color: "#000000" }}
                     />
                     <span className="border-slate-200 ">
-                      Continue with GitHub
+                      Continue with Google
                     </span>
                   </button>
                 </div>
@@ -100,7 +100,7 @@ export default function Login() {
                     <div id="user" className="mb-4">
                       <input
                         id="email"
-                        onChange={getEmail}
+                        onChange={getInput}
                         className="border-2 rounded-md px-4 py-2 block w-full placeholder:text-xs"
                         type="text"
                         placeholder="you@example.com"
