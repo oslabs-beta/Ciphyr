@@ -64,7 +64,7 @@ export default function Homepage() {
       },
     });
     console.log('getusername response', response);
-    const result = await response.json();
+    const result = await response.text();
     // const result = await response.text();
     console.log('getusername result', result);
     setUser(result);
