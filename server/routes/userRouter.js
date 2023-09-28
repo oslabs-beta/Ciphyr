@@ -31,9 +31,9 @@ router.get('/logout', userController.logout, (req, res) => {
 });
 
 router.get('/getUserInfo', userController.getUserInfo, (req, res) => {
-  const userinfostring = JSON.stringify(res.locals.userInfo);
-  // return res.status(200).json(res.locals.userInfo);
-  return res.status(200).json(userinfostring);
+  // const userinfostring = JSON.stringify(res.locals.userInfo);
+  return res.status(200).json(res.locals.userInfo);
+  // return res.status(200).json(userinfostring);
 });
 
 router.get('/getLastLogout', userController.getLastLogout, (req, res) => {

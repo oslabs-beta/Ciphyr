@@ -62,7 +62,7 @@ export default function Homepage() {
         headers: {
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Credentials': true,
-          'Content-Type': 'application/json',
+          // 'Content-Type': 'application/json',
         },
       });
       console.log('getusername response', response);

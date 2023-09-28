@@ -17,6 +17,10 @@ export default defineConfig({
       },
     },
   },
+  define: {
+    apiUrl: JSON.stringify(process.env.API_URL),
+    k8Enabled: JSON.stringify(process.env.K8_ENABLED),
+  },
   build: {
     outDir: 'dist',
     sourcemap: true,
