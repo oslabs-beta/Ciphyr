@@ -81,6 +81,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
+Real-time monitoring of your GraphQL server query traffic.   
 Ciphyr is security. Ciphyr is it.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -109,7 +110,7 @@ Super easy to get started
 
 ### Prerequisites
 
-Ciphyr supports Apollo Server V4. Create your graphQL server with '@apollo/server'.
+Ciphyr supports Apollo Server V4. Create your GraphQL server with '@apollo/server'.
 
 - Install Apollo Server
   ```sh
@@ -124,25 +125,26 @@ Ciphyr supports Apollo Server V4. Create your graphQL server with '@apollo/serve
 
 ### Installation
 
-Follow these steps to connect to ciphyr library and visualizer
+Follow these steps to connect to Ciphyr library and visualizer
 
-    1. Sign up at [Ciphyr Home Page](https://example.com)
-       
-    2. Sign in to enter home page
-       
-    3. Create your free instance and save your API key
-       
-    4. Go back to your graphQL application, install and import ciphyr
-       ```sh
-       npm install ciphyr
-       ```
-       ```sh
-       import ciphyr from 'ciphyr' || const ciphyr = require('ciphyr')
-       ```
-    5. Create a variable named API_KEY in your .env file
-       ```sh
-       API_KEY = <Your_API_Key>
-       ```
+  1. Sign up at [Ciphyr Home Page](https://example.com)
+     
+  2. Sign in to enter home page
+     
+  3. Create your free instance and save your API key
+     
+  4. Go back to your graphQL application, install and import ciphyr
+     ```sh
+     npm install ciphyr
+     ```
+     
+     ```sh
+     import ciphyr from 'ciphyr' || const ciphyr = require('ciphyr')
+     ```
+  5. Create a variable named API_KEY in your .env file
+     ```sh
+     API_KEY = <Your_API_Key>
+     ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -150,7 +152,15 @@ Follow these steps to connect to ciphyr library and visualizer
 
 ## Usage
 
-Do backflips with Ciphyr
+- Now you can use Ciphyr! To access all the functions, simply place 'ciphyr.myPlugin' inside your Apollo server
+  ```sh
+  const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    plugins: [<Your Plugins>..., ciphyr.myPlugin]
+  })
+  ```
+- Try sending some queries from your GraphQL server. The query logs will pop up in your dashboard!
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
