@@ -86,7 +86,7 @@ export default function splashContainer() {
                   </div>
                   <div>
                     <button
-                      onClick={() => navigate("/")}
+                      onClick={() => navigate("/login")}
                       className="mt-4 border border-slate-500 px-3 py-1 rounded-full bg-transparent text-slate-600 text-md"
                     >
                       Already have an account?

@@ -13,7 +13,7 @@ export default function Navbar() {
     } catch (err) {
       console.log(err)
     }
-    navigate('/')
+    navigate('/signup')
   }
 
   return (

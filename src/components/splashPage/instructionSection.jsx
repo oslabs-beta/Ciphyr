@@ -7,6 +7,7 @@ import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { faClipboard } from '@fortawesome/free-regular-svg-icons';
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 {
   /* <div className="flex flex-row  border-emerald-400 w-full mx-4 my-4 py-6">
@@ -37,6 +38,9 @@ import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 }
 
 export default function InstructionSection() {
+
+  const navigate = useNavigate();
+
   return (
     <section className="flex flex-col items-center mx-48 my-32 ">
       <div className="flex flex-row w-full my-4 py-6">
