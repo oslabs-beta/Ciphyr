@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import DashboardImage from "../../assets/Dashboard.png";
 import { useNavigate } from "react-router-dom";
 import ciphyrLogo from "../../assets/ciphyrLogo.png";
@@ -70,11 +70,11 @@ export default function Signup() {
                   <button className="flex items-center justify-center border border-slate-300 rounded-md my-5 py-2 px-4 hover:bg-slate-100">
                     <FontAwesomeIcon
                       className="mr-2"
-                      icon={faGithub}
+                      icon={faGoogle}
                       style={{ color: "#000000" }}
                     />
                     <span className="border-slate-200 ">
-                      Continue with GitHub
+                      Sign Up With Google
                     </span>
                   </button>
                 </div>
@@ -178,7 +178,7 @@ export default function Signup() {
                 <div className="-left-8 -top-10 z-[0] absolute text-7xl font-serif italic text-slate-500">
                   "
                 </div>
-                {"We can scale much more confidently with Cipher"}
+                {"We can scale much more confidently with Ciphyr"}
               </div>
               <div className="flex justify-end items-center ml-5 mt-6 top text-2xl text-slate-500 font-serif italic w-3/4">
                 <img
