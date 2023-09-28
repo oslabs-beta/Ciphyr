@@ -62,12 +62,13 @@ export default function Homepage() {
         headers: {
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Credentials': true,
+          'Content-Type': 'application/json',
         },
       });
       console.log('getusername response', response);
-      // const result = await response.json();
-      const data = await response.text();
-      const result = data.json();
+      const result = await response.json();
+      // const data = await response.text();
+      // const result = data.json();
       console.log('getusername result', result);
       setUser(result);
     } catch (error) {
