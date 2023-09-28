@@ -133,7 +133,7 @@ Follow these steps to connect to Ciphyr library and visualizer
      
   3. Create your free instance and save your API key
      
-  4. Go back to your graphQL application, install and import ciphyr
+  4. In your graphQL application, install and import ciphyr
      ```sh
      npm install ciphyr
      ```
