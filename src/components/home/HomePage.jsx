@@ -57,9 +57,9 @@ export default function Homepage() {
 
   const getUsername = async () => {
     const response = await fetch('/api/user/getUserInfo');
-    // const result = await response.json();
-    const result = await response.text();
-    console.log('getusername text', result);
+    const result = await response.json();
+    // const result = await response.text();
+    // console.log('getusername text', result);
     setUser(result);
   };
 
