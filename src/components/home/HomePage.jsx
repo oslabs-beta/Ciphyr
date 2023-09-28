@@ -5,6 +5,8 @@ import NavBar from "../navigation/Navbar.jsx";
 import CreateKeyModal from "../instances/CreateKeyModal";
 import SaveKeyModal from "../instances/SaveKeyModal";
 import ConnectionKeysCard from "../instances/ConnectionKeysCard.jsx";
+import SummaryBar from "./SummaryBar.jsx";
+
 import { useState, useEffect } from "react";
 
 export default function Homepage() {
@@ -12,7 +14,7 @@ export default function Homepage() {
   const [API, setAPI] = useState(false);
   const [apiKey, setApiKey] = useState("");
   const [user, setUser] = useState("");
-  const [count, setCount] = useState(0);
+  const [queryCount, setQueryCount] = useState(0);
   const [lastDate, setLastDate] = useState('');
 
   const toggleModal = () => {
@@ -54,22 +56,28 @@ export default function Homepage() {
   };
 
   const getUsername = async () => {
-    const response = await fetch("/api/user/getUserInfo");
+    const response = await fetch("/api/user/getUserInfo")
     const result = await response.json();
     setUser(result);
   };
+
+
 
   const getLastDate = async () => {
     const response = await fetch('/api/user/getLastLogout');
     const result = await response.json();
     setLastDate(result);
   }
-  
+
+
   const getLogCount = async () => {
     const response = await fetch('/api/log/getLogCount');
     const result = await response.json();
-    setCount(result.count);
+    setQueryCount(result.count);
   }
+
+
+  
 
   useEffect(() => {
     getUsername();
@@ -102,21 +110,20 @@ export default function Homepage() {
           ""
         )}
       </div>
-      <div className="bg-gradient-to-t from-custom-start to-custom-end  h-screen flex flex-auto">
+      <div className="bg-gradient-to-t from-custom-start to-custom-end sm:h-full h-screen flex flex-auto">
         <span className="border-l border-slate-300 w-full flex flex-col items-center">
           <div className="flex flex-col items-center my-10 w-1/2">
             <div className="text-slate-200 bg-slate-700 rounded-full text-lg drop-shadow-md px-6 py-2 my-4 ">
               {currentDate()}
             </div>
             <div className="text-slate-700">
-              <h1 className="text-3xl text-slate-800 drop-shadow-sm mt-4">{introMessage()} </h1>
+              <h1 className="text-5xl text-slate-800 drop-shadow-sm mt-2">{introMessage()} </h1>
             </div>
-            <div className="text-slate-700">
-              <h1 className="text-3xl text-slate-800 drop-shadow-sm mt-4"> Last session: {lastDate} </h1>
-            </div>
-            <div className="text-slate-700">
-              <h1 className="text-3xl text-slate-800 drop-shadow-sm mt-4">We've recorded {count} query logs </h1>
-            </div>
+            <SummaryBar
+              numberOfLogs = {queryCount}
+              session = {lastDate}
+            /> 
+
           </div>
           <main className="flex flex-2 flex-col items-center my-8">
             <div className="shadow p-4 bg-white rounded-lg w-2/3">

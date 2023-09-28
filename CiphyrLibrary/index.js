@@ -1,6 +1,6 @@
-//const jwt = require('jsonwebtoken')
+// const jwt = require('jsonwebtoken');
 const gql = require('graphql-tag');
-const GraphQLError = require('graphql');
+const { GraphQLError } = require('graphql');
 const dotenv = require('dotenv');
 const pkg = require('pg');
 
@@ -101,10 +101,10 @@ ciphyr.convertStr = async (query) => {
   //latency of query
   result.latency = Date.now() - ciphyr.startTime;
 
-  console.log('result', result);
+  
 
   ciphyr.savingQuery(result);
-};
+}
 
 //save incoming query into PostgresQL
 ciphyr.savingQuery = async (result) => {

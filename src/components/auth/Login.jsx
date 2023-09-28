@@ -42,7 +42,7 @@ export default function Login() {
   };
 
   const googleAuth = () => {
-    window.location.href = '/api/oauth/auth';
+    window.location.href = '/api/user/oauth';
   };
 
   return (
@@ -150,7 +150,7 @@ export default function Login() {
                     </a>
                   </div>
                 </div>
-                <div className='mt-10rem flex flex-col bottom-0 text-center text-xs text-slate-500 italic'>
+                <div className='mt-[6em] py-4 flex flex-col bottom-0 text-center text-xs text-slate-500 italic'>
                   <p>
                     By continuing, you agree to Ciphyer's Terms of Service and
                     Privacy Policy, and to receive periodic emails with updates.
@@ -160,17 +160,17 @@ export default function Login() {
             </main>
             <aside className='flex flex-col items-center justify-center w-3/4'>
               <div className='relative text-4xl text-slate-600 font-serif italic ml-20 mb-12 w-3/4'>
-                <div className='-left-8 -top-10 z-[0] absolute text-8xl font-serif italic text-slate-500'>
+                <div className='-left-8 -top-10 z-[0] absolute text-7xl font-serif italic text-slate-500'>
                   "
                 </div>
-                {'Ciphyr changed me...'}
+                {'Ciphyr makes monitoring easy'}
               </div>
               <div className='flex justify-end items-center ml-5 mt-6 top text-2xl text-slate-500 font-serif italic w-3/4'>
                 <img
                   className='w-12 h-12 rounded-full mx-4'
-                  src='https://media.licdn.com/dms/image/C4D03AQG2XwBr2rylkg/profile-displayphoto-shrink_800_800/0/1572454199260?e=1700092800&v=beta&t=I2J8vm4K3mzwIEDvxOtxNt2o1sG6FVbOh__2dcEhi9w'
+                  src='https://images.unsplash.com/photo-1615813967515-e1838c1c5116?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80'
                 />
-                <div>@not_philtroutman</div>
+                <div>@anonymous_user</div>
               </div>
             </aside>
           </div>
