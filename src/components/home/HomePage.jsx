@@ -70,7 +70,7 @@ export default function Homepage() {
       console.log('getusername result', result);
       setUser(result);
     } catch (error) {
-      console.error('Error:', error);
+      console.log('Error:', error);
     }
   };
 
@@ -88,7 +88,7 @@ export default function Homepage() {
       console.log(' get last date result', result);
       setLastDate(result);
     } catch (error) {
-      console.error('Error:', error);
+      console.log('Error:', error);
     }
   };
 
@@ -106,7 +106,7 @@ export default function Homepage() {
       console.log('getlog result', result);
       setQueryCount(result.count);
     } catch (error) {
-      console.error('Error:', error);
+      console.log('Error:', error);
     }
   };
 
