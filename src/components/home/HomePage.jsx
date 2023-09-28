@@ -56,46 +56,58 @@ export default function Homepage() {
   };
 
   const getUsername = async () => {
-    const response = await fetch('/api/user/getUserInfo', {
-      method: 'GET',
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Credentials': true,
-      },
-    });
-    console.log('getusername response', response);
-    const result = await response.json();
-    // const result = await response.text();
-    console.log('getusername result', result);
-    setUser(result);
+    try {
+      const response = await fetch('/api/user/getUserInfo', {
+        method: 'GET',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Credentials': true,
+        },
+      });
+      console.log('getusername response', response);
+      const result = await response.json();
+      // const result = await response.text();
+      console.log('getusername result', result);
+      setUser(result);
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   const getLastDate = async () => {
-    const response = await fetch('/api/user/getLastLogout', {
-      method: 'GET',
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Credentials': true,
-      },
-    });
-    console.log('response', response);
-    const result = await response.json();
-    console.log(' get last date result', result);
-    setLastDate(result);
+    try {
+      const response = await fetch('/api/user/getLastLogout', {
+        method: 'GET',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Credentials': true,
+        },
+      });
+      console.log('response', response);
+      const result = await response.json();
+      console.log(' get last date result', result);
+      setLastDate(result);
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   const getLogCount = async () => {
-    const response = await fetch('/api/log/getLogCount', {
-      method: 'GET',
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Credentials': true,
-      },
-    });
-    console.log('getlogcount', response);
-    const result = await response.json();
-    console.log('getlog result', result);
-    setQueryCount(result.count);
+    try {
+      const response = await fetch('/api/log/getLogCount', {
+        method: 'GET',
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Credentials': true,
+        },
+      });
+      console.log('getlogcount', response);
+      const result = await response.json();
+      console.log('getlog result', result);
+      setQueryCount(result.count);
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   useEffect(() => {
