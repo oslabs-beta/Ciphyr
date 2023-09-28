@@ -81,7 +81,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Ciphyr is security. Ciphyr is it.
+Real-time monitoring of your GraphQL server query traffic. Ciphyr takes GraphQL security to the next level. It acts as a vigilant guardian for your GraphQL API, continuously monitoring incoming queries and detecting potential threats. With customizable rules and alerts, you have complete control over what constitutes a security threat. Whether it's identifying complex nested queries or excessive data retrieval, Ciphyr will have your back, notifying you in real time so you can take immediate action.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -109,22 +109,41 @@ Super easy to get started
 
 ### Prerequisites
 
-You need tpo do this
+Ciphyr supports Apollo Server V4. Create your GraphQL server with '@apollo/server'.
 
-- npm
+- Install Apollo Server
   ```sh
-  npm install npm@latest -g
+  npm install @apollo/server
+  ```
+- Import Required Module
+  ```sh
+  import { ApolloServer } from '@apollo/server'
+  
+  import { startStandaloneServer } from '@apollo/server/standalone'
   ```
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+Follow these steps to connect to Ciphyr library and visualizer
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   npm i ciphyr
-   ```
+  1. Sign up at [Ciphyr Home Page](https://example.com)
+     
+  2. Sign in to enter home page
+     
+  3. Create your free instance and save your API key
+     
+  4. In your graphQL application, install and import ciphyr
+     ```sh
+     npm install ciphyr
+     ```
+     
+     ```sh
+     import ciphyr from 'ciphyr' || const ciphyr = require('ciphyr')
+     ```
+  5. Create a variable named API_KEY in your .env file
+     ```sh
+     API_KEY = <Your_API_Key>
+     ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -132,7 +151,15 @@ _Below is an example of how you can instruct your audience on installing and set
 
 ## Usage
 
-Do backflips with Ciphyr
+- Now you can use Ciphyr! To access all the functions, simply place 'ciphyr.myPlugin' inside your Apollo server
+  ```sh
+  const server = new ApolloServer({
+    typeDefs,
+    resolvers,
+    plugins: [<Your Plugins>..., ciphyr.myPlugin]
+  })
+  ```
+- Try sending some queries to your GraphQL server. The query logs will pop up in your dashboard!
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
@@ -145,6 +172,8 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 - [x] V.1 npm package
 - [x] V.1 Visualizer
 - [ ] Multi-server support
+- [ ] Rate limiting and throttling
+- [ ] Alert expansion
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 

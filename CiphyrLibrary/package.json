@@ -1,19 +1,44 @@
 {
   "name": "ciphyr",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.2",
+  "description": "GraphQL monitoring library",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oslabs-beta/Ciphyr.git"
+  },
+  "keywords": [
+    "auth",
+    "authorization",
+    "authentication",
+    "ciphyr",
+    "cybersecurity",
+    "graphql",
+    "insure",
+    "protect",
+    "query",
+    "querysanitization",
+    "security",
+    "safety",
+    "safer",
+    "safest",
+    "sanitization",
+    "secure"
+  ],
   "author": "ciphyr",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/oslabs-beta/Ciphyr/issues"
+  },
+  "homepage": "https://github.com/oslabs-beta/Ciphyr#readme",
   "jest": {
     "transform": {
       "^.+\\.js$": "babel-jest"
     }
-  },  
+  },
   "dependencies": {
     "dotenv": "^16.3.1",
     "express": "^4.18.2",

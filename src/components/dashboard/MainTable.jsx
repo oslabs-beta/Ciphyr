@@ -9,13 +9,15 @@ export default function GridTable(props) {
   const [modal, toggleModal] = useState(false);
   const [rows, setRows] = useState("");
   const [raw, setRaw] = useState("");
+  const [timeZone, setTimeZone] = useState("GMT");
 
   useEffect(() => {
     fetchLogs();
-  }, [props.instance]);
+  }, [props.instance, timeZone]);
 
   const fetchLogs = async () => {
     console.log("in try block");
+    console.log("timeZone",timeZone)
     try {
       const response = await fetch("/api/log", {
         method: "POST",
@@ -24,6 +26,7 @@ export default function GridTable(props) {
         },
         body: JSON.stringify({
           apiKey: props.instance,
+          timezone: timeZone
         }),
       });
       if (!response.ok) {
@@ -37,13 +40,26 @@ export default function GridTable(props) {
     }
   };
 
+  // const changeTimeZone = async (val) => {
+  //   console.log("changing TZ");
+  //   fetch ('/api/instance/changeTimeZone', {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       timeZone: timeZone,
+  //     }),
+  //   })
+  // }
+
   const columnDefs = [
-    { field: "timestamp" },
+    { field: "timestamp"},
     { field: "query_name" },
     { field: "operation" },
     { field: "depth" },
     { field: "latency" },
-    { field: "raw" },
+    //{ field: "raw" },
   ];
 
   const defaultColDef = useMemo(
@@ -69,7 +85,19 @@ export default function GridTable(props) {
       <div className="flex justify-end mb-3">
         <select
           className="border bg-white rounded-md px-4 py-1 mr-4"
-          placeholder="Search by keywords"
+          placeholder="Choose a Timezone"
+          onChange={(e) => setTimeZone(e.target.value)}
+        >
+          <option value="GMT">Choose a Timezone</option>
+          <option value="EST">US/Eastern</option>
+          <option value="PST">US/Pacific</option>
+          <option value="CET">Europe/Berlin</option>
+          <option value="EAT">Africa/Nairobi</option>
+          <option value="AET">Australia/Sydney</option>
+        </select>
+        <select
+          className="border bg-white rounded-md px-4 py-1 mr-4"
+          placeholder="Choose a Instance"
           value={props.instance}
           onChange={(e) => props.setInstance(e.target.value)}
         >
