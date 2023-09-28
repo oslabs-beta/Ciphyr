@@ -81,8 +81,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Real-time monitoring of your GraphQL server query traffic.   
-Ciphyr is security. Ciphyr is it.
+Real-time monitoring of your GraphQL server query traffic. Ciphyr takes GraphQL security to the next level. It acts as a vigilant guardian for your GraphQL API, continuously monitoring incoming queries and detecting potential threats. With customizable rules and alerts, you have complete control over what constitutes a security threat. Whether it's identifying complex nested queries or excessive data retrieval, Ciphyr will have your back, notifying you in real time so you can take immediate action.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -173,6 +172,8 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 - [x] V.1 npm package
 - [x] V.1 Visualizer
 - [ ] Multi-server support
+- [ ] Rate limiting and throttling
+- [ ] Alert expansion
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
