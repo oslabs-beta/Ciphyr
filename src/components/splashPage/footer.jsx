@@ -17,9 +17,9 @@ export default function Footer() {
 
   const submit = async () => {
     try {
-      setEmail("")
-      setMessage("")
-    } catch(err) {
+      setEmail("");
+      setMessage("");
+    } catch (err) {
       console.log(err);
     }
   };
