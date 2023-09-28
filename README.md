@@ -160,7 +160,7 @@ Follow these steps to connect to Ciphyr library and visualizer
     plugins: [<Your Plugins>..., ciphyr.myPlugin]
   })
   ```
-- Try sending some queries from your GraphQL server. The query logs will pop up in your dashboard!
+- Try sending some queries to your GraphQL server. The query logs will pop up in your dashboard!
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
