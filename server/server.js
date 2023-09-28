@@ -26,12 +26,16 @@ app.get(
   }
 );
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(path.resolve(), 'dist')));
-  app.get('/*', (_req, res) => {
-    return res.sendFile(path.join(path.resolve(), 'dist', 'index.html'));
-  });
-}
+// if (process.env.NODE_ENV === 'production') {
+app.use(express.static(path.join(path.resolve(), 'dist')));
+app.get('/*', (_req, res) => {
+  return res.sendFile(path.join(path.resolve(), 'dist', 'index.html'));
+});
+// } else {
+//   app.get('/*', (_req, res) => {
+//     return res.sendFile(path.join(path.resolve(), 'index.html'));
+//   });
+// }
 
 app.use('/api/user', userRouter);
 app.use('/api/instance', instanceRouter);

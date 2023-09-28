@@ -5,24 +5,21 @@ const crypto = require('crypto');
 const instanceController = {};
 
 instanceController.verifyToken = async (req, res, next) => {
-
-
   const jwtToken = req.cookies.token;
   jwt.verify(jwtToken, process.env.TOKEN_SECRET, (err, user) => {
-
-    if (err) return res.sendStatus(403)
+    if (err) return res.sendStatus(403);
 
     res.locals.client = user;
     console.log('res locals jwt payload', res.locals.client);
     return next();
-  })
-}
+  });
+};
 
 instanceController.createInstance = async (req, res, next) => {
   try {
-    const {label} = req.body;
+    const { label } = req.body;
     if (!label) {
-      res.locals.instance = { message : 'Label required'};
+      res.locals.instance = { message: 'Label required' };
       return next();
     } else {
       const labelQuery = `SELECT * FROM instance WHERE label = '${label}'`;
@@ -32,7 +29,7 @@ instanceController.createInstance = async (req, res, next) => {
       // add: allow different user to use same label
       if (labelTaken.rowCount !== 0) {
         if (labelTaken.rows[0].label === label) {
-          res.locals.instance = {message : 'Please use new label'};
+          res.locals.instance = { message: 'Please use new label' };
           return next();
         }
       }
@@ -42,40 +39,45 @@ instanceController.createInstance = async (req, res, next) => {
     const instanceQuery = `INSERT INTO instance (label, api_key, client_id) VALUES ( '${label}', '${apiKey}','${id}')`;
     const newInstance = await db.query(instanceQuery);
     // send back api key to user once after creation
-    res.locals.instance = { message: 'New instance created', apiKey: apiKey};
+    res.locals.instance = { message: 'New instance created', apiKey: apiKey };
     return next();
+  } catch (err) {
+    return next(err);
   }
-
-  catch(err) {
-    return next(err)
-  }
-}
+};
 
 instanceController.getInstances = async (req, res, next) => {
   const jwtToken = req.cookies.token;
   // retrieve instances based the clien_id in JWT token
+  console.log('in get instances');
   jwt.verify(jwtToken, process.env.TOKEN_SECRET, async (err, user) => {
+    console.log('in jwt');
+    try {
+      console.log('in trycatch');
 
-    if (err) return res.sendStatus(403)
+      if (err) return res.sendStatus(403);
 
-    const instanceQuery = `SELECT * FROM instance WHERE client_id = '${user.client_id}';`
-    const instanceResult = await db.query(instanceQuery);
-    res.locals.showInstance = instanceResult.rows;
+      const instanceQuery = `SELECT * FROM instance WHERE client_id = '${user.client_id}';`;
+      const instanceResult = await db.query(instanceQuery);
+      console.log('getinstances', instanceresult);
+      res.locals.showInstance = instanceResult.rows;
 
-    return next();
-  })
-}
+      return next();
+    } catch (err) {
+      return next(err);
+    }
+  });
+};
 
 instanceController.deleteInstance = async (req, res, next) => {
   try {
-    const { id }  = req.body;
+    const { id } = req.body;
     const deleteQuery = `DELETE FROM instance WHERE id = ${id}`;
     const result = await db.query(deleteQuery);
     return next();
-  }
-  catch(err) {
+  } catch (err) {
     return next(err);
   }
-}
+};
 
 module.exports = instanceController;
