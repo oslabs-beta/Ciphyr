@@ -120,6 +120,11 @@ Ciphyr supports Apollo Server V4. Create your GraphQL server with '@apollo/serve
   
   import { startStandaloneServer } from '@apollo/server/standalone'
   ```
+<br>
+We have a demo-app that you can clone and test Ciphyr with
+  <br>
+  https://github.com/Ciphyr-OSP4/ciphyr-demo
+
 
 ### Installation
 
