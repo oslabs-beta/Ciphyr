@@ -47,7 +47,6 @@
     "recharts": "^2.8.0",
     "supertest": "^6.3.3",
     "tailwindcss": "^3.3.3",
-    "nodemon": "^3.0.1",
     "to-regex-range": "^5.0.1"
   },
   "devDependencies": {
