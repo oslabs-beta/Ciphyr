@@ -1,19 +1,19 @@
-import InstanceTable from "../instances/InstanceTable.jsx";
-import CreateInstance from "../instances/CreateInstance.jsx";
-import NavBar from "../navigation/Navbar.jsx";
+import InstanceTable from '../instances/InstanceTable.jsx';
+import CreateInstance from '../instances/CreateInstance.jsx';
+import NavBar from '../navigation/Navbar.jsx';
 //import Sidenav from "../navigation/Sidenav";
-import CreateKeyModal from "../instances/CreateKeyModal";
-import SaveKeyModal from "../instances/SaveKeyModal";
-import ConnectionKeysCard from "../instances/ConnectionKeysCard.jsx";
-import SummaryBar from "./SummaryBar.jsx";
+import CreateKeyModal from '../instances/CreateKeyModal';
+import SaveKeyModal from '../instances/SaveKeyModal';
+import ConnectionKeysCard from '../instances/ConnectionKeysCard.jsx';
+import SummaryBar from './SummaryBar.jsx';
 
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 export default function Homepage() {
   const [modal, setModal] = useState(false);
   const [API, setAPI] = useState(false);
-  const [apiKey, setApiKey] = useState("");
-  const [user, setUser] = useState("");
+  const [apiKey, setApiKey] = useState('');
+  const [user, setUser] = useState('');
   const [queryCount, setQueryCount] = useState(0);
   const [lastDate, setLastDate] = useState('');
 
@@ -25,10 +25,10 @@ export default function Homepage() {
     setAPI(!API);
   };
   const currentDate = () => {
-    const currentDate = new Date().toLocaleDateString("en-us", {
-      weekday: "long",
-      month: "short",
-      day: "numeric",
+    const currentDate = new Date().toLocaleDateString('en-us', {
+      weekday: 'long',
+      month: 'short',
+      day: 'numeric',
     });
     console.log(currentDate);
     return currentDate;
@@ -56,36 +56,30 @@ export default function Homepage() {
   };
 
   const getUsername = async () => {
-    const response = await fetch("/api/user/getUserInfo")
-    const result = await response.json();
+    const response = await fetch('/api/user/getUserInfo');
+    // const result = await response.json();
+    const result = await response.text();
+    console.log('getusername text', result);
     setUser(result);
   };
-
-
 
   const getLastDate = async () => {
     const response = await fetch('/api/user/getLastLogout');
     const result = await response.json();
     setLastDate(result);
-  }
-
+  };
 
   const getLogCount = async () => {
     const response = await fetch('/api/log/getLogCount');
     const result = await response.json();
     setQueryCount(result.count);
-  }
-
-
-  
+  };
 
   useEffect(() => {
     getUsername();
     getLastDate();
     getLogCount();
   }, []);
-
-
 
   return (
     <>
@@ -98,7 +92,7 @@ export default function Homepage() {
             toggleModal={toggleModal}
           />
         ) : (
-          ""
+          ''
         )}
         {API ? (
           <SaveKeyModal
@@ -107,26 +101,24 @@ export default function Homepage() {
             toggleAPI={toggleAPI}
           />
         ) : (
-          ""
+          ''
         )}
       </div>
-      <div className="bg-gradient-to-t from-custom-start to-custom-end sm:h-full h-screen flex flex-auto">
-        <span className="border-l border-slate-300 w-full flex flex-col items-center">
-          <div className="flex flex-col items-center my-10 w-1/2">
-            <div className="text-slate-200 bg-slate-700 rounded-full text-lg drop-shadow-md px-6 py-2 my-4 ">
+      <div className='bg-gradient-to-t from-custom-start to-custom-end sm:h-full h-screen flex flex-auto'>
+        <span className='border-l border-slate-300 w-full flex flex-col items-center'>
+          <div className='flex flex-col items-center my-10 w-1/2'>
+            <div className='text-slate-200 bg-slate-700 rounded-full text-lg drop-shadow-md px-6 py-2 my-4 '>
               {currentDate()}
             </div>
-            <div className="text-slate-700">
-              <h1 className="text-5xl text-slate-800 drop-shadow-sm mt-2">{introMessage()} </h1>
+            <div className='text-slate-700'>
+              <h1 className='text-5xl text-slate-800 drop-shadow-sm mt-2'>
+                {introMessage()}{' '}
+              </h1>
             </div>
-            <SummaryBar
-              numberOfLogs = {queryCount}
-              session = {lastDate}
-            /> 
-
+            <SummaryBar numberOfLogs={queryCount} session={lastDate} />
           </div>
-          <main className="flex flex-2 flex-col items-center my-8">
-            <div className="shadow p-4 bg-white rounded-lg w-2/3">
+          <main className='flex flex-2 flex-col items-center my-8'>
+            <div className='shadow p-4 bg-white rounded-lg w-2/3'>
               <ConnectionKeysCard />
               <div>
                 <InstanceTable />
