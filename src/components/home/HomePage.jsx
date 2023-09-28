@@ -56,22 +56,28 @@ export default function Homepage() {
   };
 
   const getUsername = async () => {
-    const response = await fetch("/api/user/getUserInfo");
+    const response = await fetch("/api/user/getUserInfo")
     const result = await response.json();
     setUser(result);
   };
+
+
 
   const getLastDate = async () => {
     const response = await fetch('/api/user/getLastLogout');
     const result = await response.json();
     setLastDate(result);
   }
-  
+
+
   const getLogCount = async () => {
     const response = await fetch('/api/log/getLogCount');
     const result = await response.json();
     setQueryCount(result.count);
   }
+
+
+  
 
   useEffect(() => {
     getUsername();
