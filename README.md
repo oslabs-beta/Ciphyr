@@ -79,7 +79,6 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 Real-time monitoring of your GraphQL server query traffic. Ciphyr takes GraphQL security to the next level. It acts as a vigilant guardian for your GraphQL API, continuously monitoring incoming queries and detecting potential threats. With customizable rules and alerts, you have complete control over what constitutes a security threat. Whether it's identifying complex nested queries or excessive data retrieval, Ciphyr will have your back, notifying you in real time so you can take immediate action.
 
@@ -130,9 +129,14 @@ Follow these steps to connect to Ciphyr library and visualizer
      
   2. Sign in to enter home page
      
-  3. Create your free instance and save your API key
+  3. Create your free instance and save your API key <br>
      
-  4. In your graphQL application, install and import ciphyr
+     <img src="src/assets/instance.png" alt="Logo" width="60%" height="auto">
+     <br>
+     <img src="src/assets/apikey.png" alt="Logo" width="60%" height="auto">
+     <br>
+     
+  5. In your graphQL application, install and import ciphyr
      ```sh
      npm install ciphyr
      ```
@@ -140,7 +144,7 @@ Follow these steps to connect to Ciphyr library and visualizer
      ```sh
      import ciphyr from 'ciphyr' || const ciphyr = require('ciphyr')
      ```
-  5. Create a variable named API_KEY in your .env file
+  6. Create a variable named API_KEY in your .env file
      ```sh
      API_KEY = <Your_API_Key>
      ```
@@ -159,10 +163,11 @@ Follow these steps to connect to Ciphyr library and visualizer
     plugins: [<Your Plugins>..., ciphyr.myPlugin]
   })
   ```
-- Try sending some queries to your GraphQL server. The query logs will pop up in your dashboard!
-  
-- Visualized graph for insignts of your query logs.
-
+- Try sending some queries to your GraphQL server. The query logs will pop up in your dashboard! <br>
+  <img src="src/assets/logs.png" alt="Logo" width="auto" height="auto"> <br>
+- Visualized graph for insignts of your query logs. <br>
+  <img src="src/assets/chart.png" alt="Logo" width="50%" height="70%"> <br>
+  <br>
 _For more examples, please refer to the [Documentation](https://example.com)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
