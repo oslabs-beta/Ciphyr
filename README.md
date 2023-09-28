@@ -151,7 +151,7 @@ Follow these steps to connect to Ciphyr library and visualizer
 
 ## Usage
 
-- Now you can use Ciphyr! To access all the functions, simply place 'ciphyr.myPlugin' inside your Apollo server
+- Now you can use Ciphyr! To access all the functions, simply place 'ciphyr.myPlugin' inside your Apollo server.
   ```sh
   const server = new ApolloServer({
     typeDefs,
@@ -160,6 +160,8 @@ Follow these steps to connect to Ciphyr library and visualizer
   })
   ```
 - Try sending some queries to your GraphQL server. The query logs will pop up in your dashboard!
+  
+- Visualized graph for insignts of your query logs.
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
