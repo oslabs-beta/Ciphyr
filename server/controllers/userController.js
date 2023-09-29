@@ -27,6 +27,7 @@ userController.signup = async (req, res, next) => {
     const usernameResult = await db.query(usernameQuery);
     const emailResult = await db.query(emailQuery);
 
+    // is this working?
     if (emailResult.row) {
       res.locals.newClient = { message: "Email already in use" };
     } else if (usernameResult.row) {
@@ -111,7 +112,7 @@ userController.getLastLogout = async (req, res, next) => {
     const lastDate = await db.query(lastDateQuery);
     // .toString() change the date object to string form of date
     const lastLogout = lastDate.rows[0].last_logout.toString();
-    //.substring() to remove timezone
+    // .substring() to remove timezone
     res.locals.lastLogout = lastLogout.substring(0, 25);
     return next()
   }

@@ -1,14 +1,20 @@
 const db = require('../db');
-
 const logController = {};
 
 logController.getAllLog = async (req, res, next) => {
   try {
     // retrieve logs from api key provided
-    const { apiKey } = req.body;
+    const { apiKey, timezone } = req.body;
     const logQuery = `SELECT * FROM Log WHERE api_key = '${apiKey}'`;
-    const clientLog = await db.query(logQuery);
-    res.locals.allLog = clientLog.rows;
+    const clientLogResult = await db.query(logQuery);
+    const clientLog = clientLogResult.rows;
+
+    clientLog.forEach(el => {
+      el.timestamp = el.timestamp.toLocaleString('en-US', { hour12: false, timeZone: timezone }).replace(',', '')
+    })
+    console.log('loggg', clientLog)
+    res.locals.allLog = clientLog
+
     return next();
   } catch (err) {
     return next(err);
@@ -29,19 +35,5 @@ logController.newLogInfo = async (req, res, next) => {
     return next(err);
   }
 };
-
-/*
-logController.getSuspiciousLog = async (req, res, next) => {
-  try {
-    const { apiKey } = req.body;
-    const suspiciousQuery = `SELECT id, depth, latency FROM Log where api_key = '${apiKey}'`;
-    const suspiciousLog = await db.query(suspiciousQuery);
-    res.locals.suspiciousLog = clientLog.rows;
-    return next();
-  } catch(err) {
-    return next(err);
-  }
-}
-*/
 
 module.exports = logController;

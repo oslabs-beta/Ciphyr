@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import LineChart from "./LineChart.jsx";
 import BarChart from "./BarChart.jsx";
 import PieChart from "./PieChart.jsx";
+import { ResponsiveContainer } from 'recharts';
 
 export default function ChartContainer(props) {
   const [data, setData] = useState([]);

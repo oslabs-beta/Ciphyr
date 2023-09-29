@@ -1,71 +1,144 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import ciphyrIcon from "../../assets/ciphyrIcon.png";
 import ciphyrLogo from "../../assets/ciphyrLogo.png";
+import CiphyrRoundIcon from "./__assets__/Ciphyr-Round-Icon.png";
+import CiphyrRoundLogo from "./__assets__/Ciphyr-Round-Logo.png";
+import bigIdea from "./__assets__/undraw_bigIdea.png";
+import graphQL from "./__assets__/GraphQL_Logo.png";
+import jsLogo from "./__assets__/icons/JS-logo.png";
+import nodeJS from "./__assets__/icons/nodeJS.png";
+import pgLogo from "./__assets__/icons/pgLogo.png";
+import reactLogo from "./__assets__/icons/React.png";
+import npmLogo from "./__assets__/icons/npmLogo.png";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAnglesDown } from "@fortawesome/free-solid-svg-icons";
+// SECTION FOR ICONS FOR SERVICES SECTION //
+
+import binoculars from "./__assets__/icons/binoculars.png";
+import notifcation from "./__assets__/icons/notification.png";
+import barChart from "./__assets__/icons/bar-chart.png";
+import magnifying from "./__assets__/icons/magnifying.png";
+import group from "./__assets__/icons/group.png";
+// CONSIDER MODULARIZING //
+//
+
+// MODULARIZED COMPONENTS
+import Services from "./servicesSection.jsx";
+import Footer from "./footer.jsx";
+import InstructionSection from "./instructionSection.jsx";
+
+import { Link } from "react-scroll";
 
 export default function splashContainer() {
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-col border-indigo-700">
       <div className="flex flex-row  border-sky-400 w-full ">
-        <main className=" w-full my-12 mx-36 space-y-4">
-          <section className=" border-sky-800">
-            <nav className=" flex justify-between mb-10">
-              <div className="">
-                <img src={ciphyrLogo} className="w-40" />
-              </div>
-              <div>
-                <div id="loginGroup">
-                  <button className="border mr-2 px-4 py-2 rounded-lg text-lg">Login</button>
-                  <button className="border px-4 py-2 rounded-lg text-lg">Sign up</button>
+        <main className=" w-full">
+          <section className="mb-12">
+            <div className="bg-gradient-to-b from-custom-start via-splash-via to-splash-end pt-20 pb-24 h-full flex flex-col items-center justify-center">
+              <nav className=" flex flex-row justify-between mx-32 items-center">
+                <div className="">
+                  <img src={CiphyrRoundLogo} className="w-[12em]" />
                 </div>
+                <div className="flex flex-row">
+                  <div id="login" className="space-x-4">
+                    {/* <span className="font-light text-sm text-slate-700"> Already have an account?</span> */}
+                    {/* <span>
+                    <button
+                      onClick={() => navigate("/")}
+                      className="border  border-slate-400 hover:bg-white hover:border-primary hover:text-primary mr-2 px-4 py-1 rounded-lg "
+                    >
+                      Login
+                    </button>
+                  </span> */}
+                    {/* <button
+                    onClick={() => navigate("/signup")}
+                    className="border px-4 py-1 rounded-lg text-lg"
+                  >
+                    Sign up
+                  </button> */}
+                  </div>
+                </div>
+              </nav>
+              <div className="flex flex-row">
+                <div className="flex flex-col w-full items-center mx-36 mt-20 mb-10 ">
+                  <div>
+                    <h1 className="py-4 text-7xl font-semibold drop-shadow-lg bg-gradient-to-r from-blue-600 via-red-800 to-indigo-400 text-transparent bg-clip-text">
+                      UNLOCK SECURITY WITH
+                    </h1>
+                    <h1 className="text-6xl text-center font-semibold drop-shadow-lg bg-gradient-to-r from-slate-800 via-slate-600 to-slate-800 text-transparent bg-clip-text">
+                      TRANSPARENT GRAPHQL
+                    </h1>
+                  </div>
+                  <div className="text-2xl font-light py-6 mt-8">
+                    Server-side GraphQL monitoring. All in one place.
+                  </div>
+                  <div>
+                    <Link to="getStarted" smooth={true} duration={2000}>
+                      <button className="mt-4 px-4 py-2 rounded-full bg-black text-white text-lg hover:bg-primary hover:text-white transition ease-in-out">
+                        Get started
+                      </button>
+                    </Link>
+                  </div>
+                  <div>
+                    <button
+                      onClick={() => navigate("/login")}
+                      className="mt-4 border border-slate-500 px-3 py-1 rounded-full bg-transparent text-slate-600 text-md"
+                    >
+                      Already have an account?
+                    </button>
+                  </div>
+                </div>
+                {/* <div className="border flex ml-32 w-1/4  border-sky-800 sticky">
+                  <div>
+                    <img
+                      src={CiphyrRoundIcon}
+                      className="w-[18em] absolute z-[1] left-0"
+                    />
+                    <img
+                      src={graphQL}
+                      className="w-[18em] absolute z-[0] left-32 top-20"
+                    />
+                  </div>
+                </div> */}
               </div>
-            </nav>
-            <div className="flex flex-col space-y-2 ml-2 my-8">
-              <div>
-                <h1 className="text-6xl font-semibold">
-                  The Power of Security
-                </h1>
-              </div>
-              <div className="text-xl font-light py-2">
-                Ciphyr is a powerful go-to solution for GraphQL traffic
-                monitoring
-              </div>
-              <div>
-                <button className="border px-4 py-2 rounded-lg bg-primary text-white text-lg">
-                  Get started
-                </button>
+
+              <div className="mt-[3em] mb-[4em] flex item-end justify-center text-3xl animate-bounce cursor-pointer">
+                <Link to="services" smooth={true} duration={1000}>
+                  <FontAwesomeIcon icon={faAnglesDown} />
+                </Link>
               </div>
             </div>
           </section>
-          <section className="flex flex-col w-full items-center border border-sky-800 ">
-            <div className="text-2xl font-semibold py-4 ">Services</div>
-            <div className="text-4xl font-thin py-2 mb-12">
-              Bolster your GraphQL application
-            </div>
-            <div className="flex flex-row space-x-10 w-full justify-around mb-6">
-              <div className="flex flex-col items-center w-1/3">
-                <img src={ciphyrIcon} className="w-20 py-2" />
-                <div className="border px-6 py-2 ">
-                  Monitor your client's traffic
-                </div>
+          <Services />
+          <section className="flex-col w-full items-center shadow">
+            <div className="flex flex-row w-full py-16 justify-center items-center bg-slate-900">
+              <div className="text-4xl font-light text-slate-200 mr-6">
+                Built with ❤️ but also
               </div>
-              <div className="flex flex-col items-center w-1/3">
-                <img src={ciphyrIcon} className="w-20 py-2" />
-                <div className="border py-2 ">Get alerts for your queries</div>
-              </div>
-              <div className="flex flex-col items-center w-1/3">
-                <img src={ciphyrIcon} className="w-20 py-2" />
-                <div className="border px-6 py-2 ">
-                  Visualize your GraphQL analytics
-                </div>
-              </div>
-            </div>
-          </section>
-          <section className="flex flex-col w-full items-center border border-sky-800 ">
-            <div className="flex flex-row w-full py-16">
-              <div className="ml-16 text-3xl font-light">Made with love</div>
+              <span className="flex flex-row text-3xl font-light text-slate-200 space-x-4 ">
+                <span>
+                  <img src={jsLogo} className="w-12" />
+                </span>
+                <span>
+                  <img src={reactLogo} className="w-14" />
+                </span>
+                <span>
+                  <img src={graphQL} className="w-14" />
+                </span>
+
+                <span>
+                  <img src={pgLogo} className="w-12" />
+                </span>
+              </span>
             </div>
           </section>
-          <section className="flex flex-col w-full items-start border border-sky-800 ">
-            <div className="flex flex-row  border-emerald-400 w-full my-4">
+          <section className="flex flex-col items-start mx-40">
+            <div className="flex flex-row  border-emerald-400 w-full my-36">
               <div className="w-1/2  mx-6 my-4 space-y-4">
                 <div className="text-2xl font-semibold">
                   So, what's the big idea?
@@ -100,66 +173,22 @@ export default function splashContainer() {
                 </div>
               </div>
               <aside className="w-1/2 flex justify-center mx-6 my-4">
-                <img src={ciphyrIcon} className="scale-75" />
+                <img src={bigIdea} className="" />
               </aside>
             </div>
           </section>
-          <section className="flex flex-col w-full items-center border border-sky-800 ">
-            <div className="flex flex-row w-full py-16 justify-center">
-              <div className="ml-16 text-3xl font-light">Getting started</div>
-            </div>
-          </section>
-          <section className="flex flex-col w-full items-center border border-sky-800 ">
-            <div className="flex flex-row  border-emerald-400 w-full my-4 py-6">
-              <aside className="w-1/2 flex justify-center border-2 border-dashed mx-2 my-2">
-                <img src={ciphyrLogo} className="w-48" />
-              </aside>
-              <div className="w-1/2  border-dashed mx-2 my-2 flex justify-center items-center">
-                <div className="text-xl">NPM install Ciphyr</div>
-              </div>
-            </div>
-            <div className="flex flex-row  border-emerald-400 w-full mx-4 my-4 py-6">
-              <div className="w-1/2 border-dashed mx-2 my-2 flex justify-center items-center">
-                <div className="text-xl">Plug in config</div>
-              </div>
-              <aside className="w-1/2 flex justify-center border-2 border-dashed mx-2 my-2">
-                <img src={ciphyrLogo} className="w-48" />
-              </aside>
-            </div>
-            <div className="flex flex-row  border-emerald-400 w-full mx-4 my-4 py-6">
-              <aside className="w-1/2 flex justify-center border-2 border-dashed mx-2 my-2">
-                <img src={ciphyrLogo} className="w-48" />
-              </aside>
-              <div className="w-1/2  border-dashed mx-2 my-2 flex justify-center items-center">
-                <a className="text-xl">Create an account</a>
+          <section className="flex flex-col w-full items-center bg-slate-900">
+            <div className="flex flex-row w-full pt-16  justify-center">
+              <div
+                id="getStarted"
+                className=" text-4xl font-bold text-slate-200"
+              >
+                GETTING STARTED{" "}
               </div>
             </div>
           </section>
-          <footer className="flex flex-col w-full items-center border border-sky-800 ">
-            <div className="flex flex-row  border-emerald-400 w-full my-4">
-              <div className="w-1/2  border-dashed mx-2 my-2 px-4 py-4 "> 
-                <div className="text-2xl font-semibold">Active Contributors</div>
-                <div className="py-2">
-                <div className="text-lg font-light">Aidan Berger</div>
-                <div className="text-lg font-light">Jeremy Wang</div>
-                <div className="text-lg font-light">John Le</div>
-                <div className="text-lg font-light">Mike Zhang</div>
-                </div>
-              </div>
-              <div className="w-1/2 mx-2 my-2 py-4">
-                <div className="text-2xl font-semibold">Write to us</div>
-                <div className="my-2">
-                  <input className="border border-slate-500 rounded w-full px-2 py-1 text-lg" placeholder="johndoe@email.com"></input>
-                </div>
-                <div className="mt-4">
-                  <input className="border border-slate-500 rounded w-full px-2 pb-12 text-lg" placeholder="Ciphyr is..."></input>
-                </div>
-                <div className="flex items-end justify-end w-full">
-                  <button className="px-4 py-2 border rounded-lg text-lg">Submit</button>
-                </div>
-              </div>
-            </div>
-          </footer>
+          <InstructionSection />
+          <Footer />
         </main>
       </div>
     </div>

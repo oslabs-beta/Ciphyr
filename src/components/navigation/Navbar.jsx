@@ -13,7 +13,7 @@ export default function Navbar() {
     } catch (err) {
       console.log(err)
     }
-    navigate('/')
+    navigate('/login')
   }
 
   return (
@@ -42,7 +42,6 @@ export default function Navbar() {
                 Home
               </a>
             </li>
-
             <li>
               <a
                 onClick={() => navigate("/dashboard")}

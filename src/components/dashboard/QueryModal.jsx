@@ -1,5 +1,5 @@
-export default function QueryModal(props) {
 
+export default function QueryModal(props) {
 
   return (
     <>
@@ -7,8 +7,8 @@ export default function QueryModal(props) {
       <div className='absolute inset-0 flex justify-center items-center z-10'>
         <div className='border bg-white flex flex-col p-8 rounded-md shadow-lg'>
           <h1 className='font-semibold text-lg w-96 mb-5'>Query</h1>
-          <p className='text-lg w-48 mb-5'>{props.raw}</p>
           <div>
+            <pre className='text-lg w-48 mb-5' >{props.raw}</pre>
           </div>
           <div className="flex flex-row-reverse">
             <button

@@ -19,7 +19,7 @@ export default function ConnectionKeysCard() {
       {data.length === 0 ? (
         <div>
           <div className="text-4xl mx-4 my-2 subpixel-antialiased font-semibold">
-            Read me 👋🏼
+            Read me 👋🏼 
           </div>
           <div className="mt-6 mx-4 mb-5 text-slate-600 text-lg">
             <p className="mt-5 ">
@@ -61,10 +61,10 @@ export default function ConnectionKeysCard() {
       ) : (
         <div>
           <div className="text-4xl mx-4 my-2 subpixel-antialiased font-semibold">
-            Connection Keys 🔐
+            Connection Keys 🔐 
           </div>
           <div>
-            <div className="mt-5 mb-5 text-slate-600">
+            <div className="mt-6 mx-4 mb-5 text-slate-600 text-lg">
               <p>
                 Your connection keys are listed below. Please note that we do
                 not display your secret API keys again after you generate them
