@@ -167,7 +167,7 @@ export default function Login() {
               <div className="flex justify-end items-center ml-5 mt-6 top text-2xl text-slate-500 font-serif italic w-3/4">
                 <img
                   className="w-12 h-12 rounded-full mx-4"
-                  src="https://media.licdn.com/dms/image/C5603AQHYxxbnDOScIg/profile-displayphoto-shrink_800_800/0/1564777504761?e=1701302400&v=beta&t=PeqLqhmw2YzhWO3fLhCWF1axSvO-q4-f_GSvBLCCRFE"
+                  src="https://avatars.githubusercontent.com/u/12375492?v=4"
                 />
                 <div>@anonymous_user</div>
               </div>
