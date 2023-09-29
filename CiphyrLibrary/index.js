@@ -112,7 +112,7 @@ ciphyr.savingQuery = async (result) => {
     operation: result.operation,
     query_name: result.queryName,
     log: result.queryString,
-    raw: result.raw
+    raw: result.raw,
     depth: result.depth,
     latency: result.latency,
     api_key: process.env.API_KEY

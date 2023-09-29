@@ -71,9 +71,11 @@ userController.login = async (req, res, next) => {
         { client_id: clientID },
         process.env.TOKEN_SECRET
       );
-      res.cookie('token', jwtToken, { httpOnly: true, secure: true });
+      //res.cookie('token', jwtToken, { httpOnly: true, secure: true });
+      res.cookie('token', jwtToken);
       // username is less sensitive (public info)? So it's saved directly in cookie for verification
-      res.cookie('username', username, { httpOnly: true, secure: true });
+      //res.cookie('username', username, { httpOnly: true, secure: true });
+      res.cookie('token', jwtToken);
       res.locals.result = { verified: verified, message: 'login successfully' };
 
       // update last_login time
