@@ -162,12 +162,12 @@ export default function Login() {
                 <div className="-left-8 -top-10 z-[0] absolute text-7xl font-serif italic text-slate-500">
                   "
                 </div>
-                {"Ciphyr makes monitoring easy"}
+                {"Ciphyr makes monitoring my application easy"}
               </div>
               <div className="flex justify-end items-center ml-5 mt-6 top text-2xl text-slate-500 font-serif italic w-3/4">
                 <img
                   className="w-12 h-12 rounded-full mx-4"
-                  src="https://images.unsplash.com/photo-1615813967515-e1838c1c5116?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80"
+                  src="https://avatars.githubusercontent.com/u/12375492?v=4"
                 />
                 <div>@anonymous_user</div>
               </div>
