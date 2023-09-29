@@ -86,7 +86,7 @@ export default function splashContainer() {
                   </div>
                   <div>
                     <button
-                      onClick={() => navigate("/")}
+                      onClick={() => navigate("/login")}
                       className="mt-4 border border-slate-500 px-3 py-1 rounded-full bg-transparent text-slate-600 text-md"
                     >
                       Already have an account?
@@ -177,13 +177,13 @@ export default function splashContainer() {
               </aside>
             </div>
           </section>
-          <section className="flex flex-col w-full items-center border border-sky-800 bg-slate-900">
-            <div className="flex flex-row w-full py-16 justify-center">
+          <section className="flex flex-col w-full items-center bg-slate-900">
+            <div className="flex flex-row w-full pt-16  justify-center">
               <div
                 id="getStarted"
-                className=" text-4xl font-light text-slate-200"
+                className=" text-4xl font-bold text-slate-200"
               >
-                Getting started
+                GETTING STARTED{" "}
               </div>
             </div>
           </section>

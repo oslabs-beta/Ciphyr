@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
 import DashboardImage from "../../assets/Dashboard.png";
 import { useNavigate } from "react-router-dom";
 import ciphyrLogo from "../../assets/ciphyrLogo.png";
@@ -44,7 +44,7 @@ export default function Signup() {
       }),
     });
     const data = await response.json();
-    navigate("/");
+    navigate("/login");
     console.log("data in signup", data);
   };
 
@@ -70,11 +70,11 @@ export default function Signup() {
                   <button className="flex items-center justify-center border border-slate-300 rounded-md my-5 py-2 px-4 hover:bg-slate-100">
                     <FontAwesomeIcon
                       className="mr-2"
-                      icon={faGithub}
+                      icon={faGoogle}
                       style={{ color: "#000000" }}
                     />
                     <span className="border-slate-200 ">
-                      Continue with GitHub
+                      Sign Up With Google
                     </span>
                   </button>
                 </div>
@@ -155,13 +155,13 @@ export default function Signup() {
                 <div className="self-center">
                   <div>
                     <span className="text-scale-1000">
-                      Don't have an account?
+                      Already have an account?
                     </span>
                     <a
                       className="ml-2 underline transition text-slate-400 hover:text-slate-300"
-                      onClick={() => navigate("/")}
+                      onClick={() => navigate("/login")}
                     >
-                      {"Sign Up Now"}
+                      {"Sign In Now"}
                     </a>
                   </div>
                 </div>
@@ -178,12 +178,12 @@ export default function Signup() {
                 <div className="-left-8 -top-10 z-[0] absolute text-7xl font-serif italic text-slate-500">
                   "
                 </div>
-                {"Ciphyr makes monitoring easy"}
+                {"We can scale much more confidently with Ciphyr"}
               </div>
               <div className="flex justify-end items-center ml-5 mt-6 top text-2xl text-slate-500 font-serif italic w-3/4">
                 <img
                   className="w-12 h-12 rounded-full mx-4"
-                  src="https://images.unsplash.com/photo-1615813967515-e1838c1c5116?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1587&q=80"
+                  src="https://media.licdn.com/dms/image/C5603AQG5zLxbpKQA7w/profile-displayphoto-shrink_800_800/0/1593130186582?e=1701302400&v=beta&t=NDpvMXDVv2GeZ2r1SNtzxhSp9hdPanssU6hHmEktZq0"
                 />
                 <div>@anonymous_user</div>
               </div>

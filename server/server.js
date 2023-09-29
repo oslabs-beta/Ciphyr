@@ -1,8 +1,8 @@
-const express = require("express");
+const express = require('express');
 const port = process.env.PORT || 3000;
 const app = express();
 const userRouter = require('./routes/userRouter');
-const instanceRouter = require('./routes/instanceRouter')
+const instanceRouter = require('./routes/instanceRouter');
 const logRouter = require('./routes/logRouter');
 //const oauthRouter = require('./routes/oauthRouter')
 const oauthController = require('./controllers/oauthController');
@@ -20,18 +20,19 @@ app.get(process.env.REDIRECT_URI, oauthController.getAccessToken, oauthControlle
     res.redirect('/home');
 });
 
+app.use('/api/auth', oauthRouter);
 app.use('/api/user', userRouter);
 app.use('/api/instance', instanceRouter);
 app.use('/api/log', logRouter);
 app.use('/api/alert', alertRouter);
 
-app.use("*", (req, res) => res.status(404).send("Not Found"));
+app.use('*', (req, res) => res.status(404).send('Not Found'));
 
 app.use((err, req, res, next) => {
   const defaultErr = {
-    log: "Express error handler caught unknown middleware error",
+    log: 'Express error handler caught unknown middleware error',
     status: 400,
-    message: { err: "An error occurred" },
+    message: { err: 'An error occurred' },
   };
   const errorObj = Object.assign({}, defaultErr, err);
   console.log(errorObj.log);
