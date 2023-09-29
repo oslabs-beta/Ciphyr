@@ -1,27 +1,26 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-import HomePage from './components/HomePage.jsx/';
-import Dashboard from './components/Dashboard.jsx';
-import Login from './components/Login.jsx';
-import Signup from './components/Signup.jsx'
-import Navbar from './components/Navbar'
+//import BeforeHome from "./components/home/BeforeHome";
+import HomePage from "./components/home/HomePage.jsx/";
+import Dashboard from "./components/dashboard/DashContainer.jsx";
+import Login from "./components/auth/Login.jsx";
+import Signup from "./components/auth/Signup.jsx";
+import SplashPage from "./components/splashPage/splashContainer.jsx";
 
 function App() {
-
   return (
     <div>
-      <Navbar />
       <BrowserRouter>
         <Routes>
-          <Route path = '/' element={<HomePage />}></Route>
-          <Route path = '/dashboard' element={<Dashboard />}></Route>
-          <Route path = '/login' element={<Login />}></Route>
-          <Route path = '/signup' element={<Signup />}></Route>
+          <Route path="/splash" element={<SplashPage />}></Route>
+          <Route path="/home" element={<HomePage />}></Route>
+          <Route path="/dashboard" element={<Dashboard />}></Route>
+          <Route path="/" element={<Login />}></Route>
+          <Route path="/signup" element={<Signup />}></Route>
         </Routes>
       </BrowserRouter>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
