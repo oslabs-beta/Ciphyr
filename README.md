@@ -41,7 +41,7 @@
     <a href="https://github.com/oslabs-beta/Ciphyr"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="www.ciphyr.io">Our Splash</a>
+    <a href="http://www.ciphyr.io">Our Splash</a>
     ·
     <a href="https://github.com/oslabs-beta/Ciphyr/issues">Report Bug</a>
     ·
