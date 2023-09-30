@@ -220,7 +220,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Ciphyr - [@ciphyr.io]
+Ciphyr - @ciphyr.io
 
 Project Link: [https://github.com/oslabs-beta/Ciphyr](https://github.com/oslabs-beta/Ciphyr)
 
