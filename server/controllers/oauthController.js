@@ -25,7 +25,6 @@ oauthController.saveInfo = async (req, res, next) => {
     res.locals.request_get_auth_code_url = `${google_auth_token_endpoint}?${query_string.stringify(
       auth_token_params
     )}&scope=${scopes.join(' ')}`;
-    console.log('after save info', res.locals.request_get_auth_code_url);
     return next();
   } catch (err) {
     return next(err);
@@ -34,7 +33,6 @@ oauthController.saveInfo = async (req, res, next) => {
 
 oauthController.getAccessToken = async (req, res, next) => {
   try {
-    console.log('in get access token');
     const auth_code = req.query.code;
     const access_token_params = {
       ...query_params,
@@ -52,7 +50,7 @@ oauthController.getAccessToken = async (req, res, next) => {
     );
 
     const data = await response.json();
-    console.log('after fetch', data.access_token);
+
     res.locals.accessToken = data.access_token;
 
     return next();
@@ -77,7 +75,6 @@ oauthController.getUserProfile = async (req, res, next) => {
 };
 
 oauthController.saveOauthUser = async (req, res, next) => {
-  console.log('in save user');
   try {
     const username = res.locals.profile.name;
     const email = res.locals.profile.email;

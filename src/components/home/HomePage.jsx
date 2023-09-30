@@ -30,7 +30,7 @@ export default function Homepage() {
       month: 'short',
       day: 'numeric',
     });
-    console.log(currentDate);
+
     return currentDate;
   };
 

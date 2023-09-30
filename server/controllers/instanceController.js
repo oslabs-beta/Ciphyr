@@ -10,7 +10,6 @@ instanceController.verifyToken = async (req, res, next) => {
     if (err) return res.sendStatus(403);
 
     res.locals.client = user;
-    console.log('res locals jwt payload', res.locals.client);
     return next();
   });
 };
@@ -49,17 +48,14 @@ instanceController.createInstance = async (req, res, next) => {
 instanceController.getInstances = async (req, res, next) => {
   const jwtToken = req.cookies.token;
   // retrieve instances based the clien_id in JWT token
-  console.log('in get instances');
-  jwt.verify(jwtToken, process.env.TOKEN_SECRET, async (err, user) => {
-    console.log('in jwt');
-    try {
-      console.log('in trycatch');
 
+  jwt.verify(jwtToken, process.env.TOKEN_SECRET, async (err, user) => {
+    try {
       if (err) return res.sendStatus(403);
 
       const instanceQuery = `SELECT * FROM instance WHERE client_id = '${user.client_id}';`;
       const instanceResult = await db.query(instanceQuery);
-      console.log('getinstances', instanceresult);
+
       res.locals.showInstance = instanceResult.rows;
 
       return next();

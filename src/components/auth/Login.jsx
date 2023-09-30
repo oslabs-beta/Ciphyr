@@ -13,13 +13,11 @@ export default function Login() {
 
   const getInput = (e) => {
     const input = e.target.value;
-    console.log(input);
     setInput(input);
   };
 
   const getPassword = (e) => {
     const password = e.target.value;
-    console.log(password);
     setPassword(password);
   };
 
@@ -163,12 +161,12 @@ export default function Login() {
                 <div className='-left-8 -top-10 z-[0] absolute text-7xl font-serif italic text-slate-500'>
                   "
                 </div>
-                {"Ciphyr makes monitoring my application easy"}
+                {'Ciphyr makes monitoring my application easy'}
               </div>
               <div className='flex justify-end items-center ml-5 mt-6 top text-2xl text-slate-500 font-serif italic w-3/4'>
                 <img
-                  className="w-12 h-12 rounded-full mx-4"
-                  src="https://media.licdn.com/dms/image/C5603AQHYxxbnDOScIg/profile-displayphoto-shrink_800_800/0/1564777504761?e=1701302400&v=beta&t=PeqLqhmw2YzhWO3fLhCWF1axSvO-q4-f_GSvBLCCRFE"
+                  className='w-12 h-12 rounded-full mx-4'
+                  src='https://media.licdn.com/dms/image/C5603AQHYxxbnDOScIg/profile-displayphoto-shrink_800_800/0/1564777504761?e=1701302400&v=beta&t=PeqLqhmw2YzhWO3fLhCWF1axSvO-q4-f_GSvBLCCRFE'
                 />
                 <div>@anonymous_user</div>
               </div>

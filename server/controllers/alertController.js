@@ -9,14 +9,12 @@ alertController.getCriteria = async (req, res, next) => {
   const { queryObj } = req.body;
   //getting depth preference from user, based on their api key sent on req body
   const userQuery = `SELECT c.depth_preference FROM instance AS i JOIN clients AS c ON i.client_id = c.client_id WHERE i.api_key = '${queryObj.api_key}'`;
-  console.log('in getCriteria');
 
   try {
-    console.log('in try block of get criteria');
     const result = await db.query(userQuery);
-    console.log(result.rows);
+
     res.locals.preference = result.rows[0].depth_preference;
-    console.log(res.locals.preference);
+
     return next();
   } catch (err) {
     console.log(err);
@@ -25,7 +23,6 @@ alertController.getCriteria = async (req, res, next) => {
 
 //checks incoming query against user alert settings
 alertController.calculate = (req, res, next) => {
-  console.log('inside calculate middleware');
   const { preference } = res.locals;
   const { queryObj } = req.body;
 
@@ -41,7 +38,6 @@ alertController.calculate = (req, res, next) => {
 };
 
 alertController.sendEmail = async (req, res, next) => {
-  console.log('inside send email');
   if (res.locals.send !== undefined) {
     const { send } = res.locals;
     //Send email here
@@ -51,8 +47,16 @@ alertController.sendEmail = async (req, res, next) => {
       to: 'ajberger905@gmail.com',
       from: 'ciphyr4@gmail.com',
       subject: 'Ciphyr Security Alert',
-      text: `A suspicious Query was detected based on your ${send.type} parameters. We received a query with a ${send.type} of ${send.query[send.type]}`,
-      html: `<strong>A suspicious Query was detected based on your ${send.type} parameters. We received a query with a ${send.type} of ${send.query[send.type]}</strong>`,
+      text: `A suspicious Query was detected based on your ${
+        send.type
+      } parameters. We received a query with a ${send.type} of ${
+        send.query[send.type]
+      }`,
+      html: `<strong>A suspicious Query was detected based on your ${
+        send.type
+      } parameters. We received a query with a ${send.type} of ${
+        send.query[send.type]
+      }</strong>`,
     };
     sgMail
       .send(msg)
@@ -75,14 +79,13 @@ alertController.update = async (req, res, next) => {
   const { depth } = req.body;
   const { username } = req.cookies;
 
-  const updateQuery = `UPDATE clients SET depth_preference = ${depth} WHERE username = '${username}'`
+  const updateQuery = `UPDATE clients SET depth_preference = ${depth} WHERE username = '${username}'`;
   try {
     const result = await db.query(updateQuery);
-    return next()
+    return next();
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
-}
-
+};
 
 module.exports = alertController;

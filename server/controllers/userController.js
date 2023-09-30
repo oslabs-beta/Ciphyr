@@ -8,9 +8,6 @@ const userController = {};
 userController.signup = async (req, res, next) => {
   try {
     const { username, password, email } = req.body;
-    console.log('USERNAME', username);
-    console.log('password', password);
-    console.log('email', email);
     if (
       username === undefined ||
       password === undefined ||
@@ -35,7 +32,6 @@ userController.signup = async (req, res, next) => {
     } else {
       const createQuery = `INSERT INTO clients ( username, password, email) VALUES ('${username}','${hashedPassword}','${email}');`;
       const create = await db.query(createQuery);
-      console.log('creating new client', create);
       res.locals.newClient = { message: 'Client created' };
     }
     return next();
@@ -99,7 +95,6 @@ userController.getUserInfo = async (req, res, next) => {
       const userQuery = `SELECT username FROM clients WHERE client_id = '${user.client_id}';`;
       const userResult = await db.query(userQuery);
       const username = userResult.rows[0].username;
-      console.log(username);
       res.locals.userInfo = username;
       return next();
     });

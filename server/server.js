@@ -14,7 +14,7 @@ const path = require('path');
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
-//hello
+
 app.get(
   process.env.REDIRECT_URI,
   oauthController.getAccessToken,
@@ -26,12 +26,13 @@ app.get(
   }
 );
 
-// if (process.env.NODE_ENV === 'production') {
-app.use(express.static(path.join(path.resolve(), 'dist')));
-app.get('/*', (_req, res) => {
-  return res.sendFile(path.join(path.resolve(), 'dist', 'index.html'));
-});
-// } else {
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(path.resolve(), 'dist')));
+  app.get('/*', (_req, res) => {
+    return res.sendFile(path.join(path.resolve(), 'dist', 'index.html'));
+  });
+}
+//  else {
 //   app.get('/*', (_req, res) => {
 //     return res.sendFile(path.join(path.resolve(), 'index.html'));
 //   });

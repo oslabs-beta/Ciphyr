@@ -9,11 +9,13 @@ logController.getAllLog = async (req, res, next) => {
     const clientLogResult = await db.query(logQuery);
     const clientLog = clientLogResult.rows;
 
-    clientLog.forEach(el => {
-      el.timestamp = el.timestamp.toLocaleString('en-US', { hour12: false, timeZone: timezone }).replace(',', '')
-    })
-    console.log('loggg', clientLog)
-    res.locals.allLog = clientLog
+    clientLog.forEach((el) => {
+      el.timestamp = el.timestamp
+        .toLocaleString('en-US', { hour12: false, timeZone: timezone })
+        .replace(',', '');
+    });
+
+    res.locals.allLog = clientLog;
 
     return next();
   } catch (err) {
@@ -28,7 +30,7 @@ logController.newLogInfo = async (req, res, next) => {
     const logCountQuery = `SELECT COUNT(*) FROM log l JOIN instance i ON l.api_key = i.api_key
       JOIN clients c ON i.client_id = c.client_id 
       WHERE c.username = '${username}' AND l.timestamp > c.last_logout`;
-      logCount = await db.query(logCountQuery);
+    logCount = await db.query(logCountQuery);
     res.locals.logCount = logCount.rows[0];
     return next();
   } catch (err) {
