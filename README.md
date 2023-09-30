@@ -130,7 +130,7 @@ We have a demo-app that you can clone and test Ciphyr with
 
 Follow these steps to connect to Ciphyr library and visualizer
 
-  1. Sign up at [Ciphyr Home Page](https://example.com)
+  1. Sign up at [Ciphyr Home Page](http://www.ciphyr.io/login)
      
   2. Sign in to enter home page
      
@@ -222,7 +222,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 Ciphyr - [@ciphyr.io](https://twitter.com/your_username)
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/oslabs-beta/Ciphyr)
+Project Link: [https://github.com/oslabs-beta/Ciphyr](https://github.com/oslabs-beta/Ciphyr)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
