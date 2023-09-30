@@ -1,14 +1,6 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+
 
 <a name="readme-top"></a>
-
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
 
 <!-- PROJECT SHIELDS -->
 <!--
@@ -173,7 +165,7 @@ Follow these steps to connect to Ciphyr library and visualizer
 - Visualized graph for insignts of your query logs. <br>
   <img src="src/assets/chart.png" alt="Logo" width="50%" height="70%"> <br>
   <br>
-_For more examples, please refer to the [Documentation](https://example.com)_
+_For more examples, please refer to the [Documentation](https://github.com/oslabs-beta/Ciphyr)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -187,7 +179,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 - [ ] Rate limiting and throttling
 - [ ] Alert expansion
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/oslabs-beta/Ciphyr/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
