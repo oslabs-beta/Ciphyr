@@ -130,7 +130,7 @@ We have a demo-app that you can clone and test Ciphyr with
 
 Follow these steps to connect to Ciphyr library and visualizer
 
-  1. Sign up at [Ciphyr Home Page](http://www.ciphyr.io/login)
+  1. Sign up at [Ciphyr Home Page](http://www.ciphyr.io/signup)
      
   2. Sign in to enter home page
      
