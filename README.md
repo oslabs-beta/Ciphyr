@@ -86,17 +86,17 @@ Real-time monitoring of your GraphQL server query traffic. Ciphyr takes GraphQL 
 
 ### Built With
 
-- [![React][React.js]][React-url]
-- [![Node][Node]][React-url]
-- [![GraphQL][GraphQL]][React-url]
-- [![Tailwind][Tailwind]][React-url]
-- [![PostgreSQL][PostgreSQL]][React-url]
-- [![Jest][Jest]][React-url]
-- [![Testing Library][Testing Library]][React-url]
-- [![Vite][Vite]][React-url]
-- [![Heroku][Heroku]][React-url]
-- [![Express][Express]][React-url]
-- [![Apollo-GraphQL][Apollo-GraphQL]][React-url]
+[![React][React.js]][React-url]
+[![Node][Node]][React-url]
+[![GraphQL][GraphQL]][React-url]
+[![Tailwind][Tailwind]][React-url]
+[![PostgreSQL][PostgreSQL]][React-url]
+[![Jest][Jest]][React-url]
+[![Testing Library][Testing Library]][React-url]
+[![Vite][Vite]][React-url]
+[![Heroku][Heroku]][React-url]
+[![Express][Express]][React-url]
+[![Apollo-GraphQL][Apollo-GraphQL]][React-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
