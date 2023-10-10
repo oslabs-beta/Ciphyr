@@ -12,7 +12,7 @@ import { useState, useEffect } from "react";
 export default function Homepage() {
   const [modal, setModal] = useState(false);
   const [API, setAPI] = useState(false);
-  const [apiKey, setApiKey] = useState("");
+  const [apiKey, setApiKey] = useState(""); // 
   const [user, setUser] = useState("");
   const [queryCount, setQueryCount] = useState(0);
   const [lastDate, setLastDate] = useState('');

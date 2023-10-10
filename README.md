@@ -71,24 +71,27 @@
 
 ## About The Project
 
-
+  <br>
+    <img src="src/assets/gifs/CiphyrLogin.gif" alt="Logo" width="100%" height="auto">
+  <br>
+  
 Real-time monitoring of your GraphQL server query traffic. Ciphyr takes GraphQL security to the next level. It acts as a vigilant guardian for your GraphQL API, continuously monitoring incoming queries and detecting potential threats. With customizable rules and alerts, you have complete control over what constitutes a security threat. Whether it's identifying complex nested queries or excessive data retrieval, Ciphyr will have your back, notifying you in real time so you can take immediate action.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
 
-- [![React][React.js]][React-url]
-- [![Node][Node]][React-url]
-- [![GraphQL][GraphQL]][React-url]
-- [![Tailwind][Tailwind]][React-url]
-- [![PostgreSQL][PostgreSQL]][React-url]
-- [![Jest][Jest]][React-url]
-- [![Testing Library][Testing Library]][React-url]
-- [![Vite][Vite]][React-url]
-- [![Heroku][Heroku]][React-url]
-- [![Express][Express]][React-url]
-- [![Apollo-GraphQL][Apollo-GraphQL]][React-url]
+[![React][React.js]][React-url]
+[![Node][Node]][React-url]
+[![GraphQL][GraphQL]][React-url]
+[![Tailwind][Tailwind]][React-url]
+[![PostgreSQL][PostgreSQL]][React-url]
+[![Jest][Jest]][React-url]
+[![Testing Library][Testing Library]][React-url]
+[![Vite][Vite]][React-url]
+[![Heroku][Heroku]][React-url]
+[![Express][Express]][React-url]
+[![Apollo-GraphQL][Apollo-GraphQL]][React-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -122,7 +125,7 @@ We have a demo-app that you can clone and test Ciphyr with
 
 Follow these steps to connect to Ciphyr library and visualizer
 
-  1. Sign up at [Ciphyr Home Page](https://example.com)
+  1. Sign up at [Ciphyr Home Page](http://www.ciphyr.io/signup)
      
   2. Sign in to enter home page
      
@@ -212,9 +215,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Ciphyr - [@ciphyr.io](https://twitter.com/your_username)
+Ciphyr - @ciphyr.io
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/oslabs-beta/Ciphyr](https://github.com/oslabs-beta/Ciphyr)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

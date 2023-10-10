@@ -8,9 +8,6 @@ const userController = {};
 userController.signup = async (req, res, next) => {
   try {
     const { username, password, email } = req.body;
-    console.log("USERNAME", username);
-    console.log("password", password);
-    console.log("email", email);
     if (
       username === undefined ||
       password === undefined ||
@@ -27,7 +24,7 @@ userController.signup = async (req, res, next) => {
     const usernameResult = await db.query(usernameQuery);
     const emailResult = await db.query(emailQuery);
 
-    // is this working?
+    // need more changes
     if (emailResult.row) {
       res.locals.newClient = { message: "Email already in use" };
     } else if (usernameResult.row) {
@@ -35,7 +32,6 @@ userController.signup = async (req, res, next) => {
     } else {
       const createQuery = `INSERT INTO clients ( username, password, email) VALUES ('${username}','${hashedPassword}','${email}');`;
       const create = await db.query(createQuery);
-      console.log("creating new client", create);
       res.locals.newClient = { message: "Client created" };
     }
     return next();

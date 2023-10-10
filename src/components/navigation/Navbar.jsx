@@ -11,7 +11,7 @@ export default function Navbar() {
       const response = await fetch('/api/user/logout');
 
     } catch (err) {
-      console.log(err)
+      throw new Error("Failed to logout: " + error.message);
     }
     navigate('/login')
   }

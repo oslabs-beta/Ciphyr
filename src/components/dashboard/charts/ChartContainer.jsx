@@ -12,7 +12,6 @@ export default function ChartContainer(props) {
   }, []);
 
   const fetchLogs = async () => {
-    console.log("in try block");
     try {
       const response = await fetch("/api/log", {
         method: "POST",
@@ -28,9 +27,8 @@ export default function ChartContainer(props) {
       }
       const data = await response.json();
       setData(data);
-      console.log(data);
     } catch (error) {
-      console.error("Fetch error:", error);
+      throw new Error("Failed to fetch logs: " + error.message);
     }
   };
 

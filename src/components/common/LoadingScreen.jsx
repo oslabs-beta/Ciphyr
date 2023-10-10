@@ -4,7 +4,6 @@ export default function LoadingScreen() {
   return (
     <div className="rounded-md p-4 w-full mx-auto my-8 h-full">
       <div className="animate-pulse flex space-x-4">
-
         <div className="flex-1 space-y-6 py-4">
           <div className="h-2 bg-slate-600 rounded"></div>
           <div className="space-y-5">

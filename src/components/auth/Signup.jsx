@@ -15,19 +15,16 @@ export default function Signup() {
 
   const getEmail = (e) => {
     const email = e.target.value;
-    console.log(email);
     setEmail(email);
   };
 
   const getPassword = (e) => {
     const password = e.target.value;
-    console.log(password);
     setPassword(password);
   };
 
   const getUsername = (e) => {
     const username = e.target.value;
-    console.log(username);
     setUsername(username);
   };
 
@@ -45,7 +42,6 @@ export default function Signup() {
     });
     const data = await response.json();
     navigate("/login");
-    console.log("data in signup", data);
   };
 
   return (
