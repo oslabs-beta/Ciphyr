@@ -15,11 +15,9 @@ export default function InstanceModal(props) {
         body: JSON.stringify({ label: input }),
       });
       const parsed = await response.json();
-      console.log('parsed:', parsed.apiKey);
-      console.log(props);
       props.setApiKey(parsed.apiKey);
     } catch (err) {
-      console.log(err);
+      throw new Error("Failed to sendInput: " + error.message);
     }
   };
 

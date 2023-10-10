@@ -12,9 +12,7 @@ logController.getAllLog = async (req, res, next) => {
     clientLog.forEach(el => {
       el.timestamp = el.timestamp.toLocaleString('en-US', { hour12: false, timeZone: timezone }).replace(',', '')
     })
-    console.log('loggg', clientLog)
     res.locals.allLog = clientLog
-
     return next();
   } catch (err) {
     return next(err);

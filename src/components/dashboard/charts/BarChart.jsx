@@ -1,6 +1,6 @@
 
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 
 
 export default function Barchart(props) {

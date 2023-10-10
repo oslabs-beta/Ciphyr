@@ -22,7 +22,6 @@ oauthController.saveInfo = async (req, res, next) => {
     const scopes = ['profile', 'email', 'openid'];
     // a url formed with the auth token endpoint and the
     res.locals.request_get_auth_code_url = `${google_auth_token_endpoint}?${query_string.stringify (auth_token_params)}&scope=${scopes.join (' ')}`;
-    console.log("after save info", res.locals.request_get_auth_code_url);
     return next()
   }
   catch (err) {
@@ -32,7 +31,6 @@ oauthController.saveInfo = async (req, res, next) => {
 
 oauthController.getAccessToken = async (req, res, next) => {
   try {
-    console.log("in get access token")
     const auth_code = req.query.code;
     const access_token_params = {
       ...query_params,
@@ -45,9 +43,7 @@ oauthController.getAccessToken = async (req, res, next) => {
     });
     
     const data = await response.json();
-    console.log("after fetch", data.access_token);
     res.locals.accessToken = data.access_token;
-
     return next();
   }
   catch (err) {
@@ -61,9 +57,7 @@ oauthController.getUserProfile = async (req, res, next) => {
     const url = `https://www.googleapis.com/oauth2/v3/userinfo?alt=json&access_token=${token}`;
     const response = await fetch(url, {method: 'post'});
     const profile = await response.json();
-    
     res.locals.profile = profile;
-
     return next();
   }
   catch (err) {
@@ -72,7 +66,6 @@ oauthController.getUserProfile = async (req, res, next) => {
 }
 
 oauthController.saveOauthUser = async (req, res, next) => {
-  console.log("in save user")
   try {
     const username = res.locals.profile.name;
     const email = res.locals.profile.email;
@@ -95,9 +88,8 @@ oauthController.saveOauthUser = async (req, res, next) => {
       process.env.TOKEN_SECRET
     );
     res.cookie("token", jwtToken, { httpOnly: true, secure: true });
-    // username is less sensitive (public info)? So it's saved directly in cookie for verification
+    // username is less sensitive (public info) So it's saved directly in cookie for verification
     res.cookie("username", username, { httpOnly: true, secure: true });
-    // res.locals.result = { verified: verified, message: "login successfully" };
 
     // update last_login time
     const loginQuery = `UPDATE clients SET last_login = NOW()

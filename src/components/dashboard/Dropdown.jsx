@@ -8,7 +8,6 @@ export default function Dropdown() {
     const res = await fetch('/api/instance')
     const result = await res.json()
     setOptions(result)
-    console.log(options)
   }
   // call getInstances once every render
   useEffect(() => {
