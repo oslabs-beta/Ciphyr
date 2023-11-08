@@ -7,7 +7,7 @@ export default function EmptyInstanceMessage() {
     // Simulate a 2-second delay
     const delay = setTimeout(() => {
       setLoading(false);
-    }, 1400);
+    }, 2000);
 
     return () => clearTimeout(delay);
   }, []);

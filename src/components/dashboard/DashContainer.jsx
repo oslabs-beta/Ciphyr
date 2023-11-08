@@ -1,6 +1,6 @@
 import Navbar from "../navigation/Navbar";
 import Sidenav from "../navigation/Sidenav";
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import InputInstance from "react";
 import ChartContainer from './charts/ChartContainer.jsx';
 import MainTable from './MainTable.jsx'

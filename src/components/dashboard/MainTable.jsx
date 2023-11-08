@@ -16,8 +16,6 @@ export default function GridTable(props) {
   }, [props.instance, timeZone]);
 
   const fetchLogs = async () => {
-    console.log("in try block");
-    console.log("timeZone",timeZone)
     try {
       const response = await fetch("/api/log", {
         method: "POST",
@@ -34,24 +32,10 @@ export default function GridTable(props) {
       }
       const data = await response.json();
       setRows(data);
-      console.log(data);
     } catch (error) {
-      console.error("Fetch error:", error);
+      throw new Error("Failed to fetchLogs: " + error.message);
     }
   };
-
-  // const changeTimeZone = async (val) => {
-  //   console.log("changing TZ");
-  //   fetch ('/api/instance/changeTimeZone', {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify({
-  //       timeZone: timeZone,
-  //     }),
-  //   })
-  // }
 
   const columnDefs = [
     { field: "timestamp"},
@@ -59,7 +43,6 @@ export default function GridTable(props) {
     { field: "operation" },
     { field: "depth" },
     { field: "latency" },
-    //{ field: "raw" },
   ];
 
   const defaultColDef = useMemo(
@@ -71,7 +54,6 @@ export default function GridTable(props) {
   );
 
   const cellClickedListener = useCallback((e) => {
-    console.log("cellClicked", e.data.raw);
     setRaw(e.data.raw);
     toggleModal(!modal);
   });

@@ -13,13 +13,11 @@ export default function Login() {
 
   const getInput = (e) => {
     const input = e.target.value;
-    console.log(input);
     setInput(input);
   };
 
   const getPassword = (e) => {
     const password = e.target.value;
-    console.log(password);
     setPassword(password);
   };
 
@@ -37,7 +35,7 @@ export default function Login() {
         navigate('/home');
       }
     } catch (err) {
-      console.log(err);
+      throw new Error("Failed to validate: " + err.message);
     }
   };
 
@@ -170,8 +168,8 @@ export default function Login() {
               </div>
               <div className='flex justify-end items-center ml-5 mt-6 top text-2xl text-slate-500 font-serif italic w-3/4'>
                 <img
-                  className='w-12 h-12 rounded-full mx-4'
-                  src='https://avatars.githubusercontent.com/u/12375492?v=4'
+                  className="w-12 h-12 rounded-full mx-4"
+                  src="https://cdn.pixabay.com/photo/2016/05/15/16/35/dog-1393920_640.jpg"
                 />
                 <div>@anonymous_user</div>
               </div>
@@ -182,8 +180,3 @@ export default function Login() {
     </>
   );
 }
-
-/**
- *                   src="https://media.licdn.com/dms/image/C4D03AQG2XwBr2rylkg/profile-displayphoto-shrink_800_800/0/1572454199260?e=1700092800&v=beta&t=I2J8vm4K3mzwIEDvxOtxNt2o1sG6FVbOh__2dcEhi9w"
- *
- */

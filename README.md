@@ -1,14 +1,6 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+
 
 <a name="readme-top"></a>
-
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
 
 <!-- PROJECT SHIELDS -->
 <!--
@@ -79,7 +71,10 @@
 
 ## About The Project
 
-
+  <br>
+    <img src="src/assets/gifs/CiphyrLogin.gif" alt="Logo" width="100%" height="auto">
+  <br>
+  
 Real-time monitoring of your GraphQL server query traffic. Ciphyr takes GraphQL security to the next level. It acts as a vigilant guardian for your GraphQL API, continuously monitoring incoming queries and detecting potential threats. With customizable rules and alerts, you have complete control over what constitutes a security threat. Whether it's identifying complex nested queries or excessive data retrieval, Ciphyr will have your back, notifying you in real time so you can take immediate action.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -173,7 +168,7 @@ Follow these steps to connect to Ciphyr library and visualizer
 - Visualized graph for insignts of your query logs. <br>
   <img src="src/assets/chart.png" alt="Logo" width="50%" height="70%"> <br>
   <br>
-_For more examples, please refer to the [Documentation](https://example.com)_
+_For more examples, please refer to the [Documentation](https://github.com/oslabs-beta/Ciphyr)_
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
