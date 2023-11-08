@@ -10,7 +10,6 @@ export default function SummaryBar(props) {
   const getData = async () => {
     const response = await fetch("/api/instance");
     const data = await response.json();
-    console.log("data", data);
     setData(data);
   };
 
@@ -18,8 +17,12 @@ export default function SummaryBar(props) {
     getData();
   }, []);
 
+  // get Last Session Time, and parse using regex to get the dayOfWeek, month, day, year, hours, minutes, seconds as individual variables
   useEffect(() => {
+    // props.session is unformatted date fetched from homepage
+    // rename session dependent on whether its formatted or not
     const date = props.session;
+    console.log('date:', date);
     const regexPattern =
       /^(\w{3}) (\w{3}) (\d{1,2}) (\d{4}) (\d{2}):(\d{2}):(\d{2})/;
     const match = date.match(regexPattern);
@@ -27,16 +30,14 @@ export default function SummaryBar(props) {
     if (match) {
       const [, dayOfWeek, month, day, year, hours, minutes, seconds] = match;
       let timeSig;
-      console.log(typeof hours);
       if (parseInt(hours) > 12) {
-        console.log("PARSING HOURS");
         const regularTime = parseInt(hours) - 12;
-        console.log("regular time", regularTime);
         timeSig = `${regularTime}:${minutes} PM`;
       } else {
         timeSig = `${hours}:${minutes} AM`;
       }
       const formattedSession = `${month} ${day} - ${timeSig} `;
+      // here is setting formatted date
       setSession(formattedSession);
     }
   }, [props.session]);

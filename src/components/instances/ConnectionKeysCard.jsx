@@ -6,7 +6,6 @@ export default function ConnectionKeysCard() {
   const getData = async () => {
     const response = await fetch("/api/instance");
     const data = await response.json();
-    console.log("data", data);
     setData(data);
   };
 

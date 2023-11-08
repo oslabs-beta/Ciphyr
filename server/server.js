@@ -16,11 +16,10 @@ app.use(cors());
 
 app.get(process.env.REDIRECT_URI, oauthController.getAccessToken, oauthController.getUserProfile, 
   oauthController.saveOauthUser, async (req, res) => {
-    console.log(req.cookies);
     res.redirect('/home');
 });
 
-app.use('/api/auth', oauthRouter);
+// app.use('/api/auth', oauthRouter);
 app.use('/api/user', userRouter);
 app.use('/api/instance', instanceRouter);
 app.use('/api/log', logRouter);
@@ -35,7 +34,6 @@ app.use((err, req, res, next) => {
     message: { err: 'An error occurred' },
   };
   const errorObj = Object.assign({}, defaultErr, err);
-  console.log(errorObj.log);
   return res.status(errorObj.status).json(errorObj.message);
 });
 
