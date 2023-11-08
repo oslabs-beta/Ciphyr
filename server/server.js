@@ -20,7 +20,7 @@ app.get(process.env.REDIRECT_URI, oauthController.getAccessToken, oauthControlle
     res.redirect('/home');
 });
 
-app.use('/api/auth', oauthRouter);
+// app.use('/api/auth', oauthRouter);
 app.use('/api/user', userRouter);
 app.use('/api/instance', instanceRouter);
 app.use('/api/log', logRouter);
