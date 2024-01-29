@@ -169,7 +169,7 @@ export default function Login() {
               <div className='flex justify-end items-center ml-5 mt-6 top text-2xl text-slate-500 font-serif italic w-3/4'>
                 <img
                   className="w-12 h-12 rounded-full mx-4"
-                  src="https://cdn.pixabay.com/photo/2016/05/15/16/35/dog-1393920_640.jpg"
+                  src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
                 />
                 <div>@anonymous_user</div>
               </div>

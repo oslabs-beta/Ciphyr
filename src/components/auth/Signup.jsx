@@ -179,7 +179,7 @@ export default function Signup() {
               <div className="flex justify-end items-center ml-5 mt-6 top text-2xl text-slate-500 font-serif italic w-3/4">
                 <img
                   className="w-12 h-12 rounded-full mx-4"
-                  src="https://media.licdn.com/dms/image/C5603AQG5zLxbpKQA7w/profile-displayphoto-shrink_800_800/0/1593130186582?e=1701302400&v=beta&t=NDpvMXDVv2GeZ2r1SNtzxhSp9hdPanssU6hHmEktZq0"
+                  src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
                 />
                 <div>@anonymous_user</div>
               </div>
