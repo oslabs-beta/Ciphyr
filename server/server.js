@@ -15,6 +15,13 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 
+app.use((req, res, next) => {
+  if (req.header('x-forwarded-proto') !== 'https' && process.env.NODE_ENV === 'production') {
+    res.redirect(`https://${req.header('host')}${req.url}`);
+  } else {
+    next();
+  }
+});
 
 // app.use('/api/auth', oauthRouter);
 app.use('/api/user', userRouter);
