@@ -42,7 +42,7 @@ export default function InstructionSection() {
 
   return (
     <section className="bg-gradient-to-b from-slate-900 via-slate-600 to-custom-end flex flex-col">
-      <div className="flex flex-col items-center mx-48 my-32 ">
+      <div className="flex flex-col items-center px-5 text-center my-32 ">
         <div className="flex flex-row w-full my-4 py-6">
           <div className="w-full flex flex-col items-center space-y-4 text-white ">
             {/* <div className="flex flex-row items-center border rounded rounded-lg text-xl mb-20 w-[12em]">
