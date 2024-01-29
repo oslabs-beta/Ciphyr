@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "start": "nodemon server/server.js",
+    "start": "node server/server.js",
     "dev": "cross-env concurrently 'vite' 'nodemon server/server.js'",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
