@@ -116,7 +116,7 @@ export default function splashContainer() {
           </section>
           <Services />
           <section className="flex-col w-full items-center shadow">
-            <div className="flex flex-row w-full py-16 justify-center items-center bg-slate-900">
+            <div className="flex flex-row w-full py-16 px-5 justify-center items-center bg-slate-900">
               <div className="text-4xl font-light text-slate-200 mr-6">
                 Built with ❤️ but also
               </div>

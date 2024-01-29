@@ -53,8 +53,8 @@ export default function Signup() {
               <img src={ciphyrLogo} className="w-[200px]" />
             </nav>
           </div>
-          <div className="flex flex-1 ">
-            <main className=" flex flex-col flex-shrink-0 items-center border-r border-slate-200 w-2/5 md:h-full lg:h-screen px-5 pt-32 shadow">
+          <div className="flex flex-col sm:flex-row">
+            <main className=" flex flex-col flex-shrink-0 items-center border-r border-slate-200 md:w-2/5 md:h-full lg:h-screen px-5 pt-32 shadow">
               <section className="flex-1 flex flex-col justify-center w-2/3">
                 <div>
                   <h1 className="text-3xl text-slate-800 mb-2">Get started</h1>
