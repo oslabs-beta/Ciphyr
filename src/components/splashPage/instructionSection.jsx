@@ -81,7 +81,7 @@ export default function InstructionSection() {
             </div>
             <div className="flex flex-col text-3xl items-center">
               <div>Check us out for more!</div>
-              <div className="mt-4 text-3xl flex flex-row justify-center items-center">
+              <div className="mt-4 text-3xl flex flex-col sm:flex-row justify-center items-center">
                 <div className="mt-4 px-6 py-4 rounded-lg bg-slate-200 text-slate-800 text-3xl shadow mr-4">
                   <FontAwesomeIcon
                     className="mr-2 text-3xl"

@@ -64,13 +64,13 @@ export default function splashContainer() {
                   </div>
                 </div>
               </nav>
-              <div className="flex flex-row">
-                <div className="flex flex-col w-full items-center mx-36 mt-20 mb-10 ">
+              <div className="flex flex-row w-full">
+                <div className="flex flex-col w-full items-center mt-20 mb-10 ">
                   <div>
-                    <h1 className="py-4 text-7xl font-semibold drop-shadow-lg bg-gradient-to-r from-blue-600 via-red-800 to-indigo-400 text-transparent bg-clip-text">
+                    <h1 className="py-4 text-5xl text-center sm:text-7xl font-semibold drop-shadow-lg bg-gradient-to-r from-blue-600 via-red-800 to-indigo-400 text-transparent bg-clip-text">
                       UNLOCK SECURITY WITH
                     </h1>
-                    <h1 className="text-6xl text-center font-semibold drop-shadow-lg bg-gradient-to-r from-slate-800 via-slate-600 to-slate-800 text-transparent bg-clip-text">
+                    <h1 className="text-4xl sm:text-6xl text-center font-semibold drop-shadow-lg bg-gradient-to-r from-slate-800 via-slate-600 to-slate-800 text-transparent bg-clip-text">
                       TRANSPARENT GRAPHQL
                     </h1>
                   </div>
