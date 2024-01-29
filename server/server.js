@@ -9,21 +9,31 @@ const oauthController = require('./controllers/oauthController');
 const alertRouter = require('./routes/alertRouter');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const path = require('path');
 
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 
-app.get(process.env.REDIRECT_URI, oauthController.getAccessToken, oauthController.getUserProfile, 
-  oauthController.saveOauthUser, async (req, res) => {
-    res.redirect('/home');
-});
 
 // app.use('/api/auth', oauthRouter);
 app.use('/api/user', userRouter);
 app.use('/api/instance', instanceRouter);
 app.use('/api/log', logRouter);
 app.use('/api/alert', alertRouter);
+//process.env.REDIRECT_URI
+app.get(process.env.REDIRECT_URI, oauthController.getAccessToken, oauthController.getUserProfile,
+  oauthController.saveOauthUser, async (req, res) => {
+    res.redirect('/home');
+});
+
+// Serve static files from the React frontend app
+app.use(express.static(path.join(__dirname, '../dist')));
+
+// Anything that doesn't match the above, send back index.html
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'))
+});
 
 app.use('*', (req, res) => res.status(404).send('Not Found'));
 
