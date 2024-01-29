@@ -56,8 +56,8 @@ export default function Login() {
               <img src={ciphyrLogo} className='w-[200px]' />
             </nav>
           </div>
-          <div className='flex flex-1 '>
-            <main className=' flex flex-col flex-shrink-0 items-center border-r border-slate-200 w-2/5 md:h-full lg:h-screen  px-5 pt-16 shadow'>
+          <div className='flex flex-col sm:flex-row'>
+            <main className=' flex flex-col flex-shrink-0 items-center border-r border-slate-200 md:w-2/5 md:h-full lg:h-screen  px-5 pt-32 shadow'>
               <section className='flex-1 flex flex-col justify-center w-2/3'>
                 <div>
                   <h1 className='text-3xl text-slate-800 mb-2'>Welcome back</h1>
@@ -169,7 +169,7 @@ export default function Login() {
               <div className='flex justify-end items-center ml-5 mt-6 top text-2xl text-slate-500 font-serif italic w-3/4'>
                 <img
                   className="w-12 h-12 rounded-full mx-4"
-                  src="https://cdn.pixabay.com/photo/2016/05/15/16/35/dog-1393920_640.jpg"
+                  src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
                 />
                 <div>@anonymous_user</div>
               </div>
