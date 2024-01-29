@@ -64,17 +64,17 @@ export default function splashContainer() {
                   </div>
                 </div>
               </nav>
-              <div className="flex flex-row">
-                <div className="flex flex-col w-full items-center mx-36 mt-20 mb-10 ">
+              <div className="flex flex-row w-full">
+                <div className="flex flex-col w-full items-center mt-20 mb-10 ">
                   <div>
-                    <h1 className="py-4 text-7xl font-semibold drop-shadow-lg bg-gradient-to-r from-blue-600 via-red-800 to-indigo-400 text-transparent bg-clip-text">
+                    <h1 className="py-4 text-5xl text-center sm:text-7xl font-semibold drop-shadow-lg bg-gradient-to-r from-blue-600 via-red-800 to-indigo-400 text-transparent bg-clip-text">
                       UNLOCK SECURITY WITH
                     </h1>
-                    <h1 className="text-6xl text-center font-semibold drop-shadow-lg bg-gradient-to-r from-slate-800 via-slate-600 to-slate-800 text-transparent bg-clip-text">
+                    <h1 className="text-4xl sm:text-6xl text-center font-semibold drop-shadow-lg bg-gradient-to-r from-slate-800 via-slate-600 to-slate-800 text-transparent bg-clip-text">
                       TRANSPARENT GRAPHQL
                     </h1>
                   </div>
-                  <div className="text-2xl font-light py-6 mt-8">
+                  <div className="text-2xl font-light py-6 mt-8 px-5 text-center">
                     Server-side GraphQL monitoring. All in one place.
                   </div>
                   <div>
@@ -137,9 +137,9 @@ export default function splashContainer() {
               </span>
             </div>
           </section>
-          <section className="flex flex-col items-start mx-40">
-            <div className="flex flex-row  border-emerald-400 w-full my-36">
-              <div className="w-1/2  mx-6 my-4 space-y-4">
+          <section className="flex flex-col items-start">
+            <div className="flex flex-col sm:flex-row  border-emerald-400 w-full my-36">
+              <div className="w-full sm:w-1/2 px-6 my-4 space-y-4">
                 <div className="text-2xl font-semibold">
                   So, what's the big idea?
                 </div>
@@ -172,7 +172,7 @@ export default function splashContainer() {
                   </p>
                 </div>
               </div>
-              <aside className="w-1/2 flex justify-center mx-6 my-4">
+              <aside className="max-w-1/2 flex justify-center mx-6 my-4">
                 <img src={bigIdea} className="" />
               </aside>
             </div>

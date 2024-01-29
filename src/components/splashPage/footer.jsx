@@ -32,8 +32,8 @@ export default function Footer() {
 
   return (
     <footer className="bg-gradient-to-t from-custom-start to-custom-end  flex flex-col items-center">
-      <div className="flex flex-row w-4/5 my-4">
-        <div className="w-1/2  mx-2 my-2 px-4 py-4 ">
+      <div className="flex flex-col sm:flex-row w-4/5 my-4">
+        <div className="w-full sm:w-1/2  mx-2 my-2 px-4 py-4 ">
           <div className="text-2xl font-semibold">Our Team</div>
           <div className="py-4 space-y-2">
             <div className="text-lg font-light flex flex-row items-center">
@@ -149,7 +149,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="w-1/2 mx-2 my-2 py-4">
+        <div className="sm:w-1/2 mx-2 my-2 py-4">
           <div className="text-2xl font-semibold">Write to us</div>
           <div className="my-2">
             <input
