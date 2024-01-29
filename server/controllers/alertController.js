@@ -16,6 +16,7 @@ alertController.getCriteria = async (req, res, next) => {
     return next();
   } catch (err) {
     console.log(err);
+    next(err)
   }
 };
 
@@ -75,6 +76,7 @@ alertController.update = async (req, res, next) => {
     return next()
   } catch (err) {
     console.log(err)
+    next(err)
   }
 }
 
