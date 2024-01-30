@@ -13,6 +13,7 @@ export default function Alerts() {
         },
         body: JSON.stringify({depth: depth})
        })
+       alert('saved')
     } catch (err) {
       throw new Error("Failed to sendCriteria: " + err.message);
     }
