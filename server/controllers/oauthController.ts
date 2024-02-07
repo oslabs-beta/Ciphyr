@@ -116,4 +116,4 @@ saveOauthUser: async (req, res, next) => {
 };
 
 
-module.exports = oauthController;
+export default oauthController;

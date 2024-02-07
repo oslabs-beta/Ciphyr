@@ -141,4 +141,4 @@ logout: async (req, res, next) => {
 
 };
 
-module.exports = userController;
+export default userController
