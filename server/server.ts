@@ -1,15 +1,15 @@
-const express = require('express');
+import express, { Request, Response, NextFunction } from 'express';
 const port = process.env.PORT || 3000;
 const app = express();
-const userRouter = require('./routes/userRouter');
-const instanceRouter = require('./routes/instanceRouter');
-const logRouter = require('./routes/logRouter');
+import userRouter from './routes/userRouter';
+import instanceRouter from './routes/instanceRouter';
+import logRouter from './routes/logRouter';
 //const oauthRouter = require('./routes/oauthRouter')
-const oauthController = require('./controllers/oauthController');
-const alertRouter = require('./routes/alertRouter');
-const cookieParser = require('cookie-parser');
-const cors = require('cors');
-const path = require('path');
+import oauthController from './controllers/oauthController';
+import alertRouter from './routes/alertRouter';
+import cookieParser from 'cookie-parser';
+import cors from 'cors';
+import path from 'path';
 
 app.use(express.json());
 app.use(cookieParser());
@@ -29,7 +29,7 @@ app.use('/api/instance', instanceRouter);
 app.use('/api/log', logRouter);
 app.use('/api/alert', alertRouter);
 //process.env.REDIRECT_URI
-app.get(process.env.REDIRECT_URI, oauthController.getAccessToken, oauthController.getUserProfile,
+app.get(process.env.REDIRECT_URI as string, oauthController.getAccessToken, oauthController.getUserProfile,
   oauthController.saveOauthUser, async (req, res) => {
     res.redirect('/home');
 });
@@ -44,7 +44,7 @@ app.get('*', (req, res) => {
 
 app.use('*', (req, res) => res.status(404).send('Not Found'));
 
-app.use((err, req, res, next) => {
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   const defaultErr = {
     log: 'Express error handler caught unknown middleware error',
     status: 400,
