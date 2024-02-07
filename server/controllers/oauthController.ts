@@ -16,7 +16,7 @@ interface OauthController {
 
 const query_params = {
   client_id: process.env.CLIENT_APP_ID,
-  redirect_uri: `http://localhost:5173${process.env.REDIRECT_URI}`,
+  redirect_uri: `${process.env.DOMAIN}${process.env.REDIRECT_URI}`,
 }
 
 const oauthController: OauthController = {
