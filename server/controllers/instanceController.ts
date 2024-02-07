@@ -1,24 +1,29 @@
 const db = require('../db');
-const jwt = require('jsonwebtoken');
-const crypto = require('crypto');
+import jwt from 'jsonwebtoken';
+import crypto from 'crypto';
+import { Request, Response, NextFunction } from 'express';
 
-const instanceController = {};
-
-instanceController.verifyToken = async (req, res, next) => {
-
-
-  const jwtToken = req.cookies.token;
-  jwt.verify(jwtToken, process.env.TOKEN_SECRET, (err, user) => {
-
-    if (err) return res.sendStatus(403)
-
-    res.locals.client = user;
-    console.log('res locals jwt payload', res.locals.client);
-    return next();
-  })
+interface InstanceController {
+  verifyToken: (req: Request, res: Response, next: NextFunction) => Promise<void>;
+  createInstance: (req: Request, res: Response, next: NextFunction) => Promise<void>;
+  getInstances: (req: Request, res: Response, next: NextFunction) => Promise<void>;
+  deleteInstance: (req: Request, res: Response, next: NextFunction) => Promise<void>;
 }
 
-instanceController.createInstance = async (req, res, next) => {
+const instanceController: InstanceController = {
+
+verifyToken: async (req, res, next) => {
+
+  const jwtToken = req.cookies.token;
+  jwt.verify(jwtToken, process.env.TOKEN_SECRET as string, (err: any, user: any) => {
+
+    if (err) return res.sendStatus(403)
+    res.locals.client = user;
+    return next();
+  })
+},
+
+createInstance: async (req, res, next) => {
   try {
     const {label} = req.body;
     if (!label) {
@@ -49,12 +54,12 @@ instanceController.createInstance = async (req, res, next) => {
   catch(err) {
     return next(err)
   }
-}
+},
 
-instanceController.getInstances = async (req, res, next) => {
+getInstances: async (req, res, next) => {
   const jwtToken = req.cookies.token;
   // retrieve instances based the clien_id in JWT token
-  jwt.verify(jwtToken, process.env.TOKEN_SECRET, async (err, user) => {
+  jwt.verify(jwtToken, process.env.TOKEN_SECRET as string, async (err: any, user: any) => {
 
     if (err) return res.sendStatus(403)
 
@@ -64,9 +69,9 @@ instanceController.getInstances = async (req, res, next) => {
 
     return next();
   })
-}
+},
 
-instanceController.deleteInstance = async (req, res, next) => {
+deleteInstance: async (req, res, next) => {
   try {
     const { id }  = req.body;
     const deleteQuery = `DELETE FROM instance WHERE id = ${id}`;
@@ -77,5 +82,7 @@ instanceController.deleteInstance = async (req, res, next) => {
     return next(err);
   }
 }
+
+};
 
 module.exports = instanceController;
