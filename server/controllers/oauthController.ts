@@ -1,17 +1,27 @@
-const query_string = require ('querystring');
-const jwt = require("jsonwebtoken");
+import query_string from 'querystring';
+import jwt from "jsonwebtoken";
 const db = require("../db");
-const oauthController = {};
+import fetch from 'node-fetch'
+import { Request, Response, NextFunction } from 'express';
 
 const google_auth_token_endpoint ='https://accounts.google.com/o/oauth2/v2/auth';
 const google_access_token_endpoint = 'https://oauth2.googleapis.com/token';
+
+interface OauthController {
+  saveInfo: (req: Request, res: Response, next: NextFunction) => Promise<void>;
+  getAccessToken: (req: Request, res: Response, next: NextFunction) => Promise<void>;
+  getUserProfile: (req: Request, res: Response, next: NextFunction) => Promise<void>;
+  saveOauthUser: (req: Request, res: Response, next: NextFunction) => Promise<void>;
+}
 
 const query_params = {
   client_id: process.env.CLIENT_APP_ID,
   redirect_uri: `http://localhost:5173${process.env.REDIRECT_URI}`,
 }
 
-oauthController.saveInfo = async (req, res, next) => {
+const oauthController: OauthController = {
+
+saveInfo: async (req, res, next) => {
   try {
     // this objects contains information that will be passed as query params to the auth // token endpoint
     const auth_token_params = {
@@ -27,12 +37,12 @@ oauthController.saveInfo = async (req, res, next) => {
   catch (err) {
     return next(err)
   }
-}
+},
 
-oauthController.getAccessToken = async (req, res, next) => {
+getAccessToken: async (req, res, next) => {
   try {
     const auth_code = req.query.code;
-    const access_token_params = {
+    const access_token_params: any = {
       ...query_params,
       client_secret: process.env.CLIENT_APP_SECRET,
       code: auth_code,
@@ -41,7 +51,7 @@ oauthController.getAccessToken = async (req, res, next) => {
     const response = await fetch(`${google_access_token_endpoint}?${query_string.stringify (access_token_params)}`, {
       method: 'post'
     });
-    
+
     const data = await response.json();
     res.locals.accessToken = data.access_token;
     return next();
@@ -49,13 +59,13 @@ oauthController.getAccessToken = async (req, res, next) => {
   catch (err) {
     return next(err);
   }
-}
+},
 
-oauthController.getUserProfile = async (req, res, next) => {
+getUserProfile: async (req, res, next) => {
   try {
     const token = res.locals.accessToken;
     const url = `https://www.googleapis.com/oauth2/v3/userinfo?alt=json&access_token=${token}`;
-    const response = await fetch(url, {method: 'post'});
+    const response = await fetch(url, {method: 'GET'});
     const profile = await response.json();
     res.locals.profile = profile;
     return next();
@@ -63,9 +73,9 @@ oauthController.getUserProfile = async (req, res, next) => {
   catch (err) {
     return next(err);
   }
-}
+},
 
-oauthController.saveOauthUser = async (req, res, next) => {
+saveOauthUser: async (req, res, next) => {
   try {
     const username = res.locals.profile.name;
     const email = res.locals.profile.email;
@@ -77,7 +87,7 @@ oauthController.saveOauthUser = async (req, res, next) => {
       const createQuery = `INSERT INTO clients ( username, email) VALUES ('${username}', '${email}');`;
       const create = await db.query(createQuery);
     }
-    
+
     const getUserQuery = `SELECT client_id FROM clients WHERE email = '${email}'`;
     const userResult = await db.query(getUserQuery);
     const clientID = userResult.rows[0].client_id;
@@ -85,7 +95,7 @@ oauthController.saveOauthUser = async (req, res, next) => {
     // same cookie actions as the login process. how to optimize this?
     const jwtToken = jwt.sign(
       { client_id: clientID },
-      process.env.TOKEN_SECRET
+      process.env.TOKEN_SECRET as string
     );
     res.cookie("token", jwtToken, { httpOnly: true, secure: true });
     // username is less sensitive (public info) So it's saved directly in cookie for verification
@@ -102,6 +112,8 @@ oauthController.saveOauthUser = async (req, res, next) => {
     return next(err);
   }
 }
+
+};
 
 
 module.exports = oauthController;

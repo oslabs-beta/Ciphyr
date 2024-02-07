@@ -2,10 +2,19 @@ const bcrypt = require("bcrypt");
 const db = require("../db");
 const salt = 10;
 const jwt = require("jsonwebtoken");
+import { Request, Response, NextFunction} from 'express';
 
-const userController = {};
+interface UserController {
+  signup: (req: Request, res: Response, next: NextFunction) => Promise<void>;
+  login: (req: Request, res: Response, next: NextFunction) => Promise<void>;
+  getUserInfo: (req: Request, res: Response, next: NextFunction) => Promise<void>;
+  getLastLogout: (req: Request, res: Response, next: NextFunction) => Promise<void>;
+  logout: (req: Request, res: Response, next: NextFunction) => Promise<void>;
+}
 
-userController.signup = async (req, res, next) => {
+const userController: UserController = {
+
+signup: async (req, res, next) => {
   try {
     const { username, password, email } = req.body;
     if (
@@ -38,15 +47,15 @@ userController.signup = async (req, res, next) => {
   } catch (err) {
     return next(err);
   }
-};
+},
 
-userController.login = async (req, res, next) => {
+login: async (req, res, next) => {
   try {
     // input takes username or email
     const { input, password } = req.body;
     const passwordQuery = `SELECT client_id, username, password FROM clients WHERE username = '${input}' OR email = '${input}';`;
     const passwordResult = await db.query(passwordQuery);
-    
+
     // need to check if passwordResult.rows[0] is defined? if not, return username/email does not exist
     const clientID = passwordResult.rows[0].client_id;
     const username = passwordResult.rows[0].username;
@@ -81,13 +90,13 @@ userController.login = async (req, res, next) => {
   } catch (err) {
     return next(err);
   }
-};
+},
 
-userController.getUserInfo = async (req, res, next) => {
+getUserInfo: async (req, res, next) => {
   try {
     const jwtToken = req.cookies.token;
     // retrieve instances based the clien_id in JWT token
-    jwt.verify(jwtToken, process.env.TOKEN_SECRET, async (err, user) => {
+    jwt.verify(jwtToken, process.env.TOKEN_SECRET, async (err: any, user: any) => {
       if (err) return res.sendStatus(403);
 
       const userQuery = `SELECT username FROM clients WHERE client_id = '${user.client_id}';`;
@@ -99,9 +108,9 @@ userController.getUserInfo = async (req, res, next) => {
   } catch (err) {
     return next(err);
   }
-};
+},
 
-userController.getLastLogout = async (req, res, next) => {
+getLastLogout: async (req, res, next) => {
   try {
     const username = req.cookies.username;
     const lastDateQuery = `SELECT last_logout FROM clients WHERE username = '${username}'`
@@ -115,9 +124,9 @@ userController.getLastLogout = async (req, res, next) => {
   catch (err) {
     return next(err);
   }
-}
+},
 
-userController.logout = async (req, res, next) => {
+logout: async (req, res, next) => {
   try {
     const username = req.cookies.username;
     const loginQuery = `UPDATE clients SET last_logout = NOW()
@@ -129,5 +138,7 @@ userController.logout = async (req, res, next) => {
     return next(err);
   }
 }
+
+};
 
 module.exports = userController;
