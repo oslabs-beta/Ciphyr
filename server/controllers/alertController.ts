@@ -1,11 +1,17 @@
 const db = require('../db');
-const fetch = require('node-fetch');
+import { Request, Response, NextFunction } from 'express';
 
-//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
-const alertController = {};
+interface AlertController {
+  getCriteria: (req: Request, res: Response, next: NextFunction) => Promise<void>;
+  calculate: (req: Request, res: Response, next: NextFunction) => void;
+  sendEmail: (req: Request, res: Response, next: NextFunction) => Promise<void>;
+  update: (req: Request, res: Response, next: NextFunction) => Promise<void>;
+}
+
+const alertController: AlertController = {
 
 //gets specific users alert setting criteria
-alertController.getCriteria = async (req, res, next) => {
+ getCriteria: async (req: Request, res: Response, next: NextFunction) => {
   const { queryObj } = req.body;
   //getting depth preference from user, based on their api key sent on req body
   const userQuery = `SELECT c.depth_preference FROM instance AS i JOIN clients AS c ON i.client_id = c.client_id WHERE i.api_key = '${queryObj.api_key}'`;
@@ -18,10 +24,10 @@ alertController.getCriteria = async (req, res, next) => {
     console.log(err);
     next(err)
   }
-};
+},
 
 //checks incoming query against user alert settings
-alertController.calculate = (req, res, next) => {
+ calculate: (req: Request, res: Response, next: NextFunction) => {
   const { preference } = res.locals;
   const { queryObj } = req.body;
 
@@ -34,9 +40,9 @@ alertController.calculate = (req, res, next) => {
     };
   }
   return next();
-};
+},
 
-alertController.sendEmail = async (req, res, next) => {
+ sendEmail: async (req: Request, res: Response, next: NextFunction) => {
   if (res.locals.send !== undefined) {
     const { send } = res.locals;
     //Send email here
@@ -54,7 +60,7 @@ alertController.sendEmail = async (req, res, next) => {
       .then(() => {
         console.log('Email sent');
       })
-      .catch((error) => {
+      .catch((error: Error) => {
         console.error(error);
       });
 
@@ -64,9 +70,9 @@ alertController.sendEmail = async (req, res, next) => {
   }
 
   return next();
-};
+},
 
-alertController.update = async (req, res, next) => {
+ update: async (req: Request, res: Response, next: NextFunction) => {
   const { depth } = req.body;
   const { username } = req.cookies;
 
@@ -80,5 +86,7 @@ alertController.update = async (req, res, next) => {
   }
 }
 
+};
 
-module.exports = alertController;
+
+export default alertController;
