@@ -40,7 +40,7 @@ export default function SummaryBar(props) {
       // here is setting formatted date
       setSession(formattedSession);
     }
-  }, [props.session]);
+  }, [data]);
 
   return (
     <div className="w-2/3">
